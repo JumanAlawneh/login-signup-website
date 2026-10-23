@@ -1,38 +1,33 @@
 
-<!DOCTYPE html>
-<html lang="en">
+     <!DOCTYPE html>
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
 
     <style>
-        * {
-            box-sizing: border-box;
-        }
-
         body {
             margin: 0;
             font-family: Arial, sans-serif;
+
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            padding: 20px;
 
-            background-image: url("background.jpg");
+            min-height: 100vh;
+
+            background-image: url("C:/Users/CLICK/Downloads/b35a327390c39d6fed7be75f54690d04.jpg");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
         }
 
         .Signup {
-            width: 100%;
-            max-width: 400px;
-            min-height: 450px;
-            padding: 25px 20px;
+            width: 400px;
+            height: 450px;
 
             background-color: rgba(205, 133, 207, 0.8);
+
             border-radius: 10px;
 
             display: flex;
@@ -41,34 +36,23 @@
             align-items: center;
         }
 
-        .Signup h1 {
-            text-align: center;
-            font-size: 28px;
-            margin: 0 0 15px;
-        }
-
-        .Signup p {
-            width: 100%;
-            max-width: 280px;
-            margin: 8px 0 5px;
-        }
-
         .Signup input {
-            width: 100%;
-            max-width: 280px;
-            height: 38px;
-            padding: 8px 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            width: 280px;
+            height: 35px;
+            box-sizing: border-box;
         }
 
         .Signup button {
-            margin-top: 18px;
+            margin-top: 10px;
+
             background-color: rgb(5, 71, 156);
-            color: white;
+            color: black;
+
             border: none;
             border-radius: 8px;
+
             padding: 12px 25px;
+
             cursor: pointer;
         }
     </style>
@@ -80,49 +64,44 @@
 
         <h1>Create Account</h1>
 
-        <p>EMAIL</p>
-        <input id="email" type="email" placeholder="Enter your email">
+       <p>EMAIL</p>
+<input id="email" type="email" placeholder="Enter your email">
 
-        <p>PASSWORD</p>
-        <input id="password" type="password" placeholder="Enter your password">
+<p>PASSWORD</p>
+<input id="password" type="password" placeholder="Enter your password">
 
-        <p>CONFIRM PASSWORD</p>
-        <input id="confirmPassword" type="password" placeholder="Confirm your password">
+<p>CONFIRM PASSWORD</p>
+<input id="confirmPassword" type="password" placeholder="Confirm your password">
 
-        <button id="signupButton">Sign Up</button>
-
+<button id="signupButton">Sign Up</button>
     </div>
+<script>
+ const email = document.getElementById("email");
+    const password = document.getElementById("password");
+    const confirmPassword = document.getElementById("confirmPassword");
+    const signupButton = document.getElementById("signupButton");
 
-    <script>
-        const email = document.getElementById("email");
-        const password = document.getElementById("password");
-        const confirmPassword = document.getElementById("confirmPassword");
-        const signupButton = document.getElementById("signupButton");
+    signupButton.addEventListener("click", function () {
 
-        signupButton.addEventListener("click", function () {
+        if (email.value === "" || password.value === "" || confirmPassword.value === "") {
+            alert("Please fill in all fields.");
+            return;
+        }
 
-            if (
-                email.value === "" ||
-                password.value === "" ||
-                confirmPassword.value === ""
-            ) {
-                alert("Please fill in all fields.");
-                return;
-            }
+        if (password.value !== confirmPassword.value) {
+            alert("Passwords do not match.");
+            return;
+        }
 
-            if (password.value !== confirmPassword.value) {
-                alert("Passwords do not match.");
-                return;
-            }
+        
+         localStorage.setItem("email", email.value);
+        localStorage.setItem("password", password.value);
 
-            localStorage.setItem("email", email.value);
-            localStorage.setItem("password", password.value);
-            localStorage.setItem("loggedIn", "true");
-
-            alert("Account created successfully!");
-            window.location.href = "home.html";
-        });
-    </script>
-
+        alert("Account created successfully!");
+         localStorage.setItem("loggedIn", "true");
+        window.location.href = "home.html";
+    });
+</script>
 </body>
+
 </html>
