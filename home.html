@@ -40,7 +40,6 @@
             cursor: pointer;
         }
 
-        /* Navigation */
         header {
             background: #080808;
             border-bottom: 1px solid #29251d;
@@ -67,7 +66,6 @@
 
         nav a {
             font-size: 14px;
-            transition: color 0.2s;
         }
 
         nav a:hover {
@@ -77,12 +75,10 @@
         .cart {
             color: var(--gold);
             border: 1px solid var(--gold);
+            background: transparent;
             padding: 9px 14px;
-            border-radius: 3px;
-            white-space: nowrap;
         }
 
-        /* Hero */
         .hero {
             min-height: 490px;
             display: flex;
@@ -130,7 +126,6 @@
             padding: 14px 25px;
             border: 1px solid var(--gold);
             font-weight: bold;
-            transition: 0.2s;
         }
 
         .gold-button:hover {
@@ -138,7 +133,6 @@
             color: var(--gold);
         }
 
-        /* Brands */
         .brands {
             text-align: center;
             padding: 42px 7%;
@@ -175,7 +169,6 @@
             letter-spacing: 2px;
         }
 
-        /* Products */
         .shop {
             padding: 65px 7%;
         }
@@ -218,7 +211,7 @@
             background: var(--card);
             border: 1px solid #29251d;
             overflow: hidden;
-            transition: transform 0.25s, border-color 0.25s;
+            transition: transform .25s, border-color .25s;
         }
 
         .product:hover {
@@ -231,16 +224,17 @@
             background: #222;
             overflow: hidden;
             position: relative;
+            cursor: pointer;
         }
 
         .product-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.4s;
+            transition: transform .4s;
         }
 
-        .product:hover img {
+        .product:hover .product-image img {
             transform: scale(1.05);
         }
 
@@ -255,6 +249,7 @@
             background: rgba(0,0,0,.8);
             color: white;
             font-size: 22px;
+            z-index: 2;
         }
 
         .heart.active {
@@ -277,6 +272,11 @@
             font-size: 21px;
             font-weight: normal;
             margin-bottom: 12px;
+            cursor: pointer;
+        }
+
+        .product h3:hover {
+            color: var(--gold);
         }
 
         .product-bottom {
@@ -311,7 +311,6 @@
             padding: 30px;
         }
 
-        /* Newsletter */
         .newsletter {
             text-align: center;
             background: #15130f;
@@ -438,12 +437,9 @@
             </p>
 
             <div class="tools">
-                <input
-                    type="search"
-                    id="searchInput"
-                    placeholder="Search bags or brands..."
-                    aria-label="Search products"
-                >
+                <input type="search" id="searchInput"
+                       placeholder="Search bags or brands..."
+                       aria-label="Search products">
                 <button id="searchButton">Search</button>
             </div>
 
@@ -451,11 +447,8 @@
 
                 <article class="product" data-name="classic quilted bag chanel">
                     <div class="product-image">
-                        <img
-                            src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80"
-                            alt="Elegant handbag"
-                            loading="lazy"
-                        >
+                        <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80"
+                             alt="Elegant handbag" loading="lazy">
                         <button class="heart" aria-label="Add to favorites">♡</button>
                     </div>
                     <div class="product-info">
@@ -470,11 +463,8 @@
 
                 <article class="product" data-name="monogram tote louis vuitton">
                     <div class="product-image">
-                        <img
-                            src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=800&q=80"
-                            alt="Fashion tote bag"
-                            loading="lazy"
-                        >
+                        <img src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=800&q=80"
+                             alt="Fashion tote bag" loading="lazy">
                         <button class="heart" aria-label="Add to favorites">♡</button>
                     </div>
                     <div class="product-info">
@@ -489,11 +479,8 @@
 
                 <article class="product" data-name="leather shoulder bag prada">
                     <div class="product-image">
-                        <img
-                            src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80"
-                            alt="Leather shoulder bag"
-                            loading="lazy"
-                        >
+                        <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80"
+                             alt="Leather shoulder bag" loading="lazy">
                         <button class="heart" aria-label="Add to favorites">♡</button>
                     </div>
                     <div class="product-info">
@@ -508,11 +495,8 @@
 
                 <article class="product" data-name="elegant evening bag dior">
                     <div class="product-image">
-                        <img
-                            src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?auto=format&fit=crop&w=800&q=80"
-                            alt="Elegant designer-style handbag"
-                            loading="lazy"
-                        >
+                        <img src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?auto=format&fit=crop&w=800&q=80"
+                             alt="Elegant handbag" loading="lazy">
                         <button class="heart" aria-label="Add to favorites">♡</button>
                     </div>
                     <div class="product-info">
@@ -527,11 +511,8 @@
 
                 <article class="product" data-name="mini crossbody bag gucci">
                     <div class="product-image">
-                        <img
-                            src="https://images.unsplash.com/photo-1591561954557-26941169b49e?auto=format&fit=crop&w=800&q=80"
-                            alt="Mini crossbody bag"
-                            loading="lazy"
-                        >
+                        <img src="https://images.unsplash.com/photo-1591561954557-26941169b49e?auto=format&fit=crop&w=800&q=80"
+                             alt="Mini crossbody bag" loading="lazy">
                         <button class="heart" aria-label="Add to favorites">♡</button>
                     </div>
                     <div class="product-info">
@@ -546,11 +527,8 @@
 
                 <article class="product" data-name="modern everyday bag fendi">
                     <div class="product-image">
-                        <img
-                            src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=800&q=80"
-                            alt="Modern everyday handbag"
-                            loading="lazy"
-                        >
+                        <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=800&q=80"
+                             alt="Modern everyday handbag" loading="lazy">
                         <button class="heart" aria-label="Add to favorites">♡</button>
                     </div>
                     <div class="product-info">
@@ -588,7 +566,11 @@
         const products = document.querySelectorAll(".product");
         const emptyMessage = document.getElementById("emptyMessage");
 
-        let cartCount = 0;
+        let cart = JSON.parse(localStorage.getItem("luxeCart") || "[]");
+
+        function updateCartCount() {
+            document.getElementById("cartCount").textContent = cart.length;
+        }
 
         function searchProducts() {
             const query = searchInput.value.trim().toLowerCase();
@@ -598,9 +580,7 @@
                 const matches = product.dataset.name.includes(query);
                 product.style.display = matches ? "" : "none";
 
-                if (matches) {
-                    visibleCount++;
-                }
+                if (matches) visibleCount++;
             });
 
             emptyMessage.style.display =
@@ -608,32 +588,56 @@
         }
 
         searchButton.addEventListener("click", searchProducts);
-
         searchInput.addEventListener("input", searchProducts);
 
         document.querySelectorAll(".heart").forEach(function(button) {
-            button.addEventListener("click", function() {
+            button.addEventListener("click", function(event) {
+                event.stopPropagation();
                 button.classList.toggle("active");
                 button.textContent =
                     button.classList.contains("active") ? "♥" : "♡";
             });
         });
 
-        document.querySelectorAll(".add-button").forEach(function(button) {
-            button.addEventListener("click", function() {
-                cartCount++;
-                document.getElementById("cartCount").textContent = cartCount;
-                button.textContent = "Added ✓";
+        const productLinks = {
+            "classic quilted bag chanel": "classic",
+            "monogram tote louis vuitton": "tote",
+            "leather shoulder bag prada": "shoulder",
+            "elegant evening bag dior": "evening",
+            "mini crossbody bag gucci": "mini",
+            "modern everyday bag fendi": "everyday"
+        };
 
-                setTimeout(function() {
-                    button.textContent = "Add to Bag";
-                }, 1000);
+        document.querySelectorAll(".product").forEach(function(product) {
+            const item = productLinks[product.dataset.name];
+
+            function openProduct() {
+                window.location.href = "product.html?item=" + item;
+            }
+
+            product.querySelector(".product-image").addEventListener("click", openProduct);
+            product.querySelector("h3").addEventListener("click", openProduct);
+
+            product.querySelector(".add-button").addEventListener("click", function() {
+                const name = product.querySelector("h3").textContent;
+                const price = Number(
+                    product.querySelector(".price").textContent.replace("$", "")
+                );
+
+                cart.push({ name: name, price: price, item: item });
+                localStorage.setItem("luxeCart", JSON.stringify(cart));
+                updateCartCount();
+
+                this.textContent = "Added ✓";
+                setTimeout(() => this.textContent = "Add to Bag", 1000);
             });
         });
 
         document.getElementById("cartButton").addEventListener("click", function() {
-            alert("You have " + cartCount + " item(s) in your bag.");
+            alert("Your bag has " + cart.length + " item(s).");
         });
+
+        updateCartCount();
     </script>
 
 </body>
