@@ -1,149 +1,190 @@
+
 <!DOCTYPE html>
-<html>
-    <head>
-        <style>
-            body {
-    user-select: none;
-    display: flex;
-    margin: 0;
-    font-family: Arial, sans-serif;
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
 
-    background-image: url("C:/Users/CLICK/Downloads/b35a327390c39d6fed7be75f54690d04.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
 
-    min-height: 100vh;
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-    justify-content: center;
-    align-items: center;
-}
+        body {
+            user-select: none;
+            display: flex;
+            margin: 0;
+            padding: 15px;
+            font-family: Arial, sans-serif;
 
-.Welcome {
-    text-align: center;
-    color: #000000;
+            background-image: url("C:/Users/CLICK/Downloads/b35a327390c39d6fed7be75f54690d04.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+            min-height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
 
-    background-color: rgba(205, 133, 207, 0.8);
-    border-radius: 20px;
-     width: 500px;
-    height: 500px;
-    
-}    
-    
-     .Google > button {
-    background-color: rgb(0, 0, 250);
-    color: rgb(255, 255, 255);
-    border: none;
-    border-radius: 8px;
-    padding: 12px 25px;
-    cursor: pointer;
-}
-    .Welcome input {
-    width: 480px;
-    height: 35px;
-    box-sizing: border-box;
-}
+        .Welcome {
+            text-align: center;
+            color: #000000;
 
-.remember {
-    margin: 0;
-    display: flex;
-    align-items: center;
-}
-.remember input {
-    width: 15px;
-    height: 15px;
-    margin-right: 5px;
-}
-    .Welcome > button {
-       background-color: rgb(252, 252, 252);
-    color: rgb(0, 0, 0);
-    border: none;
-    border-radius: 8px;
-    padding: 12px 25px;
-    cursor: pointer;
-    margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
 
-    }
-    .forgot {
-    width: 480px;
-    text-align: left;
-}
-     .Welcome p {
-        width: 480px;
-    text-align: left;
-     }
+            background-color: rgba(205, 133, 207, 0.8);
+            border-radius: 20px;
 
-     
-        </style>
-        <meta charset="UTF-8">
-        <title>Login Page</title>
-        <script src="https://accounts.google.com/gsi/client" async defer></script>
-    </head>
-    <body>
-        <div class="Welcome">
-            <h1>Welcome </h1>
-            <p>EMAIL</p>
-              <input id="loginEmail" type="email" name="email" placeholder="Enter your email">
+            width: 100%;
+            max-width: 500px;
+            min-height: 500px;
+            height: auto;
+            padding: 25px 20px;
+        }
+
+        .Welcome h1 {
+            margin: 0 0 10px;
+        }
+
+        .Welcome input {
+            width: 100%;
+            max-width: 480px;
+            height: 35px;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        .remember {
+            width: 100%;
+            max-width: 480px;
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .remember input {
+            width: 15px;
+            height: 15px;
+            margin: 0 5px 0 0;
+        }
+
+        .Welcome > button {
+            background-color: rgb(252, 252, 252);
+            color: rgb(0, 0, 0);
+            border: none;
+            border-radius: 8px;
+            padding: 12px 25px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .forgot {
+            width: 100%;
+            max-width: 480px;
+            text-align: left;
+            overflow-wrap: break-word;
+        }
+
+        .Google {
+            max-width: 100%;
+            margin-top: 5px;
+        }
+
+        .signup-link {
+            width: 100%;
+            max-width: 480px;
+            text-align: center;
+            margin: 15px 0 0;
+            overflow-wrap: break-word;
+        }
+
+        @media (max-width: 400px) {
+            .Welcome {
+                padding: 20px 15px;
+            }
+
+            .Welcome h1 {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="Welcome">
+
+        <h1>Welcome</h1>
+
+        <p>EMAIL</p>
+        <input id="loginEmail" type="email" name="email"
+               placeholder="Enter your email">
 
         <p>PASSWORD</p>
-           <input id="loginPassword" type="password" name="password" placeholder="Enter your password">
+        <input id="loginPassword" type="password" name="password"
+               placeholder="Enter your password">
 
-             <button id="loginButton">Login</button>
-            <p class="remember"> <input type="checkbox" name="remember"> 
-                Remember me
-            </p>
-               
-                 
-            </p>
-            <p class="forgot">
-           Forgot your password?
-           <a href="reset_password.html">Reset Password</a>
-         </p>
-          
-     <div class="Google">
-    <div id="g_id_onload"
-         data-client_id="504073574513-j2iv467ha2uka1uqucs16e8f88dck7r7.apps.googleusercontent.com"
-         data-callback="handleCredentialResponse">
-    </div>
+        <button id="loginButton">Login</button>
 
-    <div class="g_id_signin"
-         data-type="standard">
-    </div>
-</div>
- <p class="forgot">
-          Don't have an account?
-          <a href="signup.html">Sign up</a>
-          </p>
+        <p class="remember">
+            <input type="checkbox" name="remember">
+            Remember me
+        </p>
+
+        <p class="forgot">
+            Forgot your password?
+            <a href="reset_password.html">Reset Password</a>
+        </p>
+
+        <div class="Google">
+            <div id="g_id_onload"
+                 data-client_id="504073574513-j2iv467ha2uka1uqucs16e8f88dck7r7.apps.googleusercontent.com"
+                 data-callback="handleCredentialResponse">
+            </div>
+
+            <div class="g_id_signin" data-type="standard"></div>
         </div>
-       <script>
-         
-    
-    const loginEmail = document.getElementById("loginEmail");
-    const loginPassword = document.getElementById("loginPassword");
-    const loginButton = document.getElementById("loginButton");
 
-    loginButton.addEventListener("click", function () {
+        <p class="signup-link">
+            Don't have an account?
+            <a href="signup.html">Sign up</a>
+        </p>
 
-        const savedEmail = localStorage.getItem("email");
-        const savedPassword = localStorage.getItem("password");
+    </div>
 
-        if (loginEmail.value === savedEmail && loginPassword.value === savedPassword) {
+    <script>
+        const loginEmail = document.getElementById("loginEmail");
+        const loginPassword = document.getElementById("loginPassword");
+        const loginButton = document.getElementById("loginButton");
+
+        loginButton.addEventListener("click", function () {
+            const savedEmail = localStorage.getItem("email");
+            const savedPassword = localStorage.getItem("password");
+
+            if (
+                loginEmail.value === savedEmail &&
+                loginPassword.value === savedPassword &&
+                savedEmail !== null
+            ) {
+                window.location.href = "home.html";
+            } else {
+                alert("Incorrect email or password.");
+            }
+        });
+
+        function handleCredentialResponse(response) {
             window.location.href = "home.html";
-        } else {
-            alert("Incorrect email or password.");
         }
-          
-       
-    });
-    function handleCredentialResponse(response) {
-    window.location.href = "home.html";
-}
-</script>
-    </body>
-    </html>
+    </script>
+
+</body>
+</html>
