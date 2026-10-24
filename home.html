@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,9 +8,9 @@
 
 <style>
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 :root {
@@ -19,6 +20,10 @@
     --white: #f8f5ed;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background: var(--black);
     color: var(--white);
@@ -26,13 +31,13 @@ body {
 }
 
 header {
-    padding: 25px 7%;
+    padding: 22px 7%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 20px;
     flex-wrap: wrap;
-    border-bottom: 1px solid #3b3018;
+    gap: 20px;
+    border-bottom: 1px solid #40341b;
 }
 
 .logo {
@@ -44,13 +49,14 @@ header {
 
 nav {
     display: flex;
-    gap: 22px;
     flex-wrap: wrap;
+    gap: 22px;
 }
 
 nav a {
     color: var(--white);
     text-decoration: none;
+    transition: color 0.2s;
 }
 
 nav a:hover {
@@ -58,38 +64,39 @@ nav a:hover {
 }
 
 .hero {
-    min-height: 380px;
+    min-height: 420px;
     padding: 70px 20px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     text-align: center;
+
     background:
         linear-gradient(#0009, #000b),
-        url("luxe-bags-background.png") center/cover no-repeat,
+        url("./background%20%282%29.jpg") center/cover no-repeat,
         #17130b;
 }
 
 .hero h1 {
+    color: var(--gold);
     font-family: Georgia, serif;
     font-size: clamp(38px, 6vw, 65px);
-    color: var(--gold);
-    margin-bottom: 18px;
+    margin-bottom: 20px;
 }
 
 .hero p {
-    font-size: 17px;
     color: #eee;
+    font-size: 17px;
     margin-bottom: 28px;
 }
 
 .gold-button {
     display: inline-block;
+    padding: 13px 23px;
     background: var(--gold);
     color: #090909;
     border: none;
-    padding: 13px 25px;
     font-weight: bold;
     text-decoration: none;
     cursor: pointer;
@@ -107,15 +114,15 @@ nav a:hover {
 
 .section-title {
     text-align: center;
-    font-family: Georgia, serif;
-    font-size: 35px;
     color: var(--gold);
+    font-family: Georgia, serif;
+    font-size: 36px;
     margin-bottom: 12px;
 }
 
 .section-subtitle {
-    text-align: center;
     color: #aaa;
+    text-align: center;
     margin-bottom: 30px;
 }
 
@@ -123,10 +130,10 @@ nav a:hover {
     display: block;
     width: min(100%, 450px);
     margin: 0 auto 35px;
-    padding: 13px 16px;
+    padding: 14px 16px;
     background: #171717;
-    border: 1px solid #51421c;
     color: white;
+    border: 1px solid #51421c;
     outline: none;
 }
 
@@ -136,7 +143,10 @@ nav a:hover {
 
 .products {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(220px, 1fr)
+    );
     gap: 25px;
 }
 
@@ -153,11 +163,11 @@ nav a:hover {
 }
 
 .product-card img {
-    display: block;
     width: 100%;
-    height: 250px;
-    object-fit: cover;
-    background: #222;
+    height: 260px;
+    display: block;
+    object-fit: contain;
+    background: #202020;
 }
 
 .product-name {
@@ -169,20 +179,20 @@ nav a:hover {
 
 .price {
     color: var(--gold);
-    font-size: 18px;
+    font-size: 19px;
     margin-bottom: 15px;
 }
 
 .card-actions {
     display: flex;
-    gap: 10px;
     align-items: center;
+    gap: 10px;
 }
 
 .card-actions .gold-button {
     flex: 1;
     text-align: center;
-    padding: 11px 8px;
+    padding: 11px 6px;
 }
 
 .favorite {
@@ -190,7 +200,7 @@ nav a:hover {
     color: var(--gold);
     border: 1px solid var(--gold);
     padding: 9px 12px;
-    font-size: 20px;
+    font-size: 21px;
     cursor: pointer;
 }
 
@@ -200,16 +210,16 @@ nav a:hover {
 }
 
 .empty-message {
+    grid-column: 1 / -1;
     text-align: center;
     color: #aaa;
-    grid-column: 1 / -1;
     padding: 30px;
 }
 
 footer {
     padding: 28px 15px;
     text-align: center;
-    border-top: 1px solid #3b3018;
+    border-top: 1px solid #40341b;
     color: #aaa;
 }
 
@@ -246,14 +256,15 @@ footer span {
         <a href="home.html">Home</a>
         <a href="#collection">Collection</a>
         <a href="#footer">Contact</a>
-        <a href="product.html">Shop</a>
     </nav>
 </header>
 
 <section class="hero">
     <h1>Elegance in Every Detail</h1>
     <p>Discover your next favorite luxury handbag.</p>
-    <a href="#collection" class="gold-button">EXPLORE COLLECTION</a>
+    <a href="#collection" class="gold-button">
+        EXPLORE COLLECTION
+    </a>
 </section>
 
 <section class="collection" id="collection">
@@ -263,9 +274,9 @@ footer span {
     </p>
 
     <input
-        class="search-box"
         type="search"
         id="searchInput"
+        class="search-box"
         placeholder="Search for a handbag..."
         aria-label="Search handbags"
     >
@@ -283,56 +294,56 @@ const bags = [
         id: "classic-top-handle-handbag",
         name: "Classic Top Handle",
         price: 120,
-        image: "images/Classic%20Top%20Handle.jpg",
+        image: "./Classic%20Top%20Handle.jpg",
         description: "A timeless handbag with an elegant top handle."
     },
     {
         id: "crescent-hobo-shoulder-bag",
         name: "Crescent Hobo",
         price: 115,
-        image: "images/Crescent%20Hobo.jpg",
+        image: "./Crescent%20Hobo.jpg",
         description: "A chic crescent-shaped shoulder bag."
     },
     {
         id: "baguette-underarm-bag",
         name: "Baguette Bag",
         price: 98,
-        image: "images/Baguette%20Bag.jpg",
-        description: "A stylish compact bag for effortless everyday looks."
+        image: "./Baguette%20Bag.jpg",
+        description: "A stylish compact bag for everyday looks."
     },
     {
         id: "leather-bucket-drawstring-bag",
         name: "Leather Bucket",
         price: 130,
-        image: "images/Leather%20Bucket.jpg",
+        image: "./Leather%20Bucket.jpg",
         description: "A modern bucket bag with a sophisticated design."
     },
     {
         id: "mini-top-handle-handbag",
         name: "Mini Top Handle",
         price: 89,
-        image: "images/Mini%20Top%20Handle.jpg",
+        image: "./Mini%20Top%20Handle.jpg",
         description: "A mini handbag for elegant occasions."
     },
     {
         id: "elegant-evening-clutch-bag",
         name: "Evening Clutch",
         price: 105,
-        image: "images/Evening%20Clutch.jpg",
-        description: "An elegant clutch designed for evening outings."
+        image: "./Evening%20Clutch.jpg",
+        description: "An elegant clutch for evening outings."
     },
     {
         id: "oversized-slouchy-shoulder-bag",
         name: "Slouchy Shoulder",
         price: 145,
-        image: "images/Slouchy%20Shoulder.jpg",
-        description: "A spacious shoulder bag with a relaxed silhouette."
+        image: "./Slouchy%20Shoulder.jpg",
+        description: "A spacious shoulder bag with a relaxed style."
     },
     {
         id: "saddle-curved-flap-crossbody-bag",
         name: "Saddle Crossbody",
         price: 125,
-        image: "images/Saddle%20Crossbody.jpg",
+        image: "./Saddle%20Crossbody.jpg",
         description: "A classic saddle-inspired crossbody bag."
     }
 ];
@@ -342,7 +353,9 @@ const searchInput = document.getElementById("searchInput");
 
 function getFavorites() {
     try {
-        return JSON.parse(localStorage.getItem("luxeFavorites")) || [];
+        return JSON.parse(
+            localStorage.getItem("luxeFavorites")
+        ) || [];
     } catch {
         return [];
     }
@@ -358,7 +371,11 @@ function toggleFavorite(id) {
         favorites.splice(index, 1);
     }
 
-    localStorage.setItem("luxeFavorites", JSON.stringify(favorites));
+    localStorage.setItem(
+        "luxeFavorites",
+        JSON.stringify(favorites)
+    );
+
     renderBags(searchInput.value);
 }
 
@@ -366,7 +383,9 @@ function renderBags(searchText = "") {
     productsContainer.innerHTML = "";
 
     const filteredBags = bags.filter(bag =>
-        bag.name.toLowerCase().includes(searchText.toLowerCase())
+        bag.name.toLowerCase().includes(
+            searchText.toLowerCase().trim()
+        )
     );
 
     if (filteredBags.length === 0) {
@@ -378,8 +397,6 @@ function renderBags(searchText = "") {
     const favorites = getFavorites();
 
     filteredBags.forEach(bag => {
-        const isFavorite = favorites.includes(bag.id);
-
         const card = document.createElement("article");
         card.className = "product-card";
 
@@ -387,9 +404,11 @@ function renderBags(searchText = "") {
         image.src = bag.image;
         image.alt = bag.name;
         image.loading = "lazy";
+
         image.onerror = function () {
-            this.alt = bag.name + " — image not found";
+            this.alt = bag.name + " image could not be loaded";
             this.style.objectFit = "contain";
+            this.style.border = "1px solid #d4af37";
         };
 
         const name = document.createElement("h3");
@@ -405,17 +424,23 @@ function renderBags(searchText = "") {
 
         const viewButton = document.createElement("a");
         viewButton.className = "gold-button";
-        viewButton.href = "product.html?item=" + encodeURIComponent(bag.id);
+        viewButton.href =
+            "product.html?item=" + encodeURIComponent(bag.id);
         viewButton.textContent = "View Details";
 
         const favoriteButton = document.createElement("button");
         favoriteButton.className =
-            "favorite" + (isFavorite ? " active" : "");
-        favoriteButton.textContent = isFavorite ? "♥" : "♡";
+            "favorite" +
+            (favorites.includes(bag.id) ? " active" : "");
+
+        favoriteButton.textContent =
+            favorites.includes(bag.id) ? "♥" : "♡";
+
         favoriteButton.setAttribute(
             "aria-label",
-            isFavorite ? "Remove from favorites" : "Add to favorites"
+            "Toggle favorite for " + bag.name
         );
+
         favoriteButton.addEventListener("click", () => {
             toggleFavorite(bag.id);
         });
