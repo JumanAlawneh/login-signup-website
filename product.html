@@ -8,9 +8,9 @@
 
 <style>
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 :root {
@@ -21,20 +21,20 @@
 }
 
 body {
+    min-height: 100vh;
     background: var(--black);
     color: var(--white);
     font-family: Arial, sans-serif;
-    min-height: 100vh;
 }
 
 header {
-    padding: 25px 7%;
+    padding: 22px 7%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 20px;
     flex-wrap: wrap;
-    border-bottom: 1px solid #3b3018;
+    gap: 20px;
+    border-bottom: 1px solid #40341b;
 }
 
 .logo {
@@ -46,8 +46,8 @@ header {
 
 nav {
     display: flex;
-    gap: 22px;
     flex-wrap: wrap;
+    gap: 22px;
 }
 
 nav a {
@@ -70,16 +70,16 @@ nav a:hover {
 
 .image-panel {
     background: var(--card);
-    border: 1px solid #3b3018;
+    border: 1px solid #40341b;
     padding: 15px;
 }
 
 .image-panel img {
-    display: block;
     width: 100%;
-    height: 480px;
+    height: 470px;
+    display: block;
     object-fit: contain;
-    background: #111;
+    background: #202020;
 }
 
 .info h1 {
@@ -107,7 +107,7 @@ nav a:hover {
 }
 
 .info input {
-    width: 90px;
+    width: 100px;
     padding: 12px;
     margin-bottom: 22px;
     background: #171717;
@@ -117,7 +117,7 @@ nav a:hover {
 
 .gold-button {
     display: inline-block;
-    padding: 14px 24px;
+    padding: 14px 22px;
     background: var(--gold);
     color: #090909;
     border: none;
@@ -131,7 +131,7 @@ nav a:hover {
 }
 
 .secondary-button {
-    margin-left: 10px;
+    margin-left: 8px;
     background: transparent;
     color: var(--gold);
     border: 1px solid var(--gold);
@@ -161,9 +161,9 @@ nav a:hover {
 
 footer {
     text-align: center;
-    padding: 25px;
+    padding: 28px 15px;
     color: #aaa;
-    border-top: 1px solid #3b3018;
+    border-top: 1px solid #40341b;
 }
 
 footer span {
@@ -194,7 +194,7 @@ footer span {
     }
 
     .secondary-button {
-        margin: 12px 0 0;
+        margin: 10px 0 0;
     }
 }
 </style>
@@ -223,56 +223,56 @@ const bags = [
         id: "classic-top-handle-handbag",
         name: "Classic Top Handle",
         price: 120,
-        image: "images/Classic%20Top%20Handle.jpg",
+        image: "./Classic%20Top%20Handle.jpg",
         description: "A timeless handbag with an elegant top handle."
     },
     {
         id: "crescent-hobo-shoulder-bag",
         name: "Crescent Hobo",
         price: 115,
-        image: "images/Crescent%20Hobo.jpg",
+        image: "./Crescent%20Hobo.jpg",
         description: "A chic crescent-shaped shoulder bag."
     },
     {
         id: "baguette-underarm-bag",
         name: "Baguette Bag",
         price: 98,
-        image: "images/Baguette%20Bag.jpg",
-        description: "A stylish compact bag for effortless everyday looks."
+        image: "./Baguette%20Bag.jpg",
+        description: "A stylish compact bag for everyday looks."
     },
     {
         id: "leather-bucket-drawstring-bag",
         name: "Leather Bucket",
         price: 130,
-        image: "images/Leather%20Bucket.jpg",
+        image: "./Leather%20Bucket.jpg",
         description: "A modern bucket bag with a sophisticated design."
     },
     {
         id: "mini-top-handle-handbag",
         name: "Mini Top Handle",
         price: 89,
-        image: "images/Mini%20Top%20Handle.jpg",
+        image: "./Mini%20Top%20Handle.jpg",
         description: "A mini handbag for elegant occasions."
     },
     {
         id: "elegant-evening-clutch-bag",
         name: "Evening Clutch",
         price: 105,
-        image: "images/Evening%20Clutch.jpg",
-        description: "An elegant clutch designed for evening outings."
+        image: "./Evening%20Clutch.jpg",
+        description: "An elegant clutch for evening outings."
     },
     {
         id: "oversized-slouchy-shoulder-bag",
         name: "Slouchy Shoulder",
         price: 145,
-        image: "images/Slouchy%20Shoulder.jpg",
-        description: "A spacious shoulder bag with a relaxed silhouette."
+        image: "./Slouchy%20Shoulder.jpg",
+        description: "A spacious shoulder bag with a relaxed style."
     },
     {
         id: "saddle-curved-flap-crossbody-bag",
         name: "Saddle Crossbody",
         price: 125,
-        image: "images/Saddle%20Crossbody.jpg",
+        image: "./Saddle%20Crossbody.jpg",
         description: "A classic saddle-inspired crossbody bag."
     }
 ];
@@ -286,93 +286,149 @@ if (!bag) {
     content.innerHTML = `
         <section class="not-found">
             <h1>Handbag Not Found</h1>
-            <p style="margin: 18px 0;">Please select a handbag from our collection.</p>
-            <a class="gold-button" href="home.html#collection">Back to Collection</a>
+            <p style="margin: 18px 0;">
+                Please select a handbag from our collection.
+            </p>
+            <a class="gold-button" href="home.html#collection">
+                Back to Collection
+            </a>
         </section>
     `;
 } else {
-    content.innerHTML = `
-        <section class="details">
-            <div class="image-panel">
-                <img id="bagImage" src="${bag.image}" alt="${bag.name}">
-            </div>
+    const section = document.createElement("section");
+    section.className = "details";
 
-            <div class="info">
-                <h1>${bag.name}</h1>
-                <p class="price">$${bag.price.toFixed(2)}</p>
-                <p class="description">${bag.description}</p>
+    const imagePanel = document.createElement("div");
+    imagePanel.className = "image-panel";
 
-                <label for="quantity">Quantity</label>
-                <input type="number" id="quantity" min="1" max="99" value="1">
+    const image = document.createElement("img");
+    image.src = bag.image;
+    image.alt = bag.name;
 
-                <div>
-                    <button class="gold-button" id="addToCart">Add to Bag</button>
-                    <button class="gold-button secondary-button" id="favoriteButton">♡ Favorite</button>
-                </div>
-
-                <p class="message" id="message" aria-live="polite"></p>
-                <a class="back-link" href="home.html#collection">← Back to Collection</a>
-            </div>
-        </section>
-    `;
-
-    document.getElementById("bagImage").onerror = function () {
-        this.alt = bag.name + " — image not found";
+    image.onerror = function () {
+        this.alt = bag.name + " image could not be loaded";
     };
 
-    const favoriteButton = document.getElementById("favoriteButton");
+    imagePanel.appendChild(image);
+
+    const info = document.createElement("div");
+    info.className = "info";
+
+    const title = document.createElement("h1");
+    title.textContent = bag.name;
+
+    const price = document.createElement("p");
+    price.className = "price";
+    price.textContent = "$" + bag.price.toFixed(2);
+
+    const description = document.createElement("p");
+    description.className = "description";
+    description.textContent = bag.description;
+
+    const quantityLabel = document.createElement("label");
+    quantityLabel.htmlFor = "quantity";
+    quantityLabel.textContent = "Quantity";
+
+    const quantityInput = document.createElement("input");
+    quantityInput.type = "number";
+    quantityInput.id = "quantity";
+    quantityInput.min = "1";
+    quantityInput.max = "99";
+    quantityInput.value = "1";
+
+    const addButton = document.createElement("button");
+    addButton.className = "gold-button";
+    addButton.textContent = "Add to Bag";
+
+    const favoriteButton = document.createElement("button");
+    favoriteButton.className = "gold-button secondary-button";
+
+    const message = document.createElement("p");
+    message.className = "message";
+    message.setAttribute("aria-live", "polite");
+
+    const backLink = document.createElement("a");
+    backLink.className = "back-link";
+    backLink.href = "home.html#collection";
+    backLink.textContent = "← Back to Collection";
+
+    info.append(
+        title,
+        price,
+        description,
+        quantityLabel,
+        quantityInput,
+        addButton,
+        favoriteButton,
+        message,
+        backLink
+    );
+
+    section.append(imagePanel, info);
+    content.appendChild(section);
+
+    function getFavorites() {
+        try {
+            return JSON.parse(
+                localStorage.getItem("luxeFavorites")
+            ) || [];
+        } catch {
+            return [];
+        }
+    }
 
     function updateFavoriteButton() {
-        let favorites = [];
-
-        try {
-            favorites = JSON.parse(localStorage.getItem("luxeFavorites")) || [];
-        } catch {
-            favorites = [];
-        }
-
+        const favorites = getFavorites();
         const isFavorite = favorites.includes(bag.id);
-        favoriteButton.textContent = isFavorite ? "♥ Favorited" : "♡ Favorite";
+
+        favoriteButton.textContent =
+            isFavorite ? "♥ Favorited" : "♡ Favorite";
     }
 
     favoriteButton.addEventListener("click", () => {
-        let favorites = [];
+        const favorites = getFavorites();
+        const index = favorites.indexOf(bag.id);
 
-        try {
-            favorites = JSON.parse(localStorage.getItem("luxeFavorites")) || [];
-        } catch {
-            favorites = [];
-        }
-
-        if (favorites.includes(bag.id)) {
-            favorites = favorites.filter(id => id !== bag.id);
-        } else {
+        if (index === -1) {
             favorites.push(bag.id);
+        } else {
+            favorites.splice(index, 1);
         }
 
-        localStorage.setItem("luxeFavorites", JSON.stringify(favorites));
+        localStorage.setItem(
+            "luxeFavorites",
+            JSON.stringify(favorites)
+        );
+
         updateFavoriteButton();
     });
 
-    document.getElementById("addToCart").addEventListener("click", () => {
-        const quantityInput = document.getElementById("quantity");
+    addButton.addEventListener("click", () => {
         const quantity = Number(quantityInput.value);
-        const message = document.getElementById("message");
 
-        if (!Number.isInteger(quantity) || quantity < 1 || quantity > 99) {
-            message.textContent = "Please enter a quantity between 1 and 99.";
+        if (
+            !Number.isInteger(quantity) ||
+            quantity < 1 ||
+            quantity > 99
+        ) {
+            message.textContent =
+                "Enter a quantity between 1 and 99.";
             return;
         }
 
         let cart = [];
 
         try {
-            cart = JSON.parse(localStorage.getItem("luxeCart")) || [];
+            cart = JSON.parse(
+                localStorage.getItem("luxeCart")
+            ) || [];
         } catch {
             cart = [];
         }
 
-        const existingItem = cart.find(item => item.id === bag.id);
+        const existingItem = cart.find(
+            item => item.id === bag.id
+        );
 
         if (existingItem) {
             existingItem.quantity += quantity;
@@ -386,8 +442,13 @@ if (!bag) {
             });
         }
 
-        localStorage.setItem("luxeCart", JSON.stringify(cart));
-        message.textContent = quantity + " × " + bag.name + " added to your bag!";
+        localStorage.setItem(
+            "luxeCart",
+            JSON.stringify(cart)
+        );
+
+        message.textContent =
+            quantity + " × " + bag.name + " added to your bag!";
     });
 
     updateFavoriteButton();
