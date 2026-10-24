@@ -2,259 +2,149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bag Details | Luxe Bags</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bag Details | Luxe Bags</title>
 
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            background: #0b0b0b;
-            color: white;
-            font-family: Arial, sans-serif;
-        }
-
-        header {
-            padding: 22px 7%;
-            border-bottom: 1px solid #393023;
-        }
-
-        .logo {
-            color: #d4af63;
-            font-family: Georgia, serif;
-            font-size: 27px;
-            letter-spacing: 3px;
-            text-decoration: none;
-        }
-
-        .back {
-            display: inline-block;
-            color: #d4af63;
-            margin: 25px 7%;
-            text-decoration: none;
-        }
-
-        .details {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            max-width: 1100px;
-            margin: 20px auto 70px;
-            padding: 0 25px;
-            align-items: center;
-        }
-
-        .image-box {
-            background: #171717;
-            border: 1px solid #393023;
-        }
-
-        .image-box img {
-            display: block;
-            width: 100%;
-            height: 520px;
-            object-fit: cover;
-        }
-
-        .eyebrow {
-            color: #d4af63;
-            letter-spacing: 3px;
-            font-size: 12px;
-            margin-bottom: 20px;
-        }
-
-        h1 {
-            font-family: Georgia, serif;
-            font-size: clamp(32px, 4vw, 48px);
-            font-weight: normal;
-            line-height: 1.2;
-            margin-bottom: 20px;
-        }
-
-        .price {
-            color: #d4af63;
-            font-size: 25px;
-            margin-bottom: 25px;
-        }
-
-        .description {
-            color: #c7c2b9;
-            line-height: 1.9;
-            margin-bottom: 25px;
-        }
-
-        .note {
-            color: #a9a39a;
-            font-size: 13px;
-            line-height: 1.7;
-            margin-bottom: 25px;
-        }
-
-        .add-button {
-            width: 100%;
-            padding: 16px;
-            border: 1px solid #d4af63;
-            background: #d4af63;
-            color: #111;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .add-button:hover {
-            background: transparent;
-            color: #d4af63;
-        }
-
-        footer {
-            text-align: center;
-            padding: 25px;
-            border-top: 1px solid #393023;
-            color: #aaa;
-            font-size: 13px;
-        }
-
-        footer span {
-            color: #d4af63;
-        }
-
-        @media (max-width: 700px) {
-            .details {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .image-box img {
-                height: 350px;
-            }
-        }
-    </style>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0b0b0b;color:white;font-family:Arial,sans-serif}
+header{padding:22px 7%;border-bottom:1px solid #393023}
+.logo{color:#d4af63;font-family:Georgia,serif;font-size:27px;letter-spacing:3px;text-decoration:none}
+.back{display:inline-block;color:#d4af63;margin:25px 7%;text-decoration:none}
+.details{display:grid;grid-template-columns:1fr 1fr;gap:50px;max-width:1100px;margin:20px auto 70px;padding:0 25px;align-items:center}
+.image-box{background:#171717;border:1px solid #393023}
+.image-box img{display:block;width:100%;height:520px;object-fit:cover}
+.eyebrow{color:#d4af63;letter-spacing:3px;font-size:12px;margin-bottom:20px}
+h1{font-family:Georgia,serif;font-size:clamp(32px,4vw,48px);font-weight:normal;line-height:1.2;margin-bottom:20px}
+.price{color:#d4af63;font-size:25px;margin-bottom:25px}
+.description{color:#c7c2b9;line-height:1.9;margin-bottom:25px}
+.note{color:#a9a39a;font-size:13px;line-height:1.7;margin-bottom:25px}
+.add-button{width:100%;padding:16px;border:1px solid #d4af63;background:#d4af63;color:#111;font-weight:bold;cursor:pointer;transition:.2s}
+.add-button:hover{background:transparent;color:#d4af63}
+footer{text-align:center;padding:25px;border-top:1px solid #393023;color:#aaa;font-size:13px;line-height:2}
+footer span{color:#d4af63}
+@media(max-width:700px){.details{grid-template-columns:1fr;gap:30px}.image-box img{height:350px}}
+</style>
 </head>
 
 <body>
+<header>
+<a class="logo" href="home.html">LUXE BAGS</a>
+</header>
 
-    <header>
-        <a class="logo" href="home.html">LUXE BAGS</a>
-    </header>
+<a class="back" href="home.html#shop">← Back to Collection</a>
 
-    <a class="back" href="home.html#shop">← Back to Collection</a>
+<main class="details">
+<div class="image-box">
+<img id="bagImage" src="" alt="Handbag">
+</div>
 
-    <main class="details">
-        <div class="image-box">
-            <img id="bagImage" src="" alt="Handbag">
-        </div>
+<section>
+<p class="eyebrow" id="bagBrand">LUXE BAGS COLLECTION</p>
+<h1 id="bagName">Loading...</h1>
+<p class="price" id="bagPrice"></p>
+<p class="description" id="bagDescription"></p>
 
-        <section>
-            <p class="eyebrow">LUXE BAGS COLLECTION</p>
-            <h1 id="bagName">Classic Quilted Bag</h1>
-            <p class="price" id="bagPrice">$120.00</p>
+<p class="note">
+Prices and descriptions are examples for this demo store.
+These are style-inspired designs, not official brand listings.
+</p>
 
-            <p class="description" id="bagDescription">
-                An elegant handbag design for everyday style and special occasions.
-            </p>
+<button class="add-button" id="addButton">ADD TO BAG</button>
+</section>
+</main>
 
-            <p class="note">
-                Prices and product descriptions are examples for this demo store.
-                Brand-inspired designs are not represented as official products.
-            </p>
+<footer>
+<p><span>LUXE BAGS</span> — Timeless elegance.</p>
+<p>Demo store · © 2026 Luxe Bags</p>
+</footer>
 
-            <button class="add-button" id="addButton">
-                ADD TO BAG
-            </button>
-        </section>
-    </main>
+<script>
+const bags = {
+    classic: {
+        name: "Classic Handbag",
+        brand: "TIMELESS COLLECTION",
+        price: 120,
+        image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=1000&q=85",
+        description: "A timeless handbag with an elegant silhouette, perfect for everyday outfits and special occasions."
+    },
+    hobo: {
+        name: "Crescent Hobo",
+        brand: "MODERN CLASSICS",
+        price: 125,
+        image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=1000&q=85",
+        description: "A relaxed crescent-shaped shoulder bag that brings effortless style to your everyday look."
+    },
+    baguette: {
+        name: "Baguette Bag",
+        brand: "CITY EDITION",
+        price: 115,
+        image: "https://images.unsplash.com/photo-1591561954557-26941169b49e?auto=format&fit=crop&w=1000&q=85",
+        description: "A compact underarm bag with a chic shape, ideal for outings and city style."
+    },
+    bucket: {
+        name: "Bucket Bag",
+        brand: "EVERYDAY LUXURY",
+        price: 130,
+        image: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=1000&q=85",
+        description: "A roomy bucket-style handbag that combines a distinctive silhouette with everyday practicality."
+    },
+    mini: {
+        name: "Mini Top Handle",
+        brand: "THE MINI EDIT",
+        price: 95,
+        image: "https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?auto=format&fit=crop&w=1000&q=85",
+        description: "A mini handbag for carrying your essentials in a small, elegant design."
+    },
+    clutch: {
+        name: "Evening Clutch",
+        brand: "EVENING COLLECTION",
+        price: 175,
+        image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=1000&q=85",
+        description: "An elegant clutch-style bag for dinners, celebrations, and special occasions."
+    },
+    slouchy: {
+        name: "Slouchy Shoulder Bag",
+        brand: "EFFORTLESS STYLE",
+        price: 145,
+        image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=1000&q=85",
+        description: "A generously sized, relaxed shoulder bag for an effortless and modern look."
+    },
+    saddle: {
+        name: "Saddle Crossbody",
+        brand: "SIGNATURE SHAPES",
+        price: 135,
+        image: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=1000&q=85",
+        description: "A curved saddle-shaped crossbody bag that adds a distinctive touch to everyday outfits."
+    }
+};
 
-    <footer>
-        <p><span>LUXE BAGS</span> — Timeless elegance.</p>
-        <p>Demo store · © 2026 Luxe Bags</p>
-    </footer>
+const params = new URLSearchParams(window.location.search);
+const item = params.get("item") || "classic";
+const bag = bags[item] || bags.classic;
 
-    <script>
-        const bags = {
-            classic: {
-                name: "Classic Quilted Bag",
-                brand: "CHANEL INSPIRED",
-                price: 120,
-                image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=1000&q=85",
-                description: "A timeless quilted-style handbag with an elegant look, suitable for everyday outfits and special occasions."
-            },
+document.title = bag.name + " | Luxe Bags";
+document.getElementById("bagName").textContent = bag.name;
+document.getElementById("bagBrand").textContent = bag.brand;
+document.getElementById("bagPrice").textContent = "$" + bag.price.toFixed(2);
+document.getElementById("bagImage").src = bag.image;
+document.getElementById("bagImage").alt = bag.name;
+document.getElementById("bagDescription").textContent = bag.description;
 
-            tote: {
-                name: "Signature Tote",
-                brand: "LOUIS VUITTON INSPIRED",
-                price: 150,
-                image: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=1000&q=85",
-                description: "A spacious tote-style bag designed for carrying your everyday essentials with effortless style."
-            },
+document.getElementById("addButton").addEventListener("click", function() {
+    const cart = JSON.parse(localStorage.getItem("luxeCart") || "[]");
 
-            shoulder: {
-                name: "Leather Shoulder Bag",
-                brand: "PRADA INSPIRED",
-                price: 135,
-                image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=1000&q=85",
-                description: "A refined shoulder-bag style that adds a polished touch to casual and elegant outfits."
-            },
+    cart.push({
+        name: bag.name,
+        price: bag.price,
+        item: item
+    });
 
-            evening: {
-                name: "Evening Elegance",
-                brand: "DIOR INSPIRED",
-                price: 175,
-                image: "https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?auto=format&fit=crop&w=1000&q=85",
-                description: "An elegant evening-bag style for celebrations, dinners, and special occasions."
-            },
-
-            mini: {
-                name: "Mini Crossbody",
-                brand: "GUCCI INSPIRED",
-                price: 95,
-                image: "https://images.unsplash.com/photo-1591561954557-26941169b49e?auto=format&fit=crop&w=1000&q=85",
-                description: "A compact crossbody-style bag for carrying your essentials while keeping your look modern."
-            },
-
-            everyday: {
-                name: "Everyday Essential",
-                brand: "FENDI INSPIRED",
-                price: 110,
-                image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=1000&q=85",
-                description: "A versatile handbag style made to complement your everyday wardrobe."
-            }
-        };
-
-        const item = new URLSearchParams(window.location.search)
-            .get("item") || "classic";
-
-        const bag = bags[item] || bags.classic;
-
-        document.title = bag.name + " | Luxe Bags";
-        document.getElementById("bagName").textContent = bag.name;
-        document.getElementById("bagPrice").textContent =
-            "$" + bag.price.toFixed(2);
-        document.getElementById("bagImage").src = bag.image;
-        document.getElementById("bagImage").alt = bag.name;
-        document.getElementById("bagDescription").textContent =
-            bag.description;
-
-        document.querySelector(".eyebrow").textContent = bag.brand;
-
-        document.getElementById("addButton").addEventListener("click", function() {
-            const cart = JSON.parse(localStorage.getItem("luxeCart") || "[]");
-
-            cart.push({
-                name: bag.name,
-                price: bag.price,
-                item: item
-            });
-
-            localStorage.setItem("luxeCart", JSON.stringify(cart));
-
-            this.textContent = "ADDED TO BAG ✓";
-        });
-    </script>
-
+    localStorage.setItem("luxeCart", JSON.stringify(cart));
+    this.textContent = "ADDED TO BAG ✓";
+});
+</script>
 </body>
 </html>
+
