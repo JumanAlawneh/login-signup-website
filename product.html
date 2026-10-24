@@ -1,4 +1,4 @@
-
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -141,6 +141,7 @@ nav a:hover {
     color: var(--gold);
     margin-top: 18px;
     min-height: 24px;
+    line-height: 1.6;
 }
 
 .back-link {
@@ -206,8 +207,8 @@ footer span {
     <div class="logo">LUXE BAGS</div>
 
     <nav>
-        <a href="home.html">Home</a>
-        <a href="home.html#collection">Collection</a>
+        <a href="./home.html">Home</a>
+        <a href="./home.html#collection">Collection</a>
     </nav>
 </header>
 
@@ -220,65 +221,42 @@ footer span {
 <script>
 const bags = [
     {
-        id: "classic-top-handle-handbag",
+        id: "classic",
         name: "Classic Top Handle",
         price: 120,
         image: "./Classic%20Top%20Handle.jpg",
-        description: "A timeless handbag with an elegant top handle."
+        description:
+            "A timeless handbag with an elegant top handle. Perfect for adding a touch of luxury to your everyday style."
     },
     {
-        id: "crescent-hobo-shoulder-bag",
+        id: "crescent",
         name: "Crescent Hobo",
-        price: 115,
+        price: 95,
         image: "./Crescent%20Hobo.jpg",
-        description: "A chic crescent-shaped shoulder bag."
+        description:
+            "A chic crescent-shaped shoulder bag with a modern silhouette, perfect for everyday outfits."
     },
     {
-        id: "baguette-underarm-bag",
+        id: "baguette",
         name: "Baguette Bag",
-        price: 98,
+        price: 110,
         image: "./Baguette%20Bag.jpg",
-        description: "A stylish compact bag for everyday looks."
+        description:
+            "A stylish compact bag that combines elegance and simplicity for day and evening looks."
     },
     {
-        id: "leather-bucket-drawstring-bag",
-        name: "Leather Bucket",
-        price: 130,
-        image: "./Leather%20Bucket.jpg",
-        description: "A modern bucket bag with a sophisticated design."
-    },
-    {
-        id: "mini-top-handle-handbag",
-        name: "Mini Top Handle",
-        price: 89,
-        image: "./Mini%20Top%20Handle.jpg",
-        description: "A mini handbag for elegant occasions."
-    },
-    {
-        id: "elegant-evening-clutch-bag",
-        name: "Evening Clutch",
-        price: 105,
-        image: "./Evening%20Clutch.jpg",
-        description: "An elegant clutch for evening outings."
-    },
-    {
-        id: "oversized-slouchy-shoulder-bag",
-        name: "Slouchy Shoulder",
-        price: 145,
-        image: "./Slouchy%20Shoulder.jpg",
-        description: "A spacious shoulder bag with a relaxed style."
-    },
-    {
-        id: "saddle-curved-flap-crossbody-bag",
-        name: "Saddle Crossbody",
-        price: 125,
-        image: "./Saddle%20Crossbody.jpg",
-        description: "A classic saddle-inspired crossbody bag."
+        id: "emerald-bucket",
+        name: "Emerald Bucket Bag",
+        price: 100,
+        image: "./Emerald%20Bucket%20Bag.png",
+        description:
+            "A beautiful emerald green bucket bag with elegant details, perfect for a sophisticated look."
     }
 ];
 
 const params = new URLSearchParams(window.location.search);
-const itemId = params.get("item");
+const itemId = params.get("bag");
+
 const bag = bags.find(item => item.id === itemId);
 const content = document.getElementById("productContent");
 
@@ -286,10 +264,10 @@ if (!bag) {
     content.innerHTML = `
         <section class="not-found">
             <h1>Handbag Not Found</h1>
-            <p style="margin: 18px 0;">
+            <p style="margin: 18px 0; color: #ccc;">
                 Please select a handbag from our collection.
             </p>
-            <a class="gold-button" href="home.html#collection">
+            <a class="gold-button" href="./home.html#collection">
                 Back to Collection
             </a>
         </section>
@@ -307,6 +285,7 @@ if (!bag) {
 
     image.onerror = function () {
         this.alt = bag.name + " image could not be loaded";
+        this.onerror = null;
     };
 
     imagePanel.appendChild(image);
@@ -334,6 +313,7 @@ if (!bag) {
     quantityInput.id = "quantity";
     quantityInput.min = "1";
     quantityInput.max = "99";
+    quantityInput.step = "1";
     quantityInput.value = "1";
 
     const addButton = document.createElement("button");
@@ -341,7 +321,8 @@ if (!bag) {
     addButton.textContent = "Add to Bag";
 
     const favoriteButton = document.createElement("button");
-    favoriteButton.className = "gold-button secondary-button";
+    favoriteButton.className =
+        "gold-button secondary-button";
 
     const message = document.createElement("p");
     message.className = "message";
@@ -349,7 +330,7 @@ if (!bag) {
 
     const backLink = document.createElement("a");
     backLink.className = "back-link";
-    backLink.href = "home.html#collection";
+    backLink.href = "./home.html#collection";
     backLink.textContent = "← Back to Collection";
 
     info.append(
@@ -367,18 +348,17 @@ if (!bag) {
     section.append(imagePanel, info);
     content.appendChild(section);
 
-    function getFavorites() {
+    function getStoredArray(key) {
         try {
-            return JSON.parse(
-                localStorage.getItem("luxeFavorites")
-            ) || [];
+            const value = JSON.parse(localStorage.getItem(key));
+            return Array.isArray(value) ? value : [];
         } catch {
             return [];
         }
     }
 
     function updateFavoriteButton() {
-        const favorites = getFavorites();
+        const favorites = getStoredArray("luxeFavorites");
         const isFavorite = favorites.includes(bag.id);
 
         favoriteButton.textContent =
@@ -386,7 +366,7 @@ if (!bag) {
     }
 
     favoriteButton.addEventListener("click", () => {
-        const favorites = getFavorites();
+        const favorites = getStoredArray("luxeFavorites");
         const index = favorites.indexOf(bag.id);
 
         if (index === -1) {
@@ -395,12 +375,21 @@ if (!bag) {
             favorites.splice(index, 1);
         }
 
-        localStorage.setItem(
-            "luxeFavorites",
-            JSON.stringify(favorites)
-        );
+        try {
+            localStorage.setItem(
+                "luxeFavorites",
+                JSON.stringify(favorites)
+            );
 
-        updateFavoriteButton();
+            updateFavoriteButton();
+            message.textContent =
+                favorites.includes(bag.id)
+                    ? "Added to your favorites!"
+                    : "Removed from your favorites.";
+        } catch {
+            message.textContent =
+                "Unable to save favorites in this browser.";
+        }
     });
 
     addButton.addEventListener("click", () => {
@@ -416,16 +405,7 @@ if (!bag) {
             return;
         }
 
-        let cart = [];
-
-        try {
-            cart = JSON.parse(
-                localStorage.getItem("luxeCart")
-            ) || [];
-        } catch {
-            cart = [];
-        }
-
+        const cart = getStoredArray("luxeCart");
         const existingItem = cart.find(
             item => item.id === bag.id
         );
@@ -442,13 +422,19 @@ if (!bag) {
             });
         }
 
-        localStorage.setItem(
-            "luxeCart",
-            JSON.stringify(cart)
-        );
+        try {
+            localStorage.setItem(
+                "luxeCart",
+                JSON.stringify(cart)
+            );
 
-        message.textContent =
-            quantity + " × " + bag.name + " added to your bag!";
+            message.textContent =
+                quantity + " × " + bag.name +
+                " added to your bag!";
+        } catch {
+            message.textContent =
+                "Unable to save your bag in this browser.";
+        }
     });
 
     updateFavoriteButton();
@@ -457,3 +443,4 @@ if (!bag) {
 
 </body>
 </html>
+```
