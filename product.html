@@ -4,157 +4,395 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bag Details | Luxe Bags</title>
+<title>Handbag Details | Luxe Bags</title>
+
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-:root{--black:#0b0907;--gold:#d7b578;--cream:#ead8ba;--muted:#bdb3a4;--card:#171411}
-body{background:var(--black);color:#fff;font-family:Arial,sans-serif}
-a{color:inherit;text-decoration:none}
-button{font:inherit;cursor:pointer}
-header{padding:20px 7%;display:flex;justify-content:space-between;align-items:center;gap:20px;border-bottom:1px solid #3a2d1e;background:#090806}
-.logo{font:32px Georgia,serif;color:var(--cream);letter-spacing:1px}
-.back{color:var(--gold);border:1px solid var(--gold);padding:10px 14px}
-main{max-width:1100px;margin:55px auto;padding:0 24px}
-.crumb{color:var(--muted);font-size:13px;margin-bottom:25px}
-.details{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}
-.photo{background:#211c16;border:1px solid #34291d;min-height:480px}
-.photo img{width:100%;height:480px;object-fit:cover;display:block}
-.eyebrow{color:var(--gold);font-size:11px;letter-spacing:4px;margin-bottom:18px}
-.name{font:normal clamp(36px,5vw,55px)/1.1 Georgia,serif;color:var(--cream);margin-bottom:18px}
-.description{color:#d1c5b5;line-height:1.9;margin-bottom:22px}
-.price{font:26px Georgia,serif;color:var(--gold);margin-bottom:25px}
-.features{list-style:none;color:#d1c5b5;line-height:2.2;margin:0 0 28px}
-.features li:before{content:'✧ ';color:var(--gold)}
-.add{width:100%;padding:16px;background:var(--gold);border:1px solid var(--gold);color:#16110a;letter-spacing:2px}
-.add:hover{background:transparent;color:var(--gold)}
-.notice{color:var(--gold);min-height:24px;margin-top:12px;font-size:13px}
-.foot{text-align:center;color:var(--muted);border-top:1px solid #34281b;padding:28px;margin-top:65px;font-size:13px}
-.foot span{color:var(--gold)}
-@media(max-width:700px){
-.details{grid-template-columns:1fr;gap:28px}
-.photo,.photo img{min-height:330px;height:330px}
-main{margin:30px auto}
-.logo{font-size:26px}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --gold: #d4af37;
+    --black: #090909;
+    --card: #151515;
+    --white: #f8f5ed;
+}
+
+body {
+    background: var(--black);
+    color: var(--white);
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+}
+
+header {
+    padding: 25px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #3b3018;
+}
+
+.logo {
+    color: var(--gold);
+    font-family: Georgia, serif;
+    font-size: 30px;
+    letter-spacing: 3px;
+}
+
+nav {
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: var(--gold);
+}
+
+.details {
+    width: min(1100px, 90%);
+    margin: 60px auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 45px;
+    align-items: center;
+}
+
+.image-panel {
+    background: var(--card);
+    border: 1px solid #3b3018;
+    padding: 15px;
+}
+
+.image-panel img {
+    display: block;
+    width: 100%;
+    height: 480px;
+    object-fit: contain;
+    background: #111;
+}
+
+.info h1 {
+    color: var(--gold);
+    font-family: Georgia, serif;
+    font-size: clamp(30px, 4vw, 45px);
+    margin-bottom: 18px;
+}
+
+.price {
+    color: var(--gold);
+    font-size: 28px;
+    margin-bottom: 25px;
+}
+
+.description {
+    color: #ccc;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.info label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.info input {
+    width: 90px;
+    padding: 12px;
+    margin-bottom: 22px;
+    background: #171717;
+    border: 1px solid #51421c;
+    color: white;
+}
+
+.gold-button {
+    display: inline-block;
+    padding: 14px 24px;
+    background: var(--gold);
+    color: #090909;
+    border: none;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.gold-button:hover {
+    background: #f0d779;
+}
+
+.secondary-button {
+    margin-left: 10px;
+    background: transparent;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+}
+
+.message {
+    color: var(--gold);
+    margin-top: 18px;
+    min-height: 24px;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 25px;
+    color: #ccc;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    color: var(--gold);
+}
+
+.not-found {
+    text-align: center;
+    padding: 100px 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #aaa;
+    border-top: 1px solid #3b3018;
+}
+
+footer span {
+    color: var(--gold);
+}
+
+@media (max-width: 750px) {
+    .details {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        margin: 35px auto;
+    }
+
+    .image-panel img {
+        height: 350px;
+    }
+
+    header {
+        justify-content: center;
+    }
+
+    .logo {
+        font-size: 25px;
+    }
+
+    nav {
+        justify-content: center;
+    }
+
+    .secondary-button {
+        margin: 12px 0 0;
+    }
 }
 </style>
 </head>
+
 <body>
+
 <header>
-<a class="logo" href="home.html">Luxe Bags</a>
-<a class="back" href="home.html#shop">← Back to Collection</a>
+    <div class="logo">LUXE BAGS</div>
+
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="home.html#collection">Collection</a>
+    </nav>
 </header>
 
-<main>
-<p class="crumb">
-<a href="home.html">Home</a> /
-<a href="home.html#shop">Collection</a> / Bag Details
-</p>
+<main id="productContent"></main>
 
-<section class="details">
-<div class="photo">
-<img id="bagImage" src="" alt="Selected handbag">
-</div>
-
-<div>
-<p class="eyebrow" id="bagTag">TIMELESS ELEGANCE</p>
-<h1 class="name" id="bagName">Luxe Bag</h1>
-<p class="description" id="bagDescription">A refined everyday piece designed to bring timeless elegance to your wardrobe.</p>
-<p class="price" id="bagPrice">$120.00</p>
-
-<ul class="features">
-<li>Elegant, versatile silhouette</li>
-<li>Designed for everyday styling</li>
-<li>A timeless addition to your collection</li>
-</ul>
-
-<button class="add" id="addToBag">ADD TO BAG</button>
-<p class="notice" id="notice" aria-live="polite"></p>
-</div>
-</section>
-</main>
-
-<footer class="foot">
-<p><span>LUXE BAGS</span> — A world of timeless elegance.</p>
-<p>Demo store for learning and design purposes. Prices are illustrative.</p>
+<footer>
+    <p>© 2026 <span>Luxe Bags</span>. All rights reserved.</p>
 </footer>
 
 <script>
-const catalog={
-'classic-top-handle-handbag':{
-name:'Classic Top Handle',
-tag:'TIMELESS CLASSIC',
-price:120,
-image:'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=1000&q=90',
-description:'A polished classic with a structured shape that moves effortlessly from day plans to evening occasions.'
-},
-'crescent-hobo-shoulder-bag':{
-name:'Crescent Hobo',
-tag:'EFFORTLESS CHIC',
-price:115,
-image:'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=1000&q=90',
-description:'A relaxed curved silhouette with an easy, modern feel for everyday outfits.'
-},
-'baguette-underarm-bag':{
-name:'Baguette Bag',
-tag:'CITY ESSENTIAL',
-price:98,
-image:'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=1000&q=90',
-description:'A compact underarm style that adds a clean, confident finish to your look.'
-},
-'leather-bucket-drawstring-bag':{
-name:'Leather Bucket',
-tag:'MODERN EVERYDAY',
-price:130,
-image:'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=1000&q=90',
-description:'A practical bucket-inspired shape with a contemporary look for daily essentials.'
-},
-'mini-top-handle-handbag':{
-name:'Mini Top Handle',
-tag:'MINI STATEMENT',
-price:89,
-image:'https://images.unsplash.com/photo-1591561954557-26941169b49e?auto=format&fit=crop&w=1000&q=90',
-description:'A small statement bag made for carrying the essentials with a little extra elegance.'
-},
-'elegant-evening-clutch-bag':{
-name:'Evening Clutch',
-tag:'EVENING GLAMOUR',
-price:105,
-image:'https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?auto=format&fit=crop&w=1000&q=90',
-description:'An elegant evening companion for dinners, celebrations, and special occasions.'
-},
-'oversized-slouchy-shoulder-bag':{
-name:'Slouchy Shoulder',
-tag:'RELAXED LUXURY',
-price:145,
-image:'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=1000&q=90',
-description:'A roomy, relaxed shoulder silhouette with understated everyday appeal.'
-},
-'saddle-curved-flap-crossbody-bag':{
-name:'Saddle Crossbody',
-tag:'ICONIC SHAPE',
-price:125,
-image:'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=1000&q=90',
-description:'A curved flap design with a hands-free crossbody feel and timeless character.'
+const bags = [
+    {
+        id: "classic-top-handle-handbag",
+        name: "Classic Top Handle",
+        price: 120,
+        image: "images/Classic%20Top%20Handle.jpg",
+        description: "A timeless handbag with an elegant top handle."
+    },
+    {
+        id: "crescent-hobo-shoulder-bag",
+        name: "Crescent Hobo",
+        price: 115,
+        image: "images/Crescent%20Hobo.jpg",
+        description: "A chic crescent-shaped shoulder bag."
+    },
+    {
+        id: "baguette-underarm-bag",
+        name: "Baguette Bag",
+        price: 98,
+        image: "images/Baguette%20Bag.jpg",
+        description: "A stylish compact bag for effortless everyday looks."
+    },
+    {
+        id: "leather-bucket-drawstring-bag",
+        name: "Leather Bucket",
+        price: 130,
+        image: "images/Leather%20Bucket.jpg",
+        description: "A modern bucket bag with a sophisticated design."
+    },
+    {
+        id: "mini-top-handle-handbag",
+        name: "Mini Top Handle",
+        price: 89,
+        image: "images/Mini%20Top%20Handle.jpg",
+        description: "A mini handbag for elegant occasions."
+    },
+    {
+        id: "elegant-evening-clutch-bag",
+        name: "Evening Clutch",
+        price: 105,
+        image: "images/Evening%20Clutch.jpg",
+        description: "An elegant clutch designed for evening outings."
+    },
+    {
+        id: "oversized-slouchy-shoulder-bag",
+        name: "Slouchy Shoulder",
+        price: 145,
+        image: "images/Slouchy%20Shoulder.jpg",
+        description: "A spacious shoulder bag with a relaxed silhouette."
+    },
+    {
+        id: "saddle-curved-flap-crossbody-bag",
+        name: "Saddle Crossbody",
+        price: 125,
+        image: "images/Saddle%20Crossbody.jpg",
+        description: "A classic saddle-inspired crossbody bag."
+    }
+];
+
+const params = new URLSearchParams(window.location.search);
+const itemId = params.get("item");
+const bag = bags.find(item => item.id === itemId);
+const content = document.getElementById("productContent");
+
+if (!bag) {
+    content.innerHTML = `
+        <section class="not-found">
+            <h1>Handbag Not Found</h1>
+            <p style="margin: 18px 0;">Please select a handbag from our collection.</p>
+            <a class="gold-button" href="home.html#collection">Back to Collection</a>
+        </section>
+    `;
+} else {
+    content.innerHTML = `
+        <section class="details">
+            <div class="image-panel">
+                <img id="bagImage" src="${bag.image}" alt="${bag.name}">
+            </div>
+
+            <div class="info">
+                <h1>${bag.name}</h1>
+                <p class="price">$${bag.price.toFixed(2)}</p>
+                <p class="description">${bag.description}</p>
+
+                <label for="quantity">Quantity</label>
+                <input type="number" id="quantity" min="1" max="99" value="1">
+
+                <div>
+                    <button class="gold-button" id="addToCart">Add to Bag</button>
+                    <button class="gold-button secondary-button" id="favoriteButton">♡ Favorite</button>
+                </div>
+
+                <p class="message" id="message" aria-live="polite"></p>
+                <a class="back-link" href="home.html#collection">← Back to Collection</a>
+            </div>
+        </section>
+    `;
+
+    document.getElementById("bagImage").onerror = function () {
+        this.alt = bag.name + " — image not found";
+    };
+
+    const favoriteButton = document.getElementById("favoriteButton");
+
+    function updateFavoriteButton() {
+        let favorites = [];
+
+        try {
+            favorites = JSON.parse(localStorage.getItem("luxeFavorites")) || [];
+        } catch {
+            favorites = [];
+        }
+
+        const isFavorite = favorites.includes(bag.id);
+        favoriteButton.textContent = isFavorite ? "♥ Favorited" : "♡ Favorite";
+    }
+
+    favoriteButton.addEventListener("click", () => {
+        let favorites = [];
+
+        try {
+            favorites = JSON.parse(localStorage.getItem("luxeFavorites")) || [];
+        } catch {
+            favorites = [];
+        }
+
+        if (favorites.includes(bag.id)) {
+            favorites = favorites.filter(id => id !== bag.id);
+        } else {
+            favorites.push(bag.id);
+        }
+
+        localStorage.setItem("luxeFavorites", JSON.stringify(favorites));
+        updateFavoriteButton();
+    });
+
+    document.getElementById("addToCart").addEventListener("click", () => {
+        const quantityInput = document.getElementById("quantity");
+        const quantity = Number(quantityInput.value);
+        const message = document.getElementById("message");
+
+        if (!Number.isInteger(quantity) || quantity < 1 || quantity > 99) {
+            message.textContent = "Please enter a quantity between 1 and 99.";
+            return;
+        }
+
+        let cart = [];
+
+        try {
+            cart = JSON.parse(localStorage.getItem("luxeCart")) || [];
+        } catch {
+            cart = [];
+        }
+
+        const existingItem = cart.find(item => item.id === bag.id);
+
+        if (existingItem) {
+            existingItem.quantity += quantity;
+        } else {
+            cart.push({
+                id: bag.id,
+                name: bag.name,
+                price: bag.price,
+                image: bag.image,
+                quantity: quantity
+            });
+        }
+
+        localStorage.setItem("luxeCart", JSON.stringify(cart));
+        message.textContent = quantity + " × " + bag.name + " added to your bag!";
+    });
+
+    updateFavoriteButton();
 }
-};
-
-const slug=new URLSearchParams(location.search).get('item')||'classic-top-handle-handbag';
-const bag=catalog[slug]||catalog['classic-top-handle-handbag'];
-
-document.title=bag.name+' | Luxe Bags';
-document.getElementById('bagName').textContent=bag.name;
-document.getElementById('bagTag').textContent=bag.tag;
-document.getElementById('bagPrice').textContent='$'+bag.price.toFixed(2);
-document.getElementById('bagDescription').textContent=bag.description;
-document.getElementById('bagImage').src=bag.image;
-document.getElementById('bagImage').alt=bag.name;
-
-document.getElementById('addToBag').addEventListener('click',()=>{
-const cart=JSON.parse(localStorage.getItem('luxeCart')||'[]');
-cart.push({name:bag.name,price:bag.price});
-localStorage.setItem('luxeCart',JSON.stringify(cart));
-document.getElementById('notice').textContent='Added to your bag ✓';
-});
 </script>
+
 </body>
 </html>
