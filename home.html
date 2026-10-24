@@ -1,627 +1,336 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luxe Bags | Luxury Fashion</title>
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luxe Bags | Timeless Luxury</title>
 
-        :root {
-            --black: #0b0b0b;
-            --gold: #d4af63;
-            --white: #ffffff;
-            --gray: #bdb7ac;
-            --card: #171717;
-        }
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#0b0907;--gold:#d7b578;--cream:#ead8ba;--muted:#bdb3a4;--card:#171411}
+body{background:var(--black);color:#fff;font-family:Arial,sans-serif}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit}
+button{cursor:pointer}
 
-        body {
-            background: var(--black);
-            color: var(--white);
-            font-family: Arial, sans-serif;
-        }
+header{position:sticky;top:0;z-index:5;background:#090806;border-bottom:1px solid #3a2d1e;padding:18px 6%;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.logo{font:32px Georgia,serif;letter-spacing:1px;color:var(--cream)}
+nav{display:flex;gap:24px;flex-wrap:wrap}
+nav a:hover{color:var(--gold)}
+.cart{background:transparent;color:var(--gold);border:1px solid var(--gold);padding:10px 14px}
 
-        a { color: inherit; text-decoration: none; }
-        button, input { font: inherit; }
-        button { cursor: pointer; }
+.hero{
+min-height:610px;display:flex;align-items:center;padding:70px 8%;
+background:linear-gradient(90deg,rgba(9,7,5,.78),rgba(9,7,5,.38) 52%,rgba(9,7,5,.06)),url("luxe-bags-background.png") center/cover no-repeat
+}
+.hero-content{max-width:550px}
+.eyebrow{font-size:12px;letter-spacing:5px;color:var(--gold);margin-bottom:22px}
+.hero h1{font:normal clamp(46px,7vw,82px)/1.04 Georgia,serif;margin-bottom:22px;color:var(--cream)}
+.hero p{max-width:440px;line-height:1.8;color:#eee2d2;margin-bottom:30px}
+.gold-button{display:inline-block;background:var(--gold);color:#16110a;padding:15px 25px;letter-spacing:2px;font-size:12px;border:1px solid var(--gold)}
+.gold-button:hover{background:transparent;color:var(--gold)}
 
-        header {
-            background: #080808;
-            border-bottom: 1px solid #29251d;
-            padding: 20px 7%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
+.benefits{display:flex;gap:30px;flex-wrap:wrap;padding:22px 7%;border-bottom:1px solid #34281b;color:var(--cream);font-size:13px}
+.benefits span{color:var(--muted);margin-left:6px}
+.brands{text-align:center;padding:42px 7%;border-bottom:1px solid #30271d}
+.section-title{font:normal 36px Georgia,serif;text-align:center;margin-bottom:12px;color:var(--cream)}
+.section-subtitle{text-align:center;color:var(--muted);font-size:14px;margin-bottom:30px}
+.brand-list{display:flex;justify-content:center;gap:38px;flex-wrap:wrap}
+.brand-list span{font:21px Georgia,serif;letter-spacing:2px;color:var(--gold)}
 
-        .logo {
-            color: var(--gold);
-            font-family: Georgia, serif;
-            font-size: 28px;
-            letter-spacing: 2px;
-        }
+.shop{padding:62px 7%}
+.tools{max-width:650px;margin:0 auto 34px;display:flex;gap:10px}
+.tools input{flex:1;min-width:0;padding:13px;background:#171411;color:#fff;border:1px solid #55452e;outline:none}
+.tools input:focus{border-color:var(--gold)}
+.tools button{padding:12px 18px;background:var(--gold);border:0;color:#111}
+.product-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
+.product{background:var(--card);border:1px solid #34291d;overflow:hidden;transition:.25s}
+.product:hover{transform:translateY(-5px);border-color:var(--gold)}
+.product-image{height:280px;background:#211c16;overflow:hidden;position:relative;cursor:pointer}
+.product-image img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.product:hover .product-image img{transform:scale(1.05)}
+.heart{position:absolute;top:12px;right:12px;width:38px;height:38px;border:0;border-radius:50%;background:#090806d9;color:white;font-size:23px}
+.heart.active{color:var(--gold)}
+.product-info{padding:18px}
+.product-brand{font-size:10px;letter-spacing:2px;color:var(--gold);margin-bottom:9px}
+.product h3{font:normal 20px Georgia,serif;margin-bottom:13px;cursor:pointer}
+.product h3:hover{color:var(--gold)}
+.product-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.price{color:var(--gold);font-weight:bold}
+.add-button{background:transparent;color:white;border:1px solid #786044;padding:9px 11px}
+.add-button:hover{background:var(--gold);color:#111}
+.empty{display:none;text-align:center;color:var(--muted);padding:30px}
+.newsletter{text-align:center;background:#15110c;border-block:1px solid #392b1d;padding:50px 20px}
+.newsletter p{color:var(--muted);margin:15px 0 25px}
+.newsletter a{color:var(--gold);text-decoration:underline}
+footer{padding:28px 7%;text-align:center;color:var(--muted);font-size:13px;line-height:2}
+footer span{color:var(--gold)}
 
-        nav { display: flex; gap: 22px; flex-wrap: wrap; }
-        nav a { font-size: 14px; }
-        nav a:hover { color: var(--gold); }
-
-        .cart {
-            color: var(--gold);
-            border: 1px solid var(--gold);
-            background: transparent;
-            padding: 9px 14px;
-        }
-
-        .hero {
-            min-height: 580px;
-            display: flex;
-            align-items: center;
-            padding: 65px 8%;
-            background:
-                linear-gradient(90deg, rgba(8,7,5,.88), rgba(8,7,5,.60) 48%, rgba(8,7,5,.12)),
-                url("luxe-bags-background.png") center/cover no-repeat;
-        }
-
-        .hero-content { max-width: 540px; }
-
-        .eyebrow {
-            color: var(--gold);
-            letter-spacing: 4px;
-            font-size: 12px;
-            margin-bottom: 22px;
-        }
-
-        .hero h1 {
-            font-family: Georgia, serif;
-            font-size: clamp(42px, 6vw, 70px);
-            line-height: 1.1;
-            font-weight: normal;
-            margin-bottom: 20px;
-        }
-
-        .hero p {
-            color: #dedbd4;
-            line-height: 1.8;
-            margin-bottom: 30px;
-            font-family: Georgia, serif;
-            font-size: 22px;
-        }
-
-        .gold-button {
-            display: inline-block;
-            background: var(--gold);
-            color: #111;
-            padding: 14px 25px;
-            border: 1px solid var(--gold);
-            font-weight: bold;
-        }
-
-        .gold-button:hover {
-            background: transparent;
-            color: var(--gold);
-        }
-
-        .brands {
-            text-align: center;
-            padding: 42px 7%;
-            border-bottom: 1px solid #29251d;
-        }
-
-        .section-title {
-            font-family: Georgia, serif;
-            font-size: 34px;
-            font-weight: normal;
-            text-align: center;
-            margin-bottom: 12px;
-        }
-
-        .section-subtitle {
-            color: var(--gray);
-            text-align: center;
-            font-size: 14px;
-            margin-bottom: 30px;
-        }
-
-        .brand-list {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 38px;
-            flex-wrap: wrap;
-        }
-
-        .brand-list span {
-            color: var(--gold);
-            font-family: Georgia, serif;
-            font-size: 21px;
-            letter-spacing: 2px;
-        }
-
-        .shop { padding: 65px 7%; }
-
-        .tools {
-            max-width: 650px;
-            margin: 0 auto 35px;
-            display: flex;
-            gap: 10px;
-        }
-
-        .tools input {
-            flex: 1;
-            min-width: 0;
-            padding: 13px;
-            background: #171717;
-            color: white;
-            border: 1px solid #494238;
-            outline: none;
-        }
-
-        .tools input:focus { border-color: var(--gold); }
-
-        .tools button {
-            padding: 12px 18px;
-            background: var(--gold);
-            border: none;
-            color: #111;
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 25px;
-        }
-
-        .product {
-            background: var(--card);
-            border: 1px solid #29251d;
-            overflow: hidden;
-            transition: transform .25s, border-color .25s;
-        }
-
-        .product:hover {
-            transform: translateY(-5px);
-            border-color: var(--gold);
-        }
-
-        .product-image {
-            height: 290px;
-            background: #222;
-            overflow: hidden;
-            position: relative;
-            cursor: pointer;
-        }
-
-        .product-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform .4s;
-        }
-
-        .product:hover .product-image img { transform: scale(1.05); }
-
-        .heart {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            width: 38px;
-            height: 38px;
-            border: none;
-            border-radius: 50%;
-            background: rgba(0,0,0,.8);
-            color: white;
-            font-size: 22px;
-            z-index: 2;
-        }
-
-        .heart.active { color: var(--gold); }
-        .product-info { padding: 20px; }
-
-        .product-brand {
-            color: var(--gold);
-            font-size: 11px;
-            letter-spacing: 2px;
-            margin-bottom: 9px;
-        }
-
-        .product h3 {
-            font-family: Georgia, serif;
-            font-size: 21px;
-            font-weight: normal;
-            margin-bottom: 12px;
-            cursor: pointer;
-        }
-
-        .product h3:hover { color: var(--gold); }
-
-        .product-bottom {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .price { color: var(--gold); font-weight: bold; }
-
-        .add-button {
-            background: transparent;
-            color: white;
-            border: 1px solid #716044;
-            padding: 9px 12px;
-        }
-
-        .add-button:hover {
-            background: var(--gold);
-            color: #111;
-        }
-
-        .empty {
-            display: none;
-            text-align: center;
-            color: var(--gray);
-            padding: 30px;
-        }
-
-        .newsletter {
-            text-align: center;
-            background: #15130f;
-            border-top: 1px solid #393023;
-            border-bottom: 1px solid #393023;
-            padding: 55px 20px;
-        }
-
-        .newsletter p { color: var(--gray); margin: 15px 0 25px; }
-        .newsletter a { color: var(--gold); text-decoration: underline; }
-
-        footer {
-            padding: 28px 7%;
-            text-align: center;
-            color: var(--gray);
-            font-size: 13px;
-            line-height: 2;
-        }
-
-        footer span { color: var(--gold); }
-
-        @media (max-width: 800px) {
-            .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-            header { justify-content: center; }
-            .hero { background-position: 60% center; }
-        }
-
-        @media (max-width: 520px) {
-            .product-grid { grid-template-columns: 1fr; }
-            .product-image { height: 330px; }
-            nav { justify-content: center; gap: 14px; }
-            .hero { min-height: 420px; padding: 45px 7%; }
-            .section-title { font-size: 29px; }
-            .shop { padding: 45px 6%; }
-        }
-    </style>
+@media(max-width:1000px){.product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){
+header{justify-content:center}
+.hero{min-height:490px;padding:45px 7%;background-position:60% center}
+.product-grid{grid-template-columns:1fr}
+.product-image{height:340px}
+nav{justify-content:center;gap:14px}
+.section-title{font-size:30px}
+.benefits{gap:14px}
+}
+</style>
 </head>
-<body>
 
+<body>
 <header>
-    <a class="logo" href="home.html">LUXE BAGS</a>
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#brands">Brands</a>
-        <a href="#shop" id="shopLink">Shop</a>
-        <a href="#shop" id="favoritesLink">Favorites</a>
-    </nav>
-    <button class="cart" id="cartButton">
-        Bag (<span id="cartCount">0</span>)
-    </button>
+<a class="logo" href="#home">Luxe Bags</a>
+<nav>
+<a href="#home">Home</a>
+<a href="#brands">Brands</a>
+<a href="#shop" id="shopLink">Shop</a>
+<a href="#shop" id="favoritesLink">Favorites</a>
+</nav>
+<button class="cart" id="cartButton">Bag (<span id="cartCount">0</span>)</button>
 </header>
 
 <main>
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <div class="eyebrow">TIMELESS ELEGANCE</div>
-            <h1>Luxe Bags</h1>
-            <p>More than just a bag, it’s a statement.</p>
-            <a class="gold-button" href="#shop">SHOP NOW →</a>
-        </div>
-    </section>
+<section class="hero" id="home">
+<div class="hero-content">
+<div class="eyebrow">TIMELESS ELEGANCE</div>
+<h1>Luxe Bags</h1>
+<p>More than just a bag, it’s a statement. Discover elegant designs made to elevate every moment.</p>
+<a class="gold-button" href="#shop">SHOP THE COLLECTION →</a>
+</div>
+</section>
 
-    <section class="brands" id="brands">
-        <h2 class="section-title">Iconic Brands</h2>
-        <p class="section-subtitle">
-            Discover designs inspired by the world's most recognized names.
-        </p>
-        <div class="brand-list">
-            <span>CHANEL</span>
-            <span>GUCCI</span>
-            <span>PRADA</span>
-            <span>DIOR</span>
-            <span>FENDI</span>
-        </div>
-    </section>
+<div class="benefits">
+✧ Fast Delivery <span>Across Palestine</span>
+♢ Secure Shopping <span>Safe & easy</span>
+♡ Premium Style <span>Because you deserve it</span>
+</div>
 
-    <section class="shop" id="shop">
-        <h2 class="section-title">The Collection</h2>
-        <p class="section-subtitle">
-            A little luxury, made part of your everyday.
-        </p>
+<section class="brands" id="brands">
+<h2 class="section-title">Find Your Signature Style</h2>
+<p class="section-subtitle">A beautiful bag for every mood and every moment.</p>
+<div class="brand-list">
+<span>CLASSIC</span><span>MODERN</span><span>TIMELESS</span><span>ICONIC</span>
+</div>
+</section>
 
-        <div class="tools">
-            <input type="search" id="searchInput"
-                   placeholder="Search bags or styles..."
-                   aria-label="Search products">
-            <button id="searchButton">Search</button>
-        </div>
+<section class="shop" id="shop">
+<h2 class="section-title" id="collectionTitle">The Collection</h2>
+<p class="section-subtitle" id="collectionSubtitle">Eight distinctive silhouettes. One timeless style.</p>
 
-        <div class="product-grid" id="productGrid">
-            <article class="product" data-name="classic quilted bag">
-                <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80" alt="Classic Handbag" loading="lazy">
-                    <button class="heart" aria-label="Add to favorites">♡</button>
-                </div>
-                <div class="product-info">
-                    <div class="product-brand">TIMELESS COLLECTION</div>
-                    <h3>Classic Handbag</h3>
-                    <div class="product-bottom">
-                        <span class="price">$120.00</span>
-                        <button class="add-button">Add to Bag</button>
-                    </div>
-                </div>
-            </article>
+<div class="tools">
+<input id="searchInput" type="search" placeholder="Search bags..." aria-label="Search bags">
+<button id="searchButton">Search</button>
+</div>
 
-            <article class="product" data-name="hobo crescent shoulder bag">
-                <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=800&q=80" alt="Crescent Hobo" loading="lazy">
-                    <button class="heart" aria-label="Add to favorites">♡</button>
-                </div>
-                <div class="product-info">
-                    <div class="product-brand">MODERN CLASSICS</div>
-                    <h3>Crescent Hobo</h3>
-                    <div class="product-bottom">
-                        <span class="price">$125.00</span>
-                        <button class="add-button">Add to Bag</button>
-                    </div>
-                </div>
-            </article>
+<div class="product-grid" id="productGrid">
 
-            <article class="product" data-name="baguette underarm bag">
-                <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1591561954557-26941169b49e?auto=format&fit=crop&w=800&q=80" alt="Baguette Bag" loading="lazy">
-                    <button class="heart" aria-label="Add to favorites">♡</button>
-                </div>
-                <div class="product-info">
-                    <div class="product-brand">CITY EDITION</div>
-                    <h3>Baguette Bag</h3>
-                    <div class="product-bottom">
-                        <span class="price">$115.00</span>
-                        <button class="add-button">Add to Bag</button>
-                    </div>
-                </div>
-            </article>
+<article class="product" data-name="classic top handle handbag">
+<div class="product-image">
+<img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=85" alt="Classic top handle handbag" loading="lazy">
+<button class="heart" aria-label="Add to favorites">♡</button>
+</div>
+<div class="product-info">
+<div class="product-brand">TIMELESS CLASSIC</div>
+<h3>Classic Top Handle</h3>
+<div class="product-bottom"><span class="price">$120.00</span><button class="add-button">Add to Bag</button></div>
+</div>
+</article>
 
-            <article class="product" data-name="bucket drawstring bag">
-                <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=800&q=80" alt="Bucket Bag" loading="lazy">
-                    <button class="heart" aria-label="Add to favorites">♡</button>
-                </div>
-                <div class="product-info">
-                    <div class="product-brand">EVERYDAY LUXURY</div>
-                    <h3>Bucket Bag</h3>
-                    <div class="product-bottom">
-                        <span class="price">$130.00</span>
-                        <button class="add-button">Add to Bag</button>
-                    </div>
-                </div>
-            </article>
+<article class="product" data-name="crescent hobo shoulder bag">
+<div class="product-image">
+<img src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=800&q=85" alt="Crescent hobo shoulder bag" loading="lazy">
+<button class="heart" aria-label="Add to favorites">♡</button>
+</div>
+<div class="product-info">
+<div class="product-brand">EFFORTLESS CHIC</div>
+<h3>Crescent Hobo</h3>
+<div class="product-bottom"><span class="price">$115.00</span><button class="add-button">Add to Bag</button></div>
+</div>
+</article>
 
-            <article class="product" data-name="mini top handle bag">
-                <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?auto=format&fit=crop&w=800&q=80" alt="Mini Top Handle" loading="lazy">
-                    <button class="heart" aria-label="Add to favorites">♡</button>
-                </div>
-                <div class="product-info">
-                    <div class="product-brand">THE MINI EDIT</div>
-                    <h3>Mini Top Handle</h3>
-                    <div class="product-bottom">
-                        <span class="price">$95.00</span>
-                        <button class="add-button">Add to Bag</button>
-                    </div>
-                </div>
-            </article>
+<article class="product" data-name="baguette underarm bag">
+<div class="product-image">
+<img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=85" alt="Baguette underarm bag" loading="lazy">
+<button class="heart" aria-label="Add to favorites">♡</button>
+</div>
+<div class="product-info">
+<div class="product-brand">CITY ESSENTIAL</div>
+<h3>Baguette Bag</h3>
+<div class="product-bottom"><span class="price">$98.00</span><button class="add-button">Add to Bag</button></div>
+</div>
+</article>
 
-            <article class="product" data-name="elegant evening clutch bag">
-                <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80" alt="Evening Clutch" loading="lazy">
-                    <button class="heart" aria-label="Add to favorites">♡</button>
-                </div>
-                <div class="product-info">
-                    <div class="product-brand">EVENING COLLECTION</div>
-                    <h3>Evening Clutch</h3>
-                    <div class="product-bottom">
-                        <span class="price">$175.00</span>
-                        <button class="add-button">Add to Bag</button>
-                    </div>
-                </div>
-            </article>
+<article class="product" data-name="leather bucket drawstring bag">
+<div class="product-image">
+<img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=800&q=85" alt="Leather bucket bag" loading="lazy">
+<button class="heart" aria-label="Add to favorites">♡</button>
+</div>
+<div class="product-info">
+<div class="product-brand">MODERN EVERYDAY</div>
+<h3>Leather Bucket</h3>
+<div class="product-bottom"><span class="price">$130.00</span><button class="add-button">Add to Bag</button></div>
+</div>
+</article>
 
-            <article class="product" data-name="slouchy oversized shoulder bag">
-                <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=800&q=80" alt="Slouchy Shoulder Bag" loading="lazy">
-                    <button class="heart" aria-label="Add to favorites">♡</button>
-                </div>
-                <div class="product-info">
-                    <div class="product-brand">EFFORTLESS STYLE</div>
-                    <h3>Slouchy Shoulder Bag</h3>
-                    <div class="product-bottom">
-                        <span class="price">$145.00</span>
-                        <button class="add-button">Add to Bag</button>
-                    </div>
-                </div>
-            </article>
+<article class="product" data-name="mini top handle handbag">
+<div class="product-image">
+<img src="https://images.unsplash.com/photo-1591561954557-26941169b49e?auto=format&fit=crop&w=800&q=85" alt="Mini top handle handbag" loading="lazy">
+<button class="heart" aria-label="Add to favorites">♡</button>
+</div>
+<div class="product-info">
+<div class="product-brand">MINI STATEMENT</div>
+<h3>Mini Top Handle</h3>
+<div class="product-bottom"><span class="price">$89.00</span><button class="add-button">Add to Bag</button></div>
+</div>
+</article>
 
-            <article class="product" data-name="saddle curved crossbody bag">
-                <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=800&q=80" alt="Saddle Crossbody" loading="lazy">
-                    <button class="heart" aria-label="Add to favorites">♡</button>
-                </div>
-                <div class="product-info">
-                    <div class="product-brand">SIGNATURE SHAPES</div>
-                    <h3>Saddle Crossbody</h3>
-                    <div class="product-bottom">
-                        <span class="price">$135.00</span>
-                        <button class="add-button">Add to Bag</button>
-                    </div>
-                </div>
-            </article>
-        </div>
+<article class="product" data-name="elegant evening clutch bag">
+<div class="product-image">
+<img src="https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?auto=format&fit=crop&w=800&q=85" alt="Elegant evening clutch" loading="lazy">
+<button class="heart" aria-label="Add to favorites">♡</button>
+</div>
+<div class="product-info">
+<div class="product-brand">EVENING GLAMOUR</div>
+<h3>Evening Clutch</h3>
+<div class="product-bottom"><span class="price">$105.00</span><button class="add-button">Add to Bag</button></div>
+</div>
+</article>
 
-        <p class="empty" id="emptyMessage">No matching bags found.</p>
-    </section>
+<article class="product" data-name="oversized slouchy shoulder bag">
+<div class="product-image">
+<img src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=800&q=85" alt="Oversized slouchy shoulder bag" loading="lazy">
+<button class="heart" aria-label="Add to favorites">♡</button>
+</div>
+<div class="product-info">
+<div class="product-brand">RELAXED LUXURY</div>
+<h3>Slouchy Shoulder</h3>
+<div class="product-bottom"><span class="price">$145.00</span><button class="add-button">Add to Bag</button></div>
+</div>
+</article>
 
-    <section class="newsletter" id="favorites">
-        <h2 class="section-title">Your Style, Your Story</h2>
-        <p>Save your favorite designs and discover your next statement piece.</p>
-        <a href="#shop">EXPLORE THE COLLECTION</a>
-    </section>
+<article class="product" data-name="saddle curved flap crossbody bag">
+<div class="product-image">
+<img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=85" alt="Saddle crossbody bag" loading="lazy">
+<button class="heart" aria-label="Add to favorites">♡</button>
+</div>
+<div class="product-info">
+<div class="product-brand">ICONIC SHAPE</div>
+<h3>Saddle Crossbody</h3>
+<div class="product-bottom"><span class="price">$125.00</span><button class="add-button">Add to Bag</button></div>
+</div>
+</article>
+
+</div>
+<p class="empty" id="emptyMessage">No matching bags found.</p>
+</section>
+
+<section class="newsletter">
+<h2 class="section-title">Your Style, Your Story</h2>
+<p>Find the bag that feels like you.</p>
+<a href="#shop" id="exploreLink">EXPLORE THE COLLECTION</a>
+</section>
 </main>
 
 <footer>
-    <p><span>LUXE BAGS</span> — A world of timeless elegance.</p>
-    <p>Demo store for learning and design purposes.</p>
-    <p>Product prices and brand-inspired labels are examples, not official listings.</p>
-    <p>© 2026 Luxe Bags</p>
+<p><span>LUXE BAGS</span> — A world of timeless elegance.</p>
+<p>Demo store for learning and design purposes.</p>
+<p>Product prices are illustrative.</p>
+<p>© 2026 Luxe Bags</p>
 </footer>
 
 <script>
-    const searchInput = document.getElementById("searchInput");
-    const searchButton = document.getElementById("searchButton");
-    const products = document.querySelectorAll(".product");
-    const emptyMessage = document.getElementById("emptyMessage");
+const searchInput=document.getElementById('searchInput');
+const products=[...document.querySelectorAll('.product')];
+const emptyMessage=document.getElementById('emptyMessage');
 
-    let cart = JSON.parse(localStorage.getItem("luxeCart") || "[]");
-    let favorites = JSON.parse(localStorage.getItem("luxeFavorites") || "[]");
-    let showingFavorites = false;
+let cart=JSON.parse(localStorage.getItem('luxeCart')||'[]');
+let favorites=JSON.parse(localStorage.getItem('luxeFavorites')||'[]');
+let showingFavorites=false;
 
-    function updateCartCount() {
-        document.getElementById("cartCount").textContent = cart.length;
-    }
+function updateCartCount(){
+document.getElementById('cartCount').textContent=cart.length;
+}
 
-    function searchProducts() {
-        const query = searchInput.value.trim().toLowerCase();
-        let visibleCount = 0;
+function searchProducts(){
+const q=searchInput.value.trim().toLowerCase();
+let count=0;
 
-        products.forEach(function(product) {
-            const name = product.dataset.name;
-            const matchesSearch = name.includes(query);
-            const matchesFavorites =
-                !showingFavorites || favorites.includes(name);
-            const visible = matchesSearch && matchesFavorites;
+products.forEach(p=>{
+const show=p.dataset.name.includes(q)&&
+(!showingFavorites||favorites.includes(p.dataset.name));
+p.style.display=show?'':'none';
+if(show)count++;
+});
 
-            product.style.display = visible ? "" : "none";
-            if (visible) visibleCount++;
-        });
+emptyMessage.textContent=showingFavorites?
+'You have no favorite bags yet.':'No matching bags found.';
+emptyMessage.style.display=count?'none':'block';
 
-        emptyMessage.textContent = showingFavorites
-            ? "You have no favorite bags yet."
-            : "No matching bags found.";
+document.getElementById('collectionTitle').textContent=
+showingFavorites?'My Favorites':'The Collection';
+document.getElementById('collectionSubtitle').textContent=
+showingFavorites?'Your saved bag designs.':
+'Eight distinctive silhouettes. One timeless style.';
+}
 
-        emptyMessage.style.display = visibleCount === 0 ? "block" : "none";
-    }
+function updateFavorites(){
+products.forEach(p=>{
+const b=p.querySelector('.heart');
+const fav=favorites.includes(p.dataset.name);
+b.classList.toggle('active',fav);
+b.textContent=fav?'♥':'♡';
+});
+localStorage.setItem('luxeFavorites',JSON.stringify(favorites));
+searchProducts();
+}
 
-    searchButton.addEventListener("click", searchProducts);
-    searchInput.addEventListener("input", searchProducts);
+document.getElementById('searchButton').addEventListener('click',searchProducts);
+searchInput.addEventListener('input',searchProducts);
 
-    function updateFavorites() {
-        products.forEach(function(product) {
-            const button = product.querySelector(".heart");
-            const name = product.dataset.name;
-            const isFavorite = favorites.includes(name);
+document.querySelectorAll('.heart').forEach(b=>{
+b.addEventListener('click',e=>{
+e.stopPropagation();
+const name=b.closest('.product').dataset.name;
+favorites=favorites.includes(name)?
+favorites.filter(x=>x!==name):[...favorites,name];
+updateFavorites();
+});
+});
 
-            button.classList.toggle("active", isFavorite);
-            button.textContent = isFavorite ? "♥" : "♡";
-            button.setAttribute(
-                "aria-label",
-                isFavorite ? "Remove from favorites" : "Add to favorites"
-            );
-        });
+document.getElementById('favoritesLink').addEventListener('click',()=>{
+showingFavorites=true;
+searchProducts();
+});
 
-        localStorage.setItem("luxeFavorites", JSON.stringify(favorites));
-        searchProducts();
-    }
+function showAll(){
+showingFavorites=false;
+searchProducts();
+}
 
-    document.querySelectorAll(".heart").forEach(function(button) {
-        button.addEventListener("click", function(event) {
-            event.stopPropagation();
+document.getElementById('shopLink').addEventListener('click',showAll);
+document.getElementById('exploreLink').addEventListener('click',showAll);
 
-            const product = button.closest(".product");
-            const name = product.dataset.name;
+products.forEach(p=>{
+p.querySelector('.add-button').addEventListener('click',function(){
+const name=p.querySelector('h3').textContent;
+const price=Number(p.querySelector('.price').textContent.replace('$',''));
+cart.push({name,price});
+localStorage.setItem('luxeCart',JSON.stringify(cart));
+updateCartCount();
+this.textContent='Added ✓';
+setTimeout(()=>this.textContent='Add to Bag',1000);
+});
+});
 
-            if (favorites.includes(name)) {
-                favorites = favorites.filter(function(item) {
-                    return item !== name;
-                });
-            } else {
-                favorites.push(name);
-            }
+document.getElementById('cartButton').addEventListener('click',()=>{
+alert('Your bag has '+cart.length+' item(s).');
+});
 
-            updateFavorites();
-        });
-    });
-
-    document.getElementById("favoritesLink").addEventListener("click", function() {
-        showingFavorites = true;
-        searchProducts();
-    });
-
-    document.getElementById("shopLink").addEventListener("click", function() {
-        showingFavorites = false;
-        searchProducts();
-    });
-
-    const productLinks = {
-        "classic quilted bag": "classic",
-        "hobo crescent shoulder bag": "hobo",
-        "baguette underarm bag": "baguette",
-        "bucket drawstring bag": "bucket",
-        "mini top handle bag": "mini",
-        "elegant evening clutch bag": "clutch",
-        "slouchy oversized shoulder bag": "slouchy",
-        "saddle curved crossbody bag": "saddle"
-    };
-
-    document.querySelectorAll(".product").forEach(function(product) {
-        const item = productLinks[product.dataset.name];
-
-        function openProduct() {
-            window.location.href = "product.html?item=" + item;
-        }
-
-        product.querySelector(".product-image").addEventListener("click", openProduct);
-        product.querySelector("h3").addEventListener("click", openProduct);
-
-        product.querySelector(".add-button").addEventListener("click", function() {
-            const name = product.querySelector("h3").textContent;
-            const price = Number(
-                product.querySelector(".price").textContent.replace("$", "")
-            );
-
-            cart.push({ name: name, price: price, item: item });
-            localStorage.setItem("luxeCart", JSON.stringify(cart));
-            updateCartCount();
-
-            this.textContent = "Added ✓";
-            setTimeout(() => this.textContent = "Add to Bag", 1000);
-        });
-    });
-
-    document.getElementById("cartButton").addEventListener("click", function() {
-        alert("Your bag has " + cart.length + " item(s).");
-    });
-
-    updateFavorites();
-    updateCartCount();
+updateFavorites();
+updateCartCount();
 </script>
-
 </body>
 </html>
