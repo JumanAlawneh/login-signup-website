@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -91,7 +92,7 @@ nav a:hover {
     transform: translateY(-2px);
 }
 
-/* HERO BACKGROUND */
+/* HERO */
 
 .hero {
     min-height: 520px;
@@ -141,12 +142,18 @@ nav a:hover {
 /* SEARCH */
 
 .search-area {
-    max-width: 480px;
+    max-width: 600px;
     margin: 0 auto 35px;
 }
 
+.search-box {
+    display: flex;
+    gap: 10px;
+}
+
 #searchInput {
-    width: 100%;
+    flex: 1;
+    min-width: 0;
     padding: 14px 16px;
     background: #141414;
     border: 1px solid #514323;
@@ -156,11 +163,36 @@ nav a:hover {
     font-size: 15px;
 }
 
+#searchInput::placeholder {
+    color: #aaa;
+}
+
 #searchInput:focus {
     border-color: var(--gold);
 }
 
-/* PRODUCT CARDS */
+#searchButton {
+    padding: 0 22px;
+    background: var(--gold);
+    color: var(--black);
+    border: none;
+    border-radius: 3px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#searchButton:hover {
+    background: var(--light-gold);
+}
+
+#searchButton:focus-visible,
+#searchInput:focus-visible {
+    outline: 2px solid var(--light-gold);
+    outline-offset: 3px;
+}
+
+/* PRODUCTS */
 
 .products {
     display: grid;
@@ -384,6 +416,20 @@ footer p {
         margin-left: 5%;
         margin-right: 5%;
     }
+
+    .search-box {
+        gap: 7px;
+    }
+
+    #searchInput {
+        padding: 12px 10px;
+        font-size: 13px;
+    }
+
+    #searchButton {
+        padding: 0 14px;
+        font-size: 13px;
+    }
 }
 </style>
 </head>
@@ -404,7 +450,7 @@ footer p {
 
 <main>
 
-    <!-- HERO: BACKGROUND IMAGE AND BUTTON ONLY -->
+    <!-- HERO -->
 
     <section class="hero">
         <a href="#collection" class="gold-button">
@@ -422,13 +468,21 @@ footer p {
             <p>Find the perfect bag that expresses your style.</p>
         </div>
 
+        <!-- SEARCH INPUT AND BUTTON -->
+
         <div class="search-area">
-            <input
-                type="text"
-                id="searchInput"
-                placeholder="Search for a handbag..."
-                aria-label="Search handbags"
-            >
+            <div class="search-box">
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search for a handbag..."
+                    aria-label="Search handbags"
+                >
+
+                <button type="button" id="searchButton">
+                    Search
+                </button>
+            </div>
         </div>
 
         <div class="products" id="productsGrid">
@@ -558,7 +612,7 @@ footer p {
                     >
 
                     <button class="favorite-button"
-                        aria-label="Add Emerald Bucket Bag to favorites"
+                        aria-label="Add to favorites"
                         aria-pressed="false"
                         onclick="toggleFavorite(this)">♡</button>
                 </div>
@@ -618,58 +672,127 @@ footer p {
 </footer>
 
 <script>
-    // SEARCH
+/* SEARCH */
 
-    const searchInput = document.getElementById("searchInput");
-    const productCards = document.querySelectorAll(".product-card");
-    const productsGrid = document.getElementById("productsGrid");
+const searchInput = document.getElementById("searchInput");
+const searchButton = document.getElementById("searchButton");
+const productCards = document.querySelectorAll(".product-card");
+const productsGrid = document.getElementById("productsGrid");
 
-    searchInput.addEventListener("input", function () {
-        const searchText = this.value.toLowerCase().trim();
-        let visibleProducts = 0;
+function searchHandbags() {
+    const searchText = searchInput.value.toLowerCase().trim();
+    let visibleProducts = 0;
 
-        const oldMessage =
-            productsGrid.querySelector(".empty-message");
+    const oldMessage =
+        productsGrid.querySelector(".empty-message");
 
-        if (oldMessage) {
-            oldMessage.remove();
-        }
+    if (oldMessage) {
+        oldMessage.remove();
+    }
 
-        productCards.forEach(function (card) {
-            const name = card.dataset.name.toLowerCase();
-            const category = card.dataset.category.toLowerCase();
+    productCards.forEach(function (card) {
+        const name = card.dataset.name.toLowerCase();
+        const category = card.dataset.category.toLowerCase();
 
-            const matches =
-                name.includes(searchText) ||
-                category.includes(searchText);
+        const matches =
+            name.includes(searchText) ||
+            category.includes(searchText);
 
-            card.style.display = matches ? "" : "none";
+        card.style.display = matches ? "" : "none";
 
-            if (matches) {
-                visibleProducts++;
-            }
-        });
-
-        if (visibleProducts === 0) {
-            const message = document.createElement("p");
-            message.className = "empty-message";
-            message.textContent =
-                "No handbags found. Try another search.";
-
-            productsGrid.appendChild(message);
+        if (matches) {
+            visibleProducts++;
         }
     });
 
-    // FAVORITES
+    if (visibleProducts === 0) {
+        const message = document.createElement("p");
+        message.className = "empty-message";
+        message.textContent =
+            "No handbags found. Try another search.";
 
-    function toggleFavorite(button) {
-        const isFavorite = button.classList.toggle("active");
+        productsGrid.appendChild(message);
+    }
+}
 
+/* Search while typing */
+
+searchInput.addEventListener("input", searchHandbags);
+
+/* Search when clicking the button */
+
+searchButton.addEventListener("click", searchHandbags);
+
+/* Search when pressing Enter */
+
+searchInput.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+        searchHandbags();
+    }
+});
+
+/* FAVORITES */
+
+function toggleFavorite(button) {
+    const card = button.closest(".product-card");
+    const isFavorite = button.classList.toggle("active");
+
+    button.textContent = isFavorite ? "♥" : "♡";
+    button.setAttribute("aria-pressed", String(isFavorite));
+
+    button.setAttribute(
+        "aria-label",
+        isFavorite ? "Remove from favorites" : "Add to favorites"
+    );
+
+    const favorites = getFavorites();
+    const bagName = card.dataset.name;
+
+    const index = favorites.indexOf(bagName);
+
+    if (isFavorite && index === -1) {
+        favorites.push(bagName);
+    } else if (!isFavorite && index !== -1) {
+        favorites.splice(index, 1);
+    }
+
+    try {
+        localStorage.setItem("luxeFavorites", JSON.stringify(favorites));
+    } catch (error) {
+        console.log("Favorites could not be saved.");
+    }
+}
+
+function getFavorites() {
+    try {
+        const saved = JSON.parse(localStorage.getItem("luxeFavorites"));
+        return Array.isArray(saved) ? saved : [];
+    } catch (error) {
+        return [];
+    }
+}
+
+/* Restore saved favorites when opening the page */
+
+function restoreFavorites() {
+    const favorites = getFavorites();
+
+    productCards.forEach(function (card) {
+        const button = card.querySelector(".favorite-button");
+        const isFavorite = favorites.includes(card.dataset.name);
+
+        button.classList.toggle("active", isFavorite);
         button.textContent = isFavorite ? "♥" : "♡";
         button.setAttribute("aria-pressed", String(isFavorite));
-    }
+        button.setAttribute(
+            "aria-label",
+            isFavorite ? "Remove from favorites" : "Add to favorites"
+        );
+    });
+}
+
+restoreFavorites();
 </script>
 
 </body>
 </html>
-
