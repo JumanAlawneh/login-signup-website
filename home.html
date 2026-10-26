@@ -7,7 +7,6 @@
 <title>Luxe Bags | Luxury Collection</title>
 <meta name="description" content="Explore the Luxe Bags handbag collection.">
 
-<!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-T62TQDREQV"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
@@ -74,7 +73,7 @@ nav {
 
 nav a {
     font-size: 14px;
-    transition: 0.3s;
+    transition: .3s;
 }
 
 nav a:hover { color: var(--gold); }
@@ -88,7 +87,7 @@ nav a:hover { color: var(--gold); }
     border-radius: 3px;
     font-weight: bold;
     cursor: pointer;
-    transition: 0.3s;
+    transition: .3s;
 }
 
 .gold-button:hover {
@@ -157,7 +156,6 @@ nav a:hover { color: var(--gold); }
 }
 
 #searchInput::placeholder { color: #aaa; }
-
 #searchInput:focus { border-color: var(--gold); }
 
 #searchButton {
@@ -198,16 +196,22 @@ nav a:hover { color: var(--gold); }
 }
 
 .product-image {
-    height: 300px;
+    height: 320px;
     position: relative;
-    background: #202020;
+    background: #181818;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
 }
 
 .product-image img {
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: contain;
+    object-position: center;
     transition: transform .4s;
 }
 
@@ -457,14 +461,6 @@ const bags = [
         description: "A timeless quilted handbag with a refined design."
     },
     {
-        id: "chanel1",
-        name: "Chanel Quilted Shoulder Bag",
-        brand: "Chanel",
-        image: "./CHANEL1.PNG",
-        price: 290,
-        description: "An elegant quilted bag with a classic silhouette."
-    },
-    {
         id: "dior",
         name: "Dior Classic Handbag",
         brand: "Dior",
@@ -519,22 +515,6 @@ const bags = [
         image: "./MK.PNG",
         price: 190,
         description: "A versatile handbag for everyday outfits."
-    },
-    {
-        id: "coach",
-        name: "Coach Classic Shoulder Bag",
-        brand: "Coach",
-        image: "./COACH.PNG",
-        price: 180,
-        description: "A practical shoulder bag with a timeless design."
-    },
-    {
-        id: "coach1",
-        name: "Coach Signature Hobo",
-        brand: "Coach",
-        image: "./COACH1.PNG",
-        price: 185,
-        description: "A signature-pattern handbag with a curved silhouette."
     }
 ];
 
@@ -567,8 +547,6 @@ function renderProducts(list) {
     list.forEach(bag => {
         const card = document.createElement("article");
         card.className = "product-card";
-        card.dataset.name = bag.name;
-        card.dataset.category = bag.brand;
 
         const imageArea = document.createElement("div");
         imageArea.className = "product-image";
@@ -581,6 +559,7 @@ function renderProducts(list) {
         img.onerror = function () {
             this.onerror = null;
             this.alt = "Image could not be loaded: " + bag.name;
+            this.style.display = "none";
         };
 
         const favoriteButton = document.createElement("button");
@@ -588,10 +567,7 @@ function renderProducts(list) {
         favoriteButton.className = "favorite-button";
         favoriteButton.textContent = favorites.includes(bag.id) ? "♥" : "♡";
         favoriteButton.classList.toggle("active", favorites.includes(bag.id));
-        favoriteButton.setAttribute(
-            "aria-pressed",
-            String(favorites.includes(bag.id))
-        );
+        favoriteButton.setAttribute("aria-pressed", String(favorites.includes(bag.id)));
         favoriteButton.setAttribute("aria-label", "Toggle favorite");
 
         favoriteButton.addEventListener("click", () => {
@@ -606,7 +582,6 @@ function renderProducts(list) {
 
             try {
                 localStorage.setItem("luxeFavorites", JSON.stringify(saved));
-
                 const active = saved.includes(bag.id);
                 favoriteButton.textContent = active ? "♥" : "♡";
                 favoriteButton.classList.toggle("active", active);
