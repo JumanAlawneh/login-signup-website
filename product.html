@@ -222,35 +222,6 @@ footer span {
 <script>
 const bags = [
     {
-        id: "classic",
-        name: "Classic Top Handle",
-        price: 120,
-        image: "./Classic%20Top%20Handle.jpg",
-        description: "A timeless handbag with an elegant top handle, perfect for everyday style."
-    },
-    {
-        id: "crescent",
-        name: "Crescent Hobo",
-        price: 95,
-        image: "./Crescent%20Hobo.jpg",
-        description: "A chic crescent-shaped shoulder bag with a modern silhouette."
-    },
-    {
-        id: "baguette",
-        name: "Baguette Bag",
-        price: 110,
-        image: "./Baguette%20Bag.jpg",
-        description: "A stylish compact bag for day and evening looks."
-    },
-    {
-        id: "emerald-bucket",
-        name: "Emerald Bucket Bag",
-        price: 100,
-        image: "./Emerald%20Bucket%20Bag.png",
-        description: "An emerald green bucket bag with elegant details."
-    },
-
-    {
         id: "gucci",
         name: "Gucci Monogram Shoulder Bag",
         price: 250,
@@ -377,8 +348,10 @@ if (!bag) {
         this.style.display = "none";
 
         const errorMessage = document.createElement("p");
-        errorMessage.textContent = "Image could not be loaded. Please check the image filename.";
-        errorMessage.style.cssText = "padding:30px;color:#ccc;line-height:1.6";
+        errorMessage.textContent =
+            "Image could not be loaded. Please check the image filename.";
+        errorMessage.style.cssText =
+            "padding:30px;color:#ccc;line-height:1.6";
         imagePanel.appendChild(errorMessage);
     };
 
@@ -467,13 +440,17 @@ if (!bag) {
         }
 
         try {
-            localStorage.setItem("luxeFavorites", JSON.stringify(favorites));
+            localStorage.setItem(
+                "luxeFavorites",
+                JSON.stringify(favorites)
+            );
             updateFavoriteButton();
             message.textContent = favorites.includes(bag.id)
                 ? "Added to your favorites!"
                 : "Removed from your favorites.";
         } catch {
-            message.textContent = "Unable to save favorites in this browser.";
+            message.textContent =
+                "Unable to save favorites in this browser.";
         }
     });
 
@@ -505,7 +482,8 @@ if (!bag) {
             message.textContent =
                 quantity + " × " + bag.name + " added to your bag!";
         } catch {
-            message.textContent = "Unable to save your bag in this browser.";
+            message.textContent =
+                "Unable to save your bag in this browser.";
         }
     });
 
