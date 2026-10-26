@@ -80,7 +80,8 @@ nav a:hover {
     height: 470px;
     display: block;
     object-fit: contain;
-    background: #202020;
+    object-position: center;
+    background: #181818;
 }
 
 .info h1 {
@@ -243,13 +244,6 @@ const bags = [
         description: "A timeless quilted handbag with a refined chain-strap design."
     },
     {
-        id: "chanel1",
-        name: "Chanel Beige Quilted Bag",
-        price: 290,
-        image: "./CHANEL1.PNG",
-        description: "A soft beige quilted handbag with elegant finishing details."
-    },
-    {
         id: "dior",
         name: "Dior Classic Handbag",
         price: 275,
@@ -297,20 +291,6 @@ const bags = [
         price: 190,
         image: "./MK.PNG",
         description: "A versatile signature handbag designed to complement everyday outfits."
-    },
-    {
-        id: "coach",
-        name: "Coach Classic Shoulder Bag",
-        price: 180,
-        image: "./COACH.PNG",
-        description: "A practical shoulder bag with a timeless design."
-    },
-    {
-        id: "coach1",
-        name: "Coach Signature Hobo",
-        price: 185,
-        image: "./COACH1.PNG",
-        description: "A casual signature-pattern bag with a stylish curved silhouette."
     }
 ];
 
@@ -344,7 +324,6 @@ if (!bag) {
 
     image.onerror = function () {
         this.onerror = null;
-        this.alt = bag.name + " image could not be loaded";
         this.style.display = "none";
 
         const errorMessage = document.createElement("p");
@@ -440,11 +419,9 @@ if (!bag) {
         }
 
         try {
-            localStorage.setItem(
-                "luxeFavorites",
-                JSON.stringify(favorites)
-            );
+            localStorage.setItem("luxeFavorites", JSON.stringify(favorites));
             updateFavoriteButton();
+
             message.textContent = favorites.includes(bag.id)
                 ? "Added to your favorites!"
                 : "Removed from your favorites.";
