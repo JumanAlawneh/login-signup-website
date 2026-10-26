@@ -5,14 +5,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Luxe Bags | Luxury Collection</title>
+<meta name="description" content="Explore the Luxe Bags handbag collection.">
 
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-T62TQDREQV"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-T62TQDREQV');
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-T62TQDREQV');
 </script>
 
 <style>
@@ -31,9 +32,7 @@
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
     background: var(--black);
@@ -45,8 +44,6 @@ a {
     color: inherit;
     text-decoration: none;
 }
-
-/* HEADER */
 
 header {
     min-height: 85px;
@@ -80,9 +77,7 @@ nav a {
     transition: 0.3s;
 }
 
-nav a:hover {
-    color: var(--gold);
-}
+nav a:hover { color: var(--gold); }
 
 .gold-button {
     display: inline-block;
@@ -101,8 +96,6 @@ nav a:hover {
     transform: translateY(-2px);
 }
 
-/* HERO */
-
 .hero {
     min-height: 520px;
     display: flex;
@@ -111,18 +104,11 @@ nav a:hover {
     padding: 40px 20px 45px;
     text-align: center;
     background:
-        linear-gradient(
-            rgba(0, 0, 0, 0.05),
-            rgba(0, 0, 0, 0.15)
-        ),
+        linear-gradient(rgba(0,0,0,.05), rgba(0,0,0,.15)),
         url("./luxe-bags-hero.png") center / cover no-repeat;
 }
 
-/* COLLECTION */
-
-.section {
-    padding: 70px 7%;
-}
+.section { padding: 70px 7%; }
 
 .section-heading {
     text-align: center;
@@ -148,8 +134,6 @@ nav a:hover {
     line-height: 1.7;
 }
 
-/* SEARCH */
-
 .search-area {
     max-width: 600px;
     margin: 0 auto 35px;
@@ -172,13 +156,9 @@ nav a:hover {
     font-size: 15px;
 }
 
-#searchInput::placeholder {
-    color: #aaa;
-}
+#searchInput::placeholder { color: #aaa; }
 
-#searchInput:focus {
-    border-color: var(--gold);
-}
+#searchInput:focus { border-color: var(--gold); }
 
 #searchButton {
     padding: 0 22px;
@@ -188,20 +168,16 @@ nav a:hover {
     border-radius: 3px;
     font-weight: bold;
     cursor: pointer;
-    transition: 0.3s;
+    transition: .3s;
 }
 
-#searchButton:hover {
-    background: var(--light-gold);
-}
+#searchButton:hover { background: var(--light-gold); }
 
 #searchButton:focus-visible,
 #searchInput:focus-visible {
     outline: 2px solid var(--light-gold);
     outline-offset: 3px;
 }
-
-/* PRODUCTS */
 
 .products {
     display: grid;
@@ -213,7 +189,7 @@ nav a:hover {
     background: var(--card);
     border: 1px solid #29231a;
     overflow: hidden;
-    transition: 0.3s;
+    transition: .3s;
 }
 
 .product-card:hover {
@@ -231,12 +207,12 @@ nav a:hover {
 .product-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s;
+    object-fit: contain;
+    transition: transform .4s;
 }
 
 .product-card:hover .product-image img {
-    transform: scale(1.05);
+    transform: scale(1.04);
 }
 
 .favorite-button {
@@ -247,19 +223,15 @@ nav a:hover {
     height: 40px;
     border: none;
     border-radius: 50%;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0,0,0,.8);
     color: white;
     font-size: 23px;
     cursor: pointer;
 }
 
-.favorite-button.active {
-    color: var(--gold);
-}
+.favorite-button.active { color: var(--gold); }
 
-.product-info {
-    padding: 22px;
-}
+.product-info { padding: 22px; }
 
 .category {
     color: var(--gold);
@@ -302,7 +274,7 @@ nav a:hover {
     border: 1px solid var(--gold);
     color: var(--gold);
     font-size: 12px;
-    transition: 0.3s;
+    transition: .3s;
 }
 
 .details-button:hover {
@@ -317,18 +289,13 @@ nav a:hover {
     padding: 35px;
 }
 
-/* ABOUT */
-
 .banner {
     margin: 0 7% 65px;
     padding: 50px 25px;
     text-align: center;
     border: 1px solid #5d4b20;
     background:
-        linear-gradient(
-            rgba(0, 0, 0, 0.82),
-            rgba(0, 0, 0, 0.82)
-        ),
+        linear-gradient(rgba(0,0,0,.82), rgba(0,0,0,.82)),
         url("./luxe-bags-hero.png") center / cover no-repeat;
 }
 
@@ -344,8 +311,6 @@ nav a:hover {
     line-height: 1.7;
     margin-bottom: 22px;
 }
-
-/* FOOTER */
 
 footer {
     padding: 35px 7%;
@@ -375,70 +340,25 @@ footer p {
     margin: 18px 0;
 }
 
-.footer-links a:hover {
-    color: var(--gold);
-}
-
-/* RESPONSIVE */
+.footer-links a:hover { color: var(--gold); }
 
 @media (max-width: 900px) {
-    .products {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    header {
-        justify-content: center;
-    }
-
-    nav {
-        justify-content: center;
-    }
-
-    .hero {
-        min-height: 430px;
-    }
+    .products { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    header { justify-content: center; }
+    nav { justify-content: center; }
+    .hero { min-height: 430px; }
 }
 
 @media (max-width: 560px) {
-    .products {
-        grid-template-columns: 1fr;
-    }
-
-    .product-image {
-        height: 320px;
-    }
-
-    .section {
-        padding: 45px 5%;
-    }
-
-    .hero {
-        min-height: 360px;
-        padding: 25px 15px;
-    }
-
-    .section-heading h2 {
-        font-size: 29px;
-    }
-
-    .banner {
-        margin-left: 5%;
-        margin-right: 5%;
-    }
-
-    .search-box {
-        gap: 7px;
-    }
-
-    #searchInput {
-        padding: 12px 10px;
-        font-size: 13px;
-    }
-
-    #searchButton {
-        padding: 0 14px;
-        font-size: 13px;
-    }
+    .products { grid-template-columns: 1fr; }
+    .product-image { height: 320px; }
+    .section { padding: 45px 5%; }
+    .hero { min-height: 360px; padding: 25px 15px; }
+    .section-heading h2 { font-size: 29px; }
+    .banner { margin-left: 5%; margin-right: 5%; }
+    .search-box { gap: 7px; }
+    #searchInput { padding: 12px 10px; font-size: 13px; }
+    #searchButton { padding: 0 14px; font-size: 13px; }
 }
 </style>
 </head>
@@ -446,361 +366,313 @@ footer p {
 <body>
 
 <header>
-    <a href="home.html" class="logo">LUXE BAGS</a>
+    <a href="./home.html" class="logo">LUXE BAGS</a>
 
     <nav>
-        <a href="home.html">Home</a>
+        <a href="./home.html">Home</a>
         <a href="#collection">Collection</a>
         <a href="#about">About Us</a>
-        <a href="LOGIN.html">Login</a>
-        <a href="signup.html" class="gold-button">Sign Up</a>
+        <a href="./LOGIN.html">Login</a>
+        <a href="./signup.html" class="gold-button">Sign Up</a>
     </nav>
 </header>
 
 <main>
 
-    <!-- HERO -->
+<section class="hero">
+    <a href="#collection" class="gold-button">Explore Collection →</a>
+</section>
 
-    <section class="hero">
-        <a href="#collection" class="gold-button">
-            Explore Collection →
-        </a>
-    </section>
+<section class="section" id="collection">
+    <div class="section-heading">
+        <span>THE LUXE EDIT</span>
+        <h2>Our Collection</h2>
+        <p>Find the perfect bag that expresses your style.</p>
+    </div>
 
-    <!-- COLLECTION -->
-
-    <section class="section" id="collection">
-
-        <div class="section-heading">
-            <span>THE LUXE EDIT</span>
-            <h2>Our Collection</h2>
-            <p>Find the perfect bag that expresses your style.</p>
+    <div class="search-area">
+        <div class="search-box">
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search by handbag or brand..."
+                aria-label="Search handbags"
+            >
+            <button type="button" id="searchButton">Search</button>
         </div>
+    </div>
 
-        <!-- SEARCH INPUT AND BUTTON -->
+    <div class="products" id="productsGrid"></div>
+</section>
 
-        <div class="search-area">
-            <div class="search-box">
-                <input
-                    type="text"
-                    id="searchInput"
-                    placeholder="Search for a handbag..."
-                    aria-label="Search handbags"
-                >
-
-                <button type="button" id="searchButton">
-                    Search
-                </button>
-            </div>
-        </div>
-
-        <div class="products" id="productsGrid">
-
-            <!-- CLASSIC TOP HANDLE -->
-
-            <article class="product-card"
-                data-name="Classic Top Handle"
-                data-category="Classic">
-
-                <div class="product-image">
-                    <img
-                        src="./Classic%20Top%20Handle.jpg"
-                        alt="Classic Top Handle handbag"
-                        loading="lazy"
-                    >
-
-                    <button class="favorite-button"
-                        aria-label="Add to favorites"
-                        aria-pressed="false"
-                        onclick="toggleFavorite(this)">♡</button>
-                </div>
-
-                <div class="product-info">
-                    <div class="category">Classic Collection</div>
-                    <h3>Classic Top Handle</h3>
-
-                    <p class="description">
-                        A timeless design for elegant everyday moments.
-                    </p>
-
-                    <div class="product-bottom">
-                        <span class="price">$120</span>
-                        <a class="details-button"
-                           href="product.html?bag=classic">
-                            View Details
-                        </a>
-                    </div>
-                </div>
-            </article>
-
-            <!-- CRESCENT HOBO -->
-
-            <article class="product-card"
-                data-name="Crescent Hobo"
-                data-category="Hobo">
-
-                <div class="product-image">
-                    <img
-                        src="./Crescent%20Hobo.jpg"
-                        alt="Crescent Hobo handbag"
-                        loading="lazy"
-                    >
-
-                    <button class="favorite-button"
-                        aria-label="Add to favorites"
-                        aria-pressed="false"
-                        onclick="toggleFavorite(this)">♡</button>
-                </div>
-
-                <div class="product-info">
-                    <div class="category">Modern Collection</div>
-                    <h3>Crescent Hobo</h3>
-
-                    <p class="description">
-                        A modern crescent silhouette with effortless style.
-                    </p>
-
-                    <div class="product-bottom">
-                        <span class="price">$95</span>
-                        <a class="details-button"
-                           href="product.html?bag=crescent">
-                            View Details
-                        </a>
-                    </div>
-                </div>
-            </article>
-
-            <!-- BAGUETTE BAG -->
-
-            <article class="product-card"
-                data-name="Baguette Bag"
-                data-category="Signature">
-
-                <div class="product-image">
-                    <img
-                        src="./Baguette%20Bag.jpg"
-                        alt="Baguette Bag handbag"
-                        loading="lazy"
-                    >
-
-                    <button class="favorite-button"
-                        aria-label="Add to favorites"
-                        aria-pressed="false"
-                        onclick="toggleFavorite(this)">♡</button>
-                </div>
-
-                <div class="product-info">
-                    <div class="category">Signature Collection</div>
-                    <h3>Baguette Bag</h3>
-
-                    <p class="description">
-                        A chic statement piece for day and evening looks.
-                    </p>
-
-                    <div class="product-bottom">
-                        <span class="price">$110</span>
-                        <a class="details-button"
-                           href="product.html?bag=baguette">
-                            View Details
-                        </a>
-                    </div>
-                </div>
-            </article>
-
-            <!-- EMERALD BUCKET BAG -->
-
-            <article class="product-card"
-                data-name="Emerald Bucket Bag"
-                data-category="Bucket Green">
-
-                <div class="product-image">
-                    <img
-                        src="./Emerald%20Bucket%20Bag.png"
-                        alt="Emerald Green Bucket Bag with gold hardware"
-                        loading="lazy"
-                    >
-
-                    <button class="favorite-button"
-                        aria-label="Add to favorites"
-                        aria-pressed="false"
-                        onclick="toggleFavorite(this)">♡</button>
-                </div>
-
-                <div class="product-info">
-                    <div class="category">Bucket Collection</div>
-                    <h3>Emerald Bucket Bag</h3>
-
-                    <p class="description">
-                        An elegant emerald green bucket bag
-                        with luxurious golden details.
-                    </p>
-
-                    <div class="product-bottom">
-                        <span class="price">$100</span>
-                        <a class="details-button"
-                           href="product.html?bag=emerald-bucket">
-                            View Details
-                        </a>
-                    </div>
-                </div>
-            </article>
-
-        </div>
-    </section>
-
-    <!-- ABOUT -->
-
-    <section class="banner" id="about">
-        <h2>Elegance Is an Attitude</h2>
-
-        <p>
-            At Luxe Bags, every detail matters.
-            Discover timeless style with a touch of luxury.
-        </p>
-
-        <a href="signup.html" class="gold-button">
-            Join Luxe Bags
-        </a>
-    </section>
+<section class="banner" id="about">
+    <h2>Elegance Is an Attitude</h2>
+    <p>
+        At Luxe Bags, every detail matters.
+        Discover timeless style with a touch of luxury.
+    </p>
+    <a href="./signup.html" class="gold-button">Join Luxe Bags</a>
+</section>
 
 </main>
 
 <footer>
     <div class="footer-logo">LUXE BAGS</div>
-
     <p>Timeless elegance. Exceptional style.</p>
 
     <div class="footer-links">
-        <a href="home.html">Home</a>
+        <a href="./home.html">Home</a>
         <a href="#collection">Collection</a>
-        <a href="LOGIN.html">Login</a>
-        <a href="signup.html">Sign Up</a>
+        <a href="./LOGIN.html">Login</a>
+        <a href="./signup.html">Sign Up</a>
     </div>
 
     <p>© 2026 Luxe Bags. All rights reserved.</p>
 </footer>
 
 <script>
-/* SEARCH */
+const bags = [
+    {
+        id: "gucci",
+        name: "Gucci Monogram Shoulder Bag",
+        brand: "Gucci",
+        image: "./GUCCI.PNG",
+        price: 250,
+        description: "A classic monogram shoulder bag with elegant details."
+    },
+    {
+        id: "gucci1",
+        name: "Gucci Classic Shoulder Bag",
+        brand: "Gucci",
+        image: "./GUCCI1.PNG",
+        price: 270,
+        description: "An elegant shoulder bag for a sophisticated look."
+    },
+    {
+        id: "chanel",
+        name: "Chanel Quilted Handbag",
+        brand: "Chanel",
+        image: "./CHANEL.PNG",
+        price: 280,
+        description: "A timeless quilted handbag with a refined design."
+    },
+    {
+        id: "chanel1",
+        name: "Chanel Quilted Shoulder Bag",
+        brand: "Chanel",
+        image: "./CHANEL1.PNG",
+        price: 290,
+        description: "An elegant quilted bag with a classic silhouette."
+    },
+    {
+        id: "dior",
+        name: "Dior Classic Handbag",
+        brand: "Dior",
+        image: "./DIOR.PNG",
+        price: 275,
+        description: "A structured handbag with a graceful silhouette."
+    },
+    {
+        id: "dior1",
+        name: "Dior Signature Bag",
+        brand: "Dior",
+        image: "./DIOR1.PNG",
+        price: 285,
+        description: "A distinctive handbag for an elegant outfit."
+    },
+    {
+        id: "ysl",
+        name: "YSL Quilted Shoulder Bag",
+        brand: "YSL",
+        image: "./YSL.PNG",
+        price: 260,
+        description: "A sleek shoulder bag with elegant hardware."
+    },
+    {
+        id: "ysl1",
+        name: "YSL Burgundy Shoulder Bag",
+        brand: "YSL",
+        image: "./YSL1.PNG",
+        price: 265,
+        description: "A burgundy shoulder bag with a rich color."
+    },
+    {
+        id: "prada",
+        name: "Prada Handbag",
+        brand: "Prada",
+        image: "./PRADA.PNG",
+        price: 240,
+        description: "A minimalist handbag with a versatile design."
+    },
+    {
+        id: "lv",
+        name: "Louis Vuitton Monogram Bag",
+        brand: "Louis Vuitton",
+        image: "./LV.PNG",
+        price: 300,
+        description: "A monogram handbag with a timeless pattern."
+    },
+    {
+        id: "mk",
+        name: "Michael Kors Signature Bag",
+        brand: "Michael Kors",
+        image: "./MK.PNG",
+        price: 190,
+        description: "A versatile handbag for everyday outfits."
+    },
+    {
+        id: "coach",
+        name: "Coach Classic Shoulder Bag",
+        brand: "Coach",
+        image: "./COACH.PNG",
+        price: 180,
+        description: "A practical shoulder bag with a timeless design."
+    },
+    {
+        id: "coach1",
+        name: "Coach Signature Hobo",
+        brand: "Coach",
+        image: "./COACH1.PNG",
+        price: 185,
+        description: "A signature-pattern handbag with a curved silhouette."
+    }
+];
 
+const productsGrid = document.getElementById("productsGrid");
 const searchInput = document.getElementById("searchInput");
 const searchButton = document.getElementById("searchButton");
-const productCards = document.querySelectorAll(".product-card");
-const productsGrid = document.getElementById("productsGrid");
 
-function searchHandbags() {
-    const searchText = searchInput.value.toLowerCase().trim();
-    let visibleProducts = 0;
-
-    const oldMessage =
-        productsGrid.querySelector(".empty-message");
-
-    if (oldMessage) {
-        oldMessage.remove();
-    }
-
-    productCards.forEach(function (card) {
-        const name = card.dataset.name.toLowerCase();
-        const category = card.dataset.category.toLowerCase();
-
-        const matches =
-            name.includes(searchText) ||
-            category.includes(searchText);
-
-        card.style.display = matches ? "" : "none";
-
-        if (matches) {
-            visibleProducts++;
-        }
-    });
-
-    if (visibleProducts === 0) {
-        const message = document.createElement("p");
-        message.className = "empty-message";
-        message.textContent =
-            "No handbags found. Try another search.";
-
-        productsGrid.appendChild(message);
+function getStoredArray(key) {
+    try {
+        const value = JSON.parse(localStorage.getItem(key));
+        return Array.isArray(value) ? value : [];
+    } catch {
+        return [];
     }
 }
 
-/* Search while typing */
+function renderProducts(list) {
+    productsGrid.innerHTML = "";
+
+    if (list.length === 0) {
+        const empty = document.createElement("p");
+        empty.className = "empty-message";
+        empty.textContent = "No handbags found. Try another search.";
+        productsGrid.appendChild(empty);
+        return;
+    }
+
+    const favorites = getStoredArray("luxeFavorites");
+
+    list.forEach(bag => {
+        const card = document.createElement("article");
+        card.className = "product-card";
+        card.dataset.name = bag.name;
+        card.dataset.category = bag.brand;
+
+        const imageArea = document.createElement("div");
+        imageArea.className = "product-image";
+
+        const img = document.createElement("img");
+        img.src = bag.image;
+        img.alt = bag.name;
+        img.loading = "lazy";
+
+        img.onerror = function () {
+            this.onerror = null;
+            this.alt = "Image could not be loaded: " + bag.name;
+        };
+
+        const favoriteButton = document.createElement("button");
+        favoriteButton.type = "button";
+        favoriteButton.className = "favorite-button";
+        favoriteButton.textContent = favorites.includes(bag.id) ? "♥" : "♡";
+        favoriteButton.classList.toggle("active", favorites.includes(bag.id));
+        favoriteButton.setAttribute(
+            "aria-pressed",
+            String(favorites.includes(bag.id))
+        );
+        favoriteButton.setAttribute("aria-label", "Toggle favorite");
+
+        favoriteButton.addEventListener("click", () => {
+            const saved = getStoredArray("luxeFavorites");
+            const index = saved.indexOf(bag.id);
+
+            if (index === -1) {
+                saved.push(bag.id);
+            } else {
+                saved.splice(index, 1);
+            }
+
+            try {
+                localStorage.setItem("luxeFavorites", JSON.stringify(saved));
+
+                const active = saved.includes(bag.id);
+                favoriteButton.textContent = active ? "♥" : "♡";
+                favoriteButton.classList.toggle("active", active);
+                favoriteButton.setAttribute("aria-pressed", String(active));
+            } catch {
+                alert("Unable to save favorites in this browser.");
+            }
+        });
+
+        imageArea.append(img, favoriteButton);
+
+        const info = document.createElement("div");
+        info.className = "product-info";
+
+        const category = document.createElement("div");
+        category.className = "category";
+        category.textContent = bag.brand;
+
+        const title = document.createElement("h3");
+        title.textContent = bag.name;
+
+        const description = document.createElement("p");
+        description.className = "description";
+        description.textContent = bag.description;
+
+        const bottom = document.createElement("div");
+        bottom.className = "product-bottom";
+
+        const price = document.createElement("span");
+        price.className = "price";
+        price.textContent = "$" + bag.price.toFixed(2);
+
+        const detailsLink = document.createElement("a");
+        detailsLink.className = "details-button";
+        detailsLink.href = "./product.html?bag=" + encodeURIComponent(bag.id);
+        detailsLink.textContent = "View Details";
+
+        bottom.append(price, detailsLink);
+        info.append(category, title, description, bottom);
+        card.append(imageArea, info);
+        productsGrid.appendChild(card);
+    });
+}
+
+function searchHandbags() {
+    const query = searchInput.value.toLowerCase().trim();
+
+    const filtered = bags.filter(bag =>
+        bag.name.toLowerCase().includes(query) ||
+        bag.brand.toLowerCase().includes(query) ||
+        bag.description.toLowerCase().includes(query)
+    );
+
+    renderProducts(filtered);
+}
 
 searchInput.addEventListener("input", searchHandbags);
-
-/* Search when clicking the button */
-
 searchButton.addEventListener("click", searchHandbags);
 
-/* Search when pressing Enter */
-
-searchInput.addEventListener("keydown", function (event) {
+searchInput.addEventListener("keydown", event => {
     if (event.key === "Enter") {
         searchHandbags();
     }
 });
 
-/* FAVORITES */
-
-function toggleFavorite(button) {
-    const card = button.closest(".product-card");
-    const isFavorite = button.classList.toggle("active");
-
-    button.textContent = isFavorite ? "♥" : "♡";
-    button.setAttribute("aria-pressed", String(isFavorite));
-
-    button.setAttribute(
-        "aria-label",
-        isFavorite ? "Remove from favorites" : "Add to favorites"
-    );
-
-    const favorites = getFavorites();
-    const bagName = card.dataset.name;
-
-    const index = favorites.indexOf(bagName);
-
-    if (isFavorite && index === -1) {
-        favorites.push(bagName);
-    } else if (!isFavorite && index !== -1) {
-        favorites.splice(index, 1);
-    }
-
-    try {
-        localStorage.setItem("luxeFavorites", JSON.stringify(favorites));
-    } catch (error) {
-        console.log("Favorites could not be saved.");
-    }
-}
-
-function getFavorites() {
-    try {
-        const saved = JSON.parse(localStorage.getItem("luxeFavorites"));
-        return Array.isArray(saved) ? saved : [];
-    } catch (error) {
-        return [];
-    }
-}
-
-/* Restore saved favorites when opening the page */
-
-function restoreFavorites() {
-    const favorites = getFavorites();
-
-    productCards.forEach(function (card) {
-        const button = card.querySelector(".favorite-button");
-        const isFavorite = favorites.includes(card.dataset.name);
-
-        button.classList.toggle("active", isFavorite);
-        button.textContent = isFavorite ? "♥" : "♡";
-        button.setAttribute("aria-pressed", String(isFavorite));
-        button.setAttribute(
-            "aria-label",
-            isFavorite ? "Remove from favorites" : "Add to favorites"
-        );
-    });
-}
-
-restoreFavorites();
+renderProducts(bags);
 </script>
 
 </body>
