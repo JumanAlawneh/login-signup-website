@@ -31,7 +31,9 @@ gtag('config', 'G-T62TQDREQV');
     box-sizing: border-box;
 }
 
-html { scroll-behavior: smooth; }
+html {
+    scroll-behavior: smooth;
+}
 
 body {
     background: var(--black);
@@ -76,7 +78,9 @@ nav a {
     transition: .3s;
 }
 
-nav a:hover { color: var(--gold); }
+nav a:hover {
+    color: var(--gold);
+}
 
 .gold-button {
     display: inline-block;
@@ -95,19 +99,52 @@ nav a:hover { color: var(--gold); }
     transform: translateY(-2px);
 }
 
+/* HERO BANNER */
 .hero {
-    min-height: 520px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    padding: 40px 20px 45px;
-    text-align: center;
-    background:
-        linear-gradient(rgba(0,0,0,.05), rgba(0,0,0,.15)),
-        url("./luxe-bags-hero.png") center / cover no-repeat;
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1808 / 632;
+    min-height: 0;
+    padding: 0;
+    background: url("./Capture.PNG") center / 100% 100% no-repeat;
 }
 
-.section { padding: 70px 7%; }
+/* REAL SHOP NOW BUTTON */
+.shop-now-button {
+    position: absolute;
+    left: 18.55%;
+    top: 66.3%;
+    width: 18.3%;
+    height: 13%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #080808;
+    border: 2px solid var(--gold);
+    color: var(--light-gold);
+    font-size: clamp(9px, 1.5vw, 20px);
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-decoration: none;
+    cursor: pointer;
+    z-index: 2;
+    transition: .3s;
+}
+
+.shop-now-button:hover {
+    background: var(--gold);
+    color: var(--black);
+}
+
+.shop-now-button:focus-visible {
+    outline: 2px solid var(--light-gold);
+    outline-offset: 4px;
+}
+
+/* SECTIONS */
+.section {
+    padding: 70px 7%;
+}
 
 .section-heading {
     text-align: center;
@@ -133,6 +170,7 @@ nav a:hover { color: var(--gold); }
     line-height: 1.7;
 }
 
+/* SEARCH */
 .search-area {
     max-width: 600px;
     margin: 0 auto 35px;
@@ -155,8 +193,13 @@ nav a:hover { color: var(--gold); }
     font-size: 15px;
 }
 
-#searchInput::placeholder { color: #aaa; }
-#searchInput:focus { border-color: var(--gold); }
+#searchInput::placeholder {
+    color: #aaa;
+}
+
+#searchInput:focus {
+    border-color: var(--gold);
+}
 
 #searchButton {
     padding: 0 22px;
@@ -169,7 +212,9 @@ nav a:hover { color: var(--gold); }
     transition: .3s;
 }
 
-#searchButton:hover { background: var(--light-gold); }
+#searchButton:hover {
+    background: var(--light-gold);
+}
 
 #searchButton:focus-visible,
 #searchInput:focus-visible {
@@ -177,6 +222,7 @@ nav a:hover { color: var(--gold); }
     outline-offset: 3px;
 }
 
+/* PRODUCTS */
 .products {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -233,9 +279,13 @@ nav a:hover { color: var(--gold); }
     cursor: pointer;
 }
 
-.favorite-button.active { color: var(--gold); }
+.favorite-button.active {
+    color: var(--gold);
+}
 
-.product-info { padding: 22px; }
+.product-info {
+    padding: 22px;
+}
 
 .category {
     color: var(--gold);
@@ -293,6 +343,7 @@ nav a:hover { color: var(--gold); }
     padding: 35px;
 }
 
+/* LOWER BANNER */
 .banner {
     margin: 0 7% 65px;
     padding: 50px 25px;
@@ -300,7 +351,7 @@ nav a:hover { color: var(--gold); }
     border: 1px solid #5d4b20;
     background:
         linear-gradient(rgba(0,0,0,.82), rgba(0,0,0,.82)),
-        url("./luxe-bags-hero.png") center / cover no-repeat;
+        url("./Capture.PNG") center / cover no-repeat;
 }
 
 .banner h2 {
@@ -344,25 +395,67 @@ footer p {
     margin: 18px 0;
 }
 
-.footer-links a:hover { color: var(--gold); }
-
-@media (max-width: 900px) {
-    .products { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    header { justify-content: center; }
-    nav { justify-content: center; }
-    .hero { min-height: 430px; }
+.footer-links a:hover {
+    color: var(--gold);
 }
 
+/* TABLET */
+@media (max-width: 900px) {
+    .products {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    header {
+        justify-content: center;
+    }
+
+    nav {
+        justify-content: center;
+    }
+}
+
+/* MOBILE */
 @media (max-width: 560px) {
-    .products { grid-template-columns: 1fr; }
-    .product-image { height: 320px; }
-    .section { padding: 45px 5%; }
-    .hero { min-height: 360px; padding: 25px 15px; }
-    .section-heading h2 { font-size: 29px; }
-    .banner { margin-left: 5%; margin-right: 5%; }
-    .search-box { gap: 7px; }
-    #searchInput { padding: 12px 10px; font-size: 13px; }
-    #searchButton { padding: 0 14px; font-size: 13px; }
+    .products {
+        grid-template-columns: 1fr;
+    }
+
+    .product-image {
+        height: 320px;
+    }
+
+    .section {
+        padding: 45px 5%;
+    }
+
+    .section-heading h2 {
+        font-size: 29px;
+    }
+
+    .banner {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .search-box {
+        gap: 7px;
+    }
+
+    #searchInput {
+        padding: 12px 10px;
+        font-size: 13px;
+    }
+
+    #searchButton {
+        padding: 0 14px;
+        font-size: 13px;
+    }
+
+    .shop-now-button {
+        border-width: 1px;
+        letter-spacing: 1px;
+        font-size: 8px;
+    }
 }
 </style>
 </head>
@@ -383,8 +476,8 @@ footer p {
 
 <main>
 
-<section class="hero">
-    <a href="#collection" class="gold-button">Explore Collection →</a>
+<section class="hero" aria-label="Luxury handbag banner">
+    <a href="#collection" class="shop-now-button">SHOP NOW</a>
 </section>
 
 <section class="section" id="collection">
@@ -565,10 +658,20 @@ function renderProducts(list) {
         const favoriteButton = document.createElement("button");
         favoriteButton.type = "button";
         favoriteButton.className = "favorite-button";
-        favoriteButton.textContent = favorites.includes(bag.id) ? "♥" : "♡";
-        favoriteButton.classList.toggle("active", favorites.includes(bag.id));
-        favoriteButton.setAttribute("aria-pressed", String(favorites.includes(bag.id)));
-        favoriteButton.setAttribute("aria-label", "Toggle favorite");
+        favoriteButton.textContent =
+            favorites.includes(bag.id) ? "♥" : "♡";
+        favoriteButton.classList.toggle(
+            "active",
+            favorites.includes(bag.id)
+        );
+        favoriteButton.setAttribute(
+            "aria-pressed",
+            String(favorites.includes(bag.id))
+        );
+        favoriteButton.setAttribute(
+            "aria-label",
+            "Toggle favorite for " + bag.name
+        );
 
         favoriteButton.addEventListener("click", () => {
             const saved = getStoredArray("luxeFavorites");
@@ -581,11 +684,18 @@ function renderProducts(list) {
             }
 
             try {
-                localStorage.setItem("luxeFavorites", JSON.stringify(saved));
+                localStorage.setItem(
+                    "luxeFavorites",
+                    JSON.stringify(saved)
+                );
+
                 const active = saved.includes(bag.id);
                 favoriteButton.textContent = active ? "♥" : "♡";
                 favoriteButton.classList.toggle("active", active);
-                favoriteButton.setAttribute("aria-pressed", String(active));
+                favoriteButton.setAttribute(
+                    "aria-pressed",
+                    String(active)
+                );
             } catch {
                 alert("Unable to save favorites in this browser.");
             }
@@ -616,7 +726,8 @@ function renderProducts(list) {
 
         const detailsLink = document.createElement("a");
         detailsLink.className = "details-button";
-        detailsLink.href = "./product.html?bag=" + encodeURIComponent(bag.id);
+        detailsLink.href =
+            "./product.html?bag=" + encodeURIComponent(bag.id);
         detailsLink.textContent = "View Details";
 
         bottom.append(price, detailsLink);
