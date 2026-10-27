@@ -1,106 +1,85 @@
 
-  <!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Sign Up</title>
-
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            min-height: 100vh;
-     background-image: url("cd.png");
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-
-        .Signup {
-            width: 400px;
-            height: 450px;
-
-            background-color: rgba(205, 133, 207, 0.8);
-
-            border-radius: 10px;
-
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .Signup input {
-            width: 280px;
-            height: 35px;
-            box-sizing: border-box;
-        }
-
-        .Signup button {
-            margin-top: 10px;
-
-            background-color: rgb(5, 71, 156);
-            color: black;
-
-            border: none;
-            border-radius: 8px;
-
-            padding: 12px 25px;
-
-            cursor: pointer;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luxe Bags | Sign Up</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
+body{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:25px 15px;background:linear-gradient(#0003,#0005),url("cd.png") center/cover fixed;color:white}
+.brand{text-align:center;color:#e5b678;margin-bottom:22px;text-shadow:0 2px 12px #000}
+.brand .icon{font-size:36px}
+.brand h1{font:normal clamp(38px,5vw,65px) Georgia,serif;letter-spacing:5px}
+.brand h2{font-size:11px;letter-spacing:4px;font-weight:normal;margin-top:7px}
+.tagline{margin-top:12px;font:italic 17px Georgia,serif}
+.box{width:100%;max-width:400px;padding:30px 32px;background:rgba(12,10,8,.94);border:1px solid #c89b5b;border-radius:14px;box-shadow:0 5px 35px #0009}
+.box h3{text-align:center;font:normal 25px Georgia,serif;color:#e5b678;margin-bottom:25px}
+label{display:block;color:#e5c18b;font-size:12px;letter-spacing:1px;margin-bottom:8px}
+input{width:100%;height:42px;padding:10px 12px;margin-bottom:20px;border:1px solid #806747;border-radius:6px;background:#f5eee5;color:#222;font-size:14px}
+button{width:100%;height:43px;border:0;border-radius:7px;background:linear-gradient(90deg,#b18a35,#f0d78b);color:#17110a;font-size:15px;font-weight:bold;cursor:pointer}
+button:hover{background:#fff0b5}
+.message{text-align:center;color:#f0d78b;font-size:13px;margin-top:12px}
+.bottom{text-align:center;color:#ddd;font-size:13px;margin-top:22px}
+.bottom a{color:#e5b678;text-decoration:none;font-weight:bold}
+@media(max-width:500px){.box{padding:25px 22px}.brand h1{font-size:36px;letter-spacing:3px}.brand h2{letter-spacing:2px}}
+</style>
 </head>
-
 <body>
+<header class="brand">
+<div class="icon">♧</div>
+<h1>LUXE BAGS</h1>
+<h2>LUXURY HANDBAGS COLLECTION</h2>
+<div class="tagline">— More Than Just a Bag —</div>
+</header>
 
-    <div class="Signup">
+<main class="box">
+<h3>Create Account</h3>
+<form id="signupForm">
+<label for="email">EMAIL</label>
+<input id="email" type="email" placeholder="Enter your email" autocomplete="email" required>
 
-        <h1>Create Account</h1>
+<label for="password">PASSWORD</label>
+<input id="password" type="password" placeholder="Create a password" autocomplete="new-password" required>
 
-       <p>EMAIL</p>
-<input id="email" type="email" placeholder="Enter your email">
+<label for="confirmPassword">CONFIRM PASSWORD</label>
+<input id="confirmPassword" type="password" placeholder="Confirm your password" autocomplete="new-password" required>
 
-<p>PASSWORD</p>
-<input id="password" type="password" placeholder="Enter your password">
+<button type="submit">CREATE ACCOUNT</button>
+<p id="message" class="message"></p>
+</form>
 
-<p>CONFIRM PASSWORD</p>
-<input id="confirmPassword" type="password" placeholder="Confirm your password">
+<p class="bottom">Already have an account? <a href="LOGIN.html">Login</a></p>
+</main>
 
-<button id="signupButton">Sign Up</button>
-    </div>
 <script>
- const email = document.getElementById("email");
-    const password = document.getElementById("password");
-    const confirmPassword = document.getElementById("confirmPassword");
-    const signupButton = document.getElementById("signupButton");
+const signupForm = document.getElementById("signupForm");
+const message = document.getElementById("message");
 
-    signupButton.addEventListener("click", function () {
+signupForm.addEventListener("submit", function(event) {
+    event.preventDefault();
 
-        if (email.value === "" || password.value === "" || confirmPassword.value === "") {
-            alert("Please fill in all fields.");
-            return;
-        }
+    const email = document.getElementById("email").value.trim().toLowerCase();
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
 
-        if (password.value !== confirmPassword.value) {
-            alert("Passwords do not match.");
-            return;
-        }
+    if (password !== confirmPassword) {
+        message.textContent = "Passwords do not match.";
+        return;
+    }
 
-        
-         localStorage.setItem("email", email.value);
-        localStorage.setItem("password", password.value);
+    localStorage.setItem("userEmail", email);
+    localStorage.setItem("userPassword", password);
+    localStorage.setItem("email", email);
+    localStorage.setItem("password", password);
+    localStorage.setItem("loggedIn", "true");
 
-        alert("Account created successfully!");
-         localStorage.setItem("loggedIn", "true");
+    message.textContent = "Account created! Opening the store...";
+
+    setTimeout(function() {
         window.location.href = "home.html";
-    });
+    }, 500);
+});
 </script>
 </body>
-
 </html>
