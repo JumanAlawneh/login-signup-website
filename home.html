@@ -108,6 +108,7 @@ color:#080808;
 margin-left:4px
 }
 
+/* HERO BANNER */
 .hero{
 position:relative;
 width:100%;
@@ -116,19 +117,20 @@ min-height:400px;
 background:url("./Capture.PNG") center/100% 100% no-repeat #080808
 }
 
+/* SHOP NOW: HIGHER AND BIGGER */
 .shop-now-button{
 position:absolute;
 left:18.55%;
-top:66.3%;
-width:18.3%;
-height:13%;
+top:61%;
+width:20%;
+height:15%;
 display:flex;
 align-items:center;
 justify-content:center;
 background:#080808;
 border:2px solid var(--gold);
 color:var(--light-gold);
-font-size:clamp(9px,1.5vw,20px);
+font-size:clamp(11px,1.7vw,22px);
 font-weight:bold;
 letter-spacing:3px;
 transition:.3s
@@ -140,6 +142,7 @@ color:var(--black);
 box-shadow:0 0 24px #d4af3759
 }
 
+/* COLLECTION */
 .section{padding:85px 7%}
 
 .section-heading{
@@ -176,6 +179,7 @@ margin:23px auto 0;
 background:var(--gold)
 }
 
+/* SEARCH */
 .search-area{
 max-width:650px;
 margin:0 auto 42px
@@ -214,6 +218,7 @@ text-transform:uppercase;
 cursor:pointer
 }
 
+/* PRODUCT GRID */
 .products{
 display:grid;
 grid-template-columns:repeat(3,minmax(0,1fr));
@@ -234,6 +239,7 @@ border-color:#d4af37b3;
 box-shadow:0 15px 35px #0006
 }
 
+/* IMAGE AREA */
 .product-image{
 height:330px;
 position:relative;
@@ -246,19 +252,21 @@ border-bottom:1px solid #d4af3720;
 overflow:hidden
 }
 
-/* تكبير عرض صور الشنط */
+/* LARGER HANDBAG IMAGES */
 .product-image img{
-width:115%;
+width:135%;
 max-width:none;
 height:100%;
 object-fit:contain;
+transform:scale(1.12);
 transition:transform .45s
 }
 
 .product-card:hover .product-image img{
-transform:scale(1.06)
+transform:scale(1.18)
 }
 
+/* FAVORITES */
 .favorite-button{
 position:absolute;
 top:13px;
@@ -272,11 +280,13 @@ border-radius:50%;
 background:#000d;
 color:white;
 font-size:23px;
-cursor:pointer
+cursor:pointer;
+z-index:2
 }
 
 .favorite-button.active{color:var(--gold)}
 
+/* PRODUCT DETAILS */
 .product-info{padding:24px}
 
 .category{
@@ -340,6 +350,7 @@ border:1px solid var(--border);
 line-height:1.8
 }
 
+/* ABOUT BANNER */
 .banner{
 margin:0 7% 75px;
 padding:70px 25px;
@@ -362,6 +373,7 @@ line-height:1.9;
 font-size:14px
 }
 
+/* FOOTER */
 footer{
 padding:42px 7% 30px;
 text-align:center;
@@ -393,6 +405,7 @@ margin:22px 0
 .footer-links a{font-size:12px}
 .footer-links a:hover{color:var(--gold)}
 
+/* TABLETS */
 @media(max-width:900px){
 .products{
 grid-template-columns:repeat(2,minmax(0,1fr));
@@ -403,6 +416,7 @@ gap:20px
 .product-image{height:290px}
 }
 
+/* MOBILE */
 @media(max-width:560px){
 header{
 min-height:72px;
@@ -415,6 +429,15 @@ nav a{font-size:10px}
 .hero{
 height:330px;
 min-height:330px
+}
+
+.shop-now-button{
+left:18.55%;
+top:61%;
+width:23%;
+height:15%;
+font-size:10px;
+letter-spacing:1px
 }
 
 .section{padding:48px 5%}
