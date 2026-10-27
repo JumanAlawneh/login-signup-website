@@ -1,547 +1,629 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Luxe Bags | Luxury Collection</title>
+<meta name="description" content="Explore the Luxe Bags handbag collection.">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T62TQDREQV"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-T62TQDREQV');
+</script>
 
 <style>
-:root{
-    --black:#080808;
-    --gold:#d4af37;
-    --light-gold:#f4df9b;
-    --white:#fff;
-    --gray:#bdbdbd;
-    --border:rgba(212,175,55,.25);
+:root {
+    --black: #080808;
+    --gold: #d4af37;
+    --light-gold: #f4df9b;
+    --white: #fff;
+    --gray: #bdbdbd;
+    --card: #141414;
+    --border: rgba(212,175,55,.25);
 }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-html{
-    scroll-behavior:smooth;
-    scroll-padding-top:25px;
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 25px;
 }
 
-body{
-    background:var(--black);
-    color:var(--white);
-    font-family:Arial,sans-serif;
-    overflow-x:hidden;
-    width:100%;
+body {
+    background: var(--black);
+    color: var(--white);
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
 }
 
-a{
-    color:inherit;
-    text-decoration:none;
+a {
+    color: inherit;
+    text-decoration: none;
 }
 
-button,input{
-    font:inherit;
+button, input {
+    font: inherit;
 }
 
-header{
-    width:100%;
-    min-height:78px;
-    padding:16px 6%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:#080808;
-    border-bottom:1px solid var(--border);
-    position:relative;
-    z-index:10;
+/* ===== LUXURY NAVIGATION ===== */
+header {
+    width: 100%;
+    min-height: 78px;
+    padding: 16px 6%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #080808;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    z-index: 10;
 }
 
-header .logo{
-    display:none;
+header .logo {
+    display: none;
 }
 
-nav{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:clamp(15px,3vw,35px);
-    flex-wrap:wrap;
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(18px, 3vw, 42px);
+    flex-wrap: wrap;
 }
 
-nav a{
-    position:relative;
-    padding:9px 0;
-    color:#e7e0d0;
-    font-size:12px;
-    font-weight:600;
-    letter-spacing:1.2px;
-    text-transform:uppercase;
-    transition:.3s;
+nav a {
+    position: relative;
+    padding: 9px 0;
+    color: #e7e0d0;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: color .3s ease;
 }
 
-nav a:hover{
-    color:var(--light-gold);
+nav a:not(.gold-button)::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--gold);
+    transition: width .3s ease;
 }
 
-.gold-button{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    background:linear-gradient(135deg,#f4df9b,#d4af37);
-    color:#080808;
-    padding:13px 23px;
-    border:1px solid var(--gold);
-    font-size:11px;
-    font-weight:bold;
-    letter-spacing:1.5px;
-    text-transform:uppercase;
-    cursor:pointer;
-    transition:.3s;
+nav a:not(.gold-button):hover {
+    color: var(--light-gold);
 }
 
-.gold-button:hover{
-    background:#fff0bd;
-    transform:translateY(-2px);
+nav a:not(.gold-button):hover::after {
+    width: 100%;
 }
 
-.cart-nav{
-    border:1px solid var(--gold);
-    padding:9px 12px!important;
-    color:var(--light-gold)!important;
+/* BUTTONS */
+.gold-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f4df9b, #d4af37);
+    color: #080808;
+    padding: 13px 23px;
+    border: 1px solid var(--gold);
+    border-radius: 2px;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: .3s ease;
 }
 
-#cartCount{
-    display:inline-grid;
-    place-items:center;
-    min-width:21px;
-    height:21px;
-    padding:0 5px;
-    border-radius:50%;
-    background:var(--gold);
-    color:#080808;
-    margin-left:4px;
+.gold-button:hover {
+    background: #fff0bd;
+    transform: translateY(-2px);
+    box-shadow: 0 7px 24px rgba(212,175,55,.15);
 }
 
-/* MAIN WEBSITE BANNER */
-.hero{
-    position:relative;
-
-    /* Extend the banner to both edges of the screen */
-    width:100vw;
-    max-width:100vw;
-    margin-left:calc(50% - 50vw);
-    margin-right:calc(50% - 50vw);
-
-    /* Make the main image larger */
-    height:clamp(480px,58vw,900px);
-    min-height:480px;
-
-    background-image:url("./Capture.PNG");
-    background-position:center center;
-    background-size:100% 100%;
-    background-repeat:no-repeat;
-    background-color:#080808;
-    overflow:hidden;
+/* ===== HERO IMAGE ===== */
+.hero {
+    position: relative;
+    width: 100vw;
+    height: clamp(400px, 43vw, 760px);
+    min-height: 400px;
+    padding: 0;
+    margin-left: calc(50% - 50vw);
+    background: url("./Capture.PNG") center / 100% 100% no-repeat;
+    background-color: #080808;
 }
 
-/* SHOP NOW: larger and moved upward */
-.shop-now-button{
-    position:absolute;
-
-    left:18.55%;
-    top:59%;
-
-    width:21%;
-    height:14%;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    background:#080808;
-    border:2px solid var(--gold);
-    color:var(--light-gold);
-
-    font-size:clamp(12px,1.7vw,23px);
-    font-weight:bold;
-    letter-spacing:3px;
-
-    transition:.3s;
+/* SHOP NOW BUTTON */
+.shop-now-button {
+    position: absolute;
+    left: 18.55%;
+    top: 60%;
+    width: 18.3%;
+    height: 13%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #080808;
+    border: 2px solid var(--gold);
+    color: var(--light-gold);
+    font-size: clamp(9px, 1.5vw, 20px);
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-decoration: none;
+    cursor: pointer;
+    z-index: 2;
+    transition: .3s ease;
 }
 
-.shop-now-button:hover{
-    background:var(--gold);
-    color:var(--black);
-    box-shadow:0 0 24px #d4af3759;
+.shop-now-button:hover {
+    background: var(--gold);
+    color: var(--black);
+    box-shadow: 0 0 24px rgba(212,175,55,.35);
 }
 
-.section{
-    padding:85px 7%;
+.shop-now-button:focus-visible {
+    outline: 2px solid var(--light-gold);
+    outline-offset: 4px;
 }
 
-.section-heading{
-    text-align:center;
-    margin-bottom:42px;
+/* ===== COLLECTION SECTION ===== */
+.section {
+    padding: 85px 7%;
 }
 
-.section-heading span{
-    display:block;
-    color:var(--gold);
-    font-size:11px;
-    letter-spacing:5px;
-    margin-bottom:15px;
+.section-heading {
+    text-align: center;
+    margin-bottom: 42px;
 }
 
-.section-heading h2{
-    font:normal clamp(30px,4vw,44px) Georgia,serif;
-    letter-spacing:1px;
-    margin-bottom:14px;
+.section-heading span {
+    display: block;
+    color: var(--gold);
+    font-size: 11px;
+    letter-spacing: 5px;
+    margin-bottom: 15px;
 }
 
-.section-heading p{
-    color:var(--gray);
-    line-height:1.8;
-    font-size:14px;
+.section-heading h2 {
+    font-family: Georgia, serif;
+    font-size: clamp(30px, 4vw, 44px);
+    font-weight: normal;
+    letter-spacing: 1px;
+    margin-bottom: 14px;
 }
 
-.section-heading:after{
-    content:"";
-    display:block;
-    width:55px;
-    height:2px;
-    margin:23px auto 0;
-    background:var(--gold);
+.section-heading p {
+    color: var(--gray);
+    line-height: 1.8;
+    font-size: 14px;
 }
 
-.search-area{
-    max-width:650px;
-    margin:0 auto 42px;
+.section-heading::after {
+    content: "";
+    display: block;
+    width: 55px;
+    height: 2px;
+    margin: 23px auto 0;
+    background: var(--gold);
 }
 
-.search-box{
-    display:flex;
-    border:1px solid #514323;
-    background:#111;
+/* ===== SEARCH ===== */
+.search-area {
+    max-width: 650px;
+    margin: 0 auto 42px;
 }
 
-.search-box:focus-within{
-    border-color:var(--gold);
+.search-box {
+    display: flex;
+    gap: 0;
+    border: 1px solid #514323;
+    background: #111;
+    transition: border-color .3s;
 }
 
-#searchInput{
-    flex:1;
-    min-width:0;
-    padding:16px 18px;
-    background:transparent;
-    border:0;
-    color:white;
-    outline:none;
-    font-size:14px;
+.search-box:focus-within {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(212,175,55,.07);
 }
 
-#searchInput::placeholder{
-    color:#999;
+#searchInput {
+    flex: 1;
+    min-width: 0;
+    padding: 16px 18px;
+    background: transparent;
+    border: none;
+    color: white;
+    outline: none;
+    font-size: 14px;
 }
 
-#searchButton{
-    padding:0 25px;
-    background:var(--gold);
-    color:var(--black);
-    border:0;
-    font-weight:bold;
-    font-size:12px;
-    letter-spacing:1px;
-    text-transform:uppercase;
-    cursor:pointer;
+#searchInput::placeholder {
+    color: #999;
 }
 
-.products{
-    display:grid;
-    grid-template-columns:repeat(3,minmax(0,1fr));
-    gap:28px;
+#searchButton {
+    padding: 0 25px;
+    background: var(--gold);
+    color: var(--black);
+    border: none;
+    font-weight: bold;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: .3s;
 }
 
-.product-card{
-    position:relative;
-    background:linear-gradient(145deg,#171717,#101010);
-    border:1px solid #29231a;
-    overflow:hidden;
-    transition:.35s;
+#searchButton:hover {
+    background: var(--light-gold);
 }
 
-.product-card:hover{
-    transform:translateY(-7px);
-    border-color:#d4af37b3;
-    box-shadow:0 15px 35px #0006;
+/* ===== PRODUCT CARDS ===== */
+.products {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
 }
 
-.product-image{
-    height:330px;
-    position:relative;
-    background:radial-gradient(ellipse,#24211a,#151515 68%);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:16px;
-    border-bottom:1px solid #d4af3720;
+.product-card {
+    position: relative;
+    background: linear-gradient(145deg, #171717, #101010);
+    border: 1px solid #29231a;
+    overflow: hidden;
+    transition: transform .35s ease, border-color .35s ease,
+                box-shadow .35s ease;
 }
 
-.product-image img{
-    width:100%;
-    height:100%;
-    object-fit:contain;
-    transition:transform .45s;
+.product-card:hover {
+    transform: translateY(-7px);
+    border-color: rgba(212,175,55,.7);
+    box-shadow: 0 15px 35px rgba(0,0,0,.35);
 }
 
-.product-card:hover .product-image img{
-    transform:scale(1.06);
+.product-image {
+    height: 330px;
+    position: relative;
+    background: radial-gradient(ellipse at center, #24211a 0%, #151515 68%);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    border-bottom: 1px solid rgba(212,175,55,.12);
 }
 
-.favorite-button{
-    position:absolute;
-    top:13px;
-    right:13px;
-    width:41px;
-    height:41px;
-    display:grid;
-    place-items:center;
-    border:1px solid #d4af3759;
-    border-radius:50%;
-    background:#000d;
-    color:white;
-    font-size:23px;
-    cursor:pointer;
+.product-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    transition: transform .45s ease;
 }
 
-.favorite-button.active{
-    color:var(--gold);
+.product-card:hover .product-image img {
+    transform: scale(1.06);
 }
 
-.product-info{
-    padding:24px;
+.favorite-button {
+    position: absolute;
+    top: 13px;
+    right: 13px;
+    width: 41px;
+    height: 41px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(212,175,55,.35);
+    border-radius: 50%;
+    background: rgba(0,0,0,.82);
+    color: white;
+    font-size: 23px;
+    cursor: pointer;
+    transition: .25s ease;
 }
 
-.category{
-    color:var(--gold);
-    font-size:10px;
-    letter-spacing:2.5px;
-    text-transform:uppercase;
+.favorite-button:hover {
+    border-color: var(--gold);
+    transform: scale(1.06);
 }
 
-.product-info h3{
-    font:normal 21px/1.45 Georgia,serif;
-    margin:13px 0;
+.favorite-button.active {
+    color: var(--gold);
 }
 
-.description{
-    color:var(--gray);
-    line-height:1.8;
-    font-size:13px;
-    min-height:47px;
+.product-info {
+    padding: 24px;
 }
 
-.product-bottom{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    flex-wrap:wrap;
-    margin-top:22px;
+.category {
+    color: var(--gold);
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
 }
 
-.price{
-    color:var(--light-gold);
-    font:22px Georgia,serif;
-    margin-right:auto;
+.product-info h3 {
+    font-family: Georgia, serif;
+    font-size: 21px;
+    font-weight: normal;
+    line-height: 1.45;
+    margin: 13px 0;
 }
 
-.details-button{
-    display:inline-flex;
-    justify-content:center;
-    align-items:center;
-    padding:11px 12px;
-    border:1px solid var(--gold);
-    background:transparent;
-    color:var(--light-gold);
-    font-size:10px;
-    font-weight:bold;
-    cursor:pointer;
-    transition:.3s;
+.description {
+    color: var(--gray);
+    line-height: 1.8;
+    font-size: 13px;
+    min-height: 47px;
 }
 
-.details-button:hover{
-    background:var(--gold);
-    color:var(--black);
+.product-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-top: 22px;
+    flex-wrap: wrap;
 }
 
-.empty-message{
-    grid-column:1/-1;
-    text-align:center;
-    color:var(--gray);
-    padding:40px 15px;
-    border:1px solid var(--border);
-    line-height:1.8;
+.price {
+    color: var(--light-gold);
+    font-family: Georgia, serif;
+    font-size: 22px;
 }
 
-.banner{
-    margin:0 7% 75px;
-    padding:70px 25px;
-    text-align:center;
-    border:1px solid #5d4b20;
-    background:linear-gradient(#000d,#000e),url("./Capture.PNG") center/cover no-repeat;
+.details-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 11px 14px;
+    border: 1px solid var(--gold);
+    color: var(--light-gold);
+    background: transparent;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: .7px;
+    cursor: pointer;
+    transition: .3s ease;
 }
 
-.banner h2{
-    color:var(--light-gold);
-    font:normal clamp(29px,4vw,39px) Georgia,serif;
-    margin-bottom:18px;
+.details-button:hover {
+    background: var(--gold);
+    color: var(--black);
 }
 
-.banner p{
-    max-width:550px;
-    margin:0 auto 28px;
-    color:#eee;
-    line-height:1.9;
-    font-size:14px;
+.empty-message {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: var(--gray);
+    padding: 40px 15px;
+    border: 1px solid var(--border);
+    line-height: 1.8;
 }
 
-footer{
-    padding:42px 7% 30px;
-    text-align:center;
-    background:#050505;
-    border-top:1px solid var(--border);
+/* ===== ABOUT BANNER ===== */
+.banner {
+    position: relative;
+    margin: 0 7% 75px;
+    padding: 70px 25px;
+    text-align: center;
+    border: 1px solid #5d4b20;
+    background:
+        linear-gradient(rgba(0,0,0,.82), rgba(0,0,0,.86)),
+        url("./Capture.PNG") center / cover no-repeat;
 }
 
-.footer-logo{
-    color:var(--gold);
-    font:25px Georgia,serif;
-    letter-spacing:3px;
-    margin-bottom:12px;
+.banner h2 {
+    color: var(--light-gold);
+    font-family: Georgia, serif;
+    font-size: clamp(29px, 4vw, 39px);
+    font-weight: normal;
+    margin-bottom: 18px;
 }
 
-footer p{
-    color:var(--gray);
-    font-size:12px;
-    line-height:1.9;
+.banner p {
+    max-width: 550px;
+    margin: 0 auto 28px;
+    color: #eee;
+    line-height: 1.9;
+    font-size: 14px;
 }
 
-.footer-links{
-    display:flex;
-    justify-content:center;
-    gap:25px;
-    flex-wrap:wrap;
-    margin:22px 0;
+/* ===== FOOTER ===== */
+footer {
+    padding: 42px 7% 30px;
+    text-align: center;
+    background: #050505;
+    border-top: 1px solid var(--border);
 }
 
-.footer-links a{
-    font-size:12px;
+.footer-logo {
+    color: var(--gold);
+    font-family: Georgia, serif;
+    font-size: 25px;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
 }
 
-.footer-links a:hover{
-    color:var(--gold);
+footer p {
+    color: var(--gray);
+    font-size: 12px;
+    line-height: 1.9;
 }
 
-/* TABLETS */
-@media(max-width:900px){
-    .products{
-        grid-template-columns:repeat(2,minmax(0,1fr));
-        gap:20px;
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin: 22px 0;
+}
+
+.footer-links a {
+    font-size: 12px;
+    transition: color .3s;
+}
+
+.footer-links a:hover {
+    color: var(--gold);
+}
+
+.cart-nav {
+    border: 1px solid var(--gold);
+    padding: 9px 12px !important;
+    color: var(--light-gold) !important;
+}
+
+.cart-nav:after {
+    display: none !important;
+}
+
+#cartCount {
+    display: inline-grid;
+    place-items: center;
+    min-width: 21px;
+    height: 21px;
+    padding: 0 5px;
+    border-radius: 50%;
+    background: var(--gold);
+    color: #080808;
+    letter-spacing: 0;
+    margin-left: 4px;
+}
+
+/* ===== TABLET ===== */
+@media (max-width: 900px) {
+    .products {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
     }
 
-    .section{
-        padding:65px 5%;
+    header {
+        padding: 15px 4%;
     }
 
-    .product-image{
-        height:290px;
+    nav {
+        gap: 23px;
     }
 
-    .hero{
-        height:55vw;
-        min-height:400px;
+    nav a {
+        font-size: 12px;
     }
 
-    .shop-now-button{
-        top:59%;
-        width:23%;
-        height:14%;
-        letter-spacing:2px;
+    .section {
+        padding: 65px 5%;
+    }
+
+    .product-image {
+        height: 290px;
     }
 }
 
-/* MOBILE */
-@media(max-width:560px){
-    header{
-        min-height:72px;
-        padding:13px 4%;
+/* ===== MOBILE ===== */
+@media (max-width: 560px) {
+    header {
+        min-height: 72px;
+        padding: 12px;
     }
 
-    nav{
-        gap:13px;
+    nav {
+        gap: 10px 18px;
     }
 
-    nav a{
-        font-size:10px;
+    nav a {
+        font-size: 10px;
+        letter-spacing: .7px;
     }
 
-    .hero{
-        width:100vw;
-        max-width:100vw;
-        margin-left:calc(50% - 50vw);
-        height:420px;
-        min-height:420px;
-        background-position:center center;
-        background-size:100% 100%;
+    nav .gold-button {
+        padding: 10px 13px;
+        font-size: 10px;
     }
 
-    .shop-now-button{
-        left:17%;
-        top:57%;
-        width:31%;
-        height:13%;
-        font-size:12px;
-        letter-spacing:1px;
-        border-width:2px;
+    .hero {
+        height: 62vw;
+        min-height: 230px;
+        max-height: 360px;
     }
 
-    .section{
-        padding:48px 5%;
+    .shop-now-button {
+        top: 56%;
+        border-width: 1px;
+        letter-spacing: .5px;
+        font-size: 7px;
     }
 
-    .products{
-        grid-template-columns:1fr;
-        gap:20px;
+    .section {
+        padding: 50px 5%;
     }
 
-    .product-image{
-        height:310px;
+    .section-heading {
+        margin-bottom: 30px;
     }
 
-    .product-info{
-        padding:20px;
+    .section-heading span {
+        letter-spacing: 3px;
     }
 
-    .search-area{
-        margin-bottom:30px;
+    .section-heading h2 {
+        font-size: 30px;
     }
 
-    #searchInput{
-        padding:14px 10px;
-        font-size:12px;
+    .products {
+        grid-template-columns: 1fr;
+        gap: 22px;
     }
 
-    #searchButton{
-        padding:0 13px;
-        font-size:10px;
+    .product-image {
+        height: 310px;
     }
 
-    .banner{
-        margin:0 5% 45px;
-        padding:45px 18px;
+    .product-info {
+        padding: 20px;
     }
 
-    .footer-links{
-        gap:17px;
+    .search-box {
+        gap: 0;
+    }
+
+    #searchInput {
+        padding: 14px 10px;
+        font-size: 12px;
+    }
+
+    #searchButton {
+        padding: 0 13px;
+        font-size: 10px;
+    }
+
+    .banner {
+        margin: 0 5% 45px;
+        padding: 45px 18px;
+    }
+
+    .footer-links {
+        gap: 17px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *, *::before, *::after {
+        transition-duration: .01ms !important;
     }
 }
 </style>
@@ -553,9 +635,7 @@ footer p{
     <nav aria-label="Main navigation">
         <a href="./home.html">Home</a>
         <a href="#collection">Collection</a>
-        <a href="./cart.html" class="cart-nav">
-            BAG <span id="cartCount">0</span>
-        </a>
+        <a href="./cart.html" class="cart-nav">BAG <span id="cartCount">0</span></a>
         <a href="#about">About Us</a>
         <a href="./LOGIN.html">Login</a>
         <a href="./signup.html" class="gold-button">Sign Up</a>
@@ -569,7 +649,6 @@ footer p{
 </section>
 
 <section class="section" id="collection">
-
     <div class="section-heading">
         <span>THE LUXE EDIT</span>
         <h2>Our Collection</h2>
@@ -589,7 +668,6 @@ footer p{
     </div>
 
     <div class="products" id="productsGrid"></div>
-
 </section>
 
 <section class="banner" id="about">
@@ -621,84 +699,84 @@ footer p{
 <script>
 const bags = [
     {
-        id:"gucci",
-        name:"Gucci Monogram Shoulder Bag",
-        brand:"Gucci",
-        image:"./GUCCI.PNG",
-        price:250,
-        description:"A classic monogram shoulder bag with elegant details."
+        id: "gucci",
+        name: "Gucci Monogram Shoulder Bag",
+        brand: "Gucci",
+        image: "./GUCCI.PNG",
+        price: 250,
+        description: "A classic monogram shoulder bag with elegant details."
     },
     {
-        id:"gucci1",
-        name:"Gucci Classic Shoulder Bag",
-        brand:"Gucci",
-        image:"./GUCCI1.PNG",
-        price:270,
-        description:"An elegant shoulder bag for a sophisticated look."
+        id: "gucci1",
+        name: "Gucci Classic Shoulder Bag",
+        brand: "Gucci",
+        image: "./GUCCI1.PNG",
+        price: 270,
+        description: "An elegant shoulder bag for a sophisticated look."
     },
     {
-        id:"chanel",
-        name:"Chanel Quilted Handbag",
-        brand:"Chanel",
-        image:"./CHANEL.PNG",
-        price:280,
-        description:"A timeless quilted handbag with a refined design."
+        id: "chanel",
+        name: "Chanel Quilted Handbag",
+        brand: "Chanel",
+        image: "./CHANEL.PNG",
+        price: 280,
+        description: "A timeless quilted handbag with a refined design."
     },
     {
-        id:"dior",
-        name:"Dior Classic Handbag",
-        brand:"Dior",
-        image:"./DIOR.PNG",
-        price:275,
-        description:"A structured handbag with a graceful silhouette."
+        id: "dior",
+        name: "Dior Classic Handbag",
+        brand: "Dior",
+        image: "./DIOR.PNG",
+        price: 275,
+        description: "A structured handbag with a graceful silhouette."
     },
     {
-        id:"dior1",
-        name:"Dior Signature Bag",
-        brand:"Dior",
-        image:"./DIOR1.PNG",
-        price:285,
-        description:"A distinctive handbag for an elegant outfit."
+        id: "dior1",
+        name: "Dior Signature Bag",
+        brand: "Dior",
+        image: "./DIOR1.PNG",
+        price: 285,
+        description: "A distinctive handbag for an elegant outfit."
     },
     {
-        id:"ysl",
-        name:"YSL Quilted Shoulder Bag",
-        brand:"YSL",
-        image:"./YSL.PNG",
-        price:260,
-        description:"A sleek shoulder bag with elegant hardware."
+        id: "ysl",
+        name: "YSL Quilted Shoulder Bag",
+        brand: "YSL",
+        image: "./YSL.PNG",
+        price: 260,
+        description: "A sleek shoulder bag with elegant hardware."
     },
     {
-        id:"ysl1",
-        name:"YSL Burgundy Shoulder Bag",
-        brand:"YSL",
-        image:"./YSL1.PNG",
-        price:265,
-        description:"A burgundy shoulder bag with a rich color."
+        id: "ysl1",
+        name: "YSL Burgundy Shoulder Bag",
+        brand: "YSL",
+        image: "./YSL1.PNG",
+        price: 265,
+        description: "A burgundy shoulder bag with a rich color."
     },
     {
-        id:"prada",
-        name:"Prada Handbag",
-        brand:"Prada",
-        image:"./PRADA.PNG",
-        price:240,
-        description:"A minimalist handbag with a versatile design."
+        id: "prada",
+        name: "Prada Handbag",
+        brand: "Prada",
+        image: "./PRADA.PNG",
+        price: 240,
+        description: "A minimalist handbag with a versatile design."
     },
     {
-        id:"lv",
-        name:"Louis Vuitton Monogram Bag",
-        brand:"Louis Vuitton",
-        image:"./LV.PNG",
-        price:300,
-        description:"A monogram handbag with a timeless pattern."
+        id: "lv",
+        name: "Louis Vuitton Monogram Bag",
+        brand: "Louis Vuitton",
+        image: "./LV.PNG",
+        price: 300,
+        description: "A monogram handbag with a timeless pattern."
     },
     {
-        id:"mk",
-        name:"Michael Kors Signature Bag",
-        brand:"Michael Kors",
-        image:"./MK.PNG",
-        price:190,
-        description:"A versatile handbag for everyday outfits."
+        id: "mk",
+        name: "Michael Kors Signature Bag",
+        brand: "Michael Kors",
+        image: "./MK.PNG",
+        price: 190,
+        description: "A versatile handbag for everyday outfits."
     }
 ];
 
@@ -706,30 +784,27 @@ const productsGrid = document.getElementById("productsGrid");
 const searchInput = document.getElementById("searchInput");
 const searchButton = document.getElementById("searchButton");
 
-function getStoredArray(key){
-    try{
+function getStoredArray(key) {
+    try {
         const value = JSON.parse(localStorage.getItem(key));
         return Array.isArray(value) ? value : [];
-    }catch{
+    } catch {
         return [];
     }
 }
 
-function updateCartCount(){
+function updateCartCount() {
     const count = getStoredArray("luxeCart")
-        .reduce((sum,item) => sum + (Number(item.quantity) || 0), 0);
+        .reduce((sum, item) => sum + (Number(item.quantity) || 0), 0);
 
-    const badge = document.getElementById("cartCount");
-
-    if(badge){
-        badge.textContent = count;
-    }
+    const element = document.getElementById("cartCount");
+    if (element) element.textContent = count;
 }
 
-function renderProducts(list){
+function renderProducts(list) {
     productsGrid.innerHTML = "";
 
-    if(list.length === 0){
+    if (list.length === 0) {
         const empty = document.createElement("p");
         empty.className = "empty-message";
         empty.textContent = "No handbags found. Try another search.";
@@ -751,7 +826,9 @@ function renderProducts(list){
         img.alt = bag.name;
         img.loading = "lazy";
 
-        img.onerror = function(){
+        img.onerror = function () {
+            this.onerror = null;
+            this.alt = "Image could not be loaded: " + bag.name;
             this.style.display = "none";
         };
 
@@ -759,7 +836,17 @@ function renderProducts(list){
         favoriteButton.type = "button";
         favoriteButton.className = "favorite-button";
         favoriteButton.textContent = favorites.includes(bag.id) ? "♥" : "♡";
-        favoriteButton.classList.toggle("active", favorites.includes(bag.id));
+
+        favoriteButton.classList.toggle(
+            "active",
+            favorites.includes(bag.id)
+        );
+
+        favoriteButton.setAttribute(
+            "aria-pressed",
+            String(favorites.includes(bag.id))
+        );
+
         favoriteButton.setAttribute(
             "aria-label",
             "Toggle favorite for " + bag.name
@@ -769,17 +856,29 @@ function renderProducts(list){
             const saved = getStoredArray("luxeFavorites");
             const index = saved.indexOf(bag.id);
 
-            if(index === -1){
+            if (index === -1) {
                 saved.push(bag.id);
-            }else{
+            } else {
                 saved.splice(index, 1);
             }
 
-            localStorage.setItem("luxeFavorites", JSON.stringify(saved));
+            try {
+                localStorage.setItem(
+                    "luxeFavorites",
+                    JSON.stringify(saved)
+                );
 
-            const active = saved.includes(bag.id);
-            favoriteButton.textContent = active ? "♥" : "♡";
-            favoriteButton.classList.toggle("active", active);
+                const active = saved.includes(bag.id);
+                favoriteButton.textContent = active ? "♥" : "♡";
+                favoriteButton.classList.toggle("active", active);
+
+                favoriteButton.setAttribute(
+                    "aria-pressed",
+                    String(active)
+                );
+            } catch {
+                alert("Unable to save favorites in this browser.");
+            }
         });
 
         imageArea.append(img, favoriteButton);
@@ -805,26 +904,27 @@ function renderProducts(list){
         price.className = "price";
         price.textContent = "$" + bag.price.toFixed(2);
 
-        const details = document.createElement("a");
-        details.className = "details-button";
-        details.href = "./product.html?bag=" + encodeURIComponent(bag.id);
-        details.textContent = "View Details";
+        const detailsLink = document.createElement("a");
+        detailsLink.className = "details-button";
+        detailsLink.href =
+            "./product.html?bag=" + encodeURIComponent(bag.id);
+        detailsLink.textContent = "View Details";
 
-        const add = document.createElement("button");
-        add.type = "button";
-        add.className = "details-button";
-        add.textContent = "Add to Bag +";
+        const addButton = document.createElement("button");
+        addButton.type = "button";
+        addButton.className = "details-button";
+        addButton.textContent = "Add to Bag +";
 
-        add.addEventListener("click", () => {
+        addButton.addEventListener("click", () => {
             const cart = getStoredArray("luxeCart");
             const existing = cart.find(item => item.id === bag.id);
 
-            if(existing){
+            if (existing) {
                 existing.quantity = Math.min(
                     99,
                     (Number(existing.quantity) || 1) + 1
                 );
-            }else{
+            } else {
                 cart.push({
                     id: bag.id,
                     name: bag.name,
@@ -834,27 +934,27 @@ function renderProducts(list){
                 });
             }
 
-            try{
+            try {
                 localStorage.setItem("luxeCart", JSON.stringify(cart));
                 updateCartCount();
-                add.textContent = "Added ✓";
+                addButton.textContent = "Added ✓";
 
                 setTimeout(() => {
-                    add.textContent = "Add to Bag +";
+                    addButton.textContent = "Add to Bag +";
                 }, 1000);
-            }catch{
-                alert("Unable to save cart in this browser.");
+            } catch {
+                alert("Unable to save cart.");
             }
         });
 
-        bottom.append(price, details, add);
+        bottom.append(price, detailsLink, addButton);
         info.append(category, title, description, bottom);
         card.append(imageArea, info);
         productsGrid.appendChild(card);
     });
 }
 
-function searchHandbags(){
+function searchHandbags() {
     const query = searchInput.value.toLowerCase().trim();
 
     const filtered = bags.filter(bag =>
@@ -870,15 +970,13 @@ searchInput.addEventListener("input", searchHandbags);
 searchButton.addEventListener("click", searchHandbags);
 
 searchInput.addEventListener("keydown", event => {
-    if(event.key === "Enter"){
+    if (event.key === "Enter") {
         searchHandbags();
     }
 });
 
 renderProducts(bags);
 updateCartCount();
-
-window.addEventListener("storage", updateCartCount);
 </script>
 
 </body>
