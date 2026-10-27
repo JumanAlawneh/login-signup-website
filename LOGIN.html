@@ -4,276 +4,85 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Luxe Bags | Sign Up</title>
-
+<title>Luxe Bags | Login</title>
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-
-body {
-    min-height: 100vh;
-    background:
-        linear-gradient(rgba(0,0,0,.18), rgba(0,0,0,.3)),
-        url("cd.png") center center / cover no-repeat fixed;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 25px 15px;
-}
-
-.brand {
-    text-align: center;
-    color: #e5b678;
-    margin-bottom: 20px;
-    text-shadow: 0 2px 12px #000;
-}
-
-.bag-icon {
-    font-size: 38px;
-    margin-bottom: 3px;
-}
-
-.brand h1 {
-    font-family: Georgia, serif;
-    font-size: clamp(38px, 5vw, 65px);
-    font-weight: normal;
-    letter-spacing: 5px;
-}
-
-.brand h2 {
-    font-size: 12px;
-    letter-spacing: 4px;
-    font-weight: normal;
-    margin-top: 7px;
-}
-
-.tagline {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    margin-top: 12px;
-    font-family: Georgia, serif;
-    font-style: italic;
-    font-size: 17px;
-}
-
-.tagline span {
-    width: 45px;
-    height: 1px;
-    background: #d8a568;
-}
-
-.Signup {
-    width: 100%;
-    max-width: 400px;
-    padding: 30px 32px;
-    background: rgba(12, 10, 8, .93);
-    border: 1px solid #c89b5b;
-    border-radius: 14px;
-    box-shadow: 0 5px 35px rgba(0,0,0,.6);
-}
-
-.Signup h3 {
-    text-align: center;
-    color: #e5b678;
-    font-family: Georgia, serif;
-    font-size: 25px;
-    font-weight: normal;
-    margin-bottom: 25px;
-}
-
-.Signup label {
-    display: block;
-    color: #e5c18b;
-    font-size: 12px;
-    letter-spacing: 1px;
-    margin-bottom: 8px;
-}
-
-.Signup input {
-    width: 100%;
-    height: 42px;
-    padding: 10px 12px;
-    margin-bottom: 20px;
-    border: 1px solid #806747;
-    border-radius: 6px;
-    background: #f5eee5;
-    color: #222;
-    font-size: 14px;
-    outline: none;
-}
-
-.Signup input:focus {
-    border-color: #e5b678;
-    box-shadow: 0 0 6px rgba(229,182,120,.4);
-}
-
-.Signup button {
-    width: 100%;
-    height: 43px;
-    margin-top: 4px;
-    background: linear-gradient(90deg, #b18a35, #f0d78b);
-    color: #17110a;
-    border: none;
-    border-radius: 7px;
-    font-size: 15px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: .3s;
-}
-
-.Signup button:hover {
-    background: #fff0b5;
-    transform: translateY(-2px);
-}
-
-.message {
-    text-align: center;
-    color: #f0d78b;
-    font-size: 13px;
-    margin-top: 14px;
-}
-
-.login-link {
-    text-align: center;
-    font-size: 13px;
-    color: #ddd;
-    margin-top: 22px;
-}
-
-.login-link a {
-    color: #e5b678;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.login-link a:hover {
-    text-decoration: underline;
-}
-
-@media (max-width: 500px) {
-    body {
-        background-attachment: scroll;
-    }
-
-    .Signup {
-        padding: 25px 22px;
-        max-width: 350px;
-    }
-
-    .brand h1 {
-        font-size: 36px;
-        letter-spacing: 3px;
-    }
-
-    .brand h2 {
-        font-size: 10px;
-        letter-spacing: 2px;
-    }
-}
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
+body{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:25px 15px;background:linear-gradient(#0003,#0005),url("cd.png") center/cover fixed;color:white}
+.brand{text-align:center;color:#e5b678;margin-bottom:22px;text-shadow:0 2px 12px #000}
+.brand .icon{font-size:36px}
+.brand h1{font:normal clamp(38px,5vw,65px) Georgia,serif;letter-spacing:5px}
+.brand h2{font-size:11px;letter-spacing:4px;font-weight:normal;margin-top:7px}
+.tagline{margin-top:12px;font:italic 17px Georgia,serif}
+.box{width:100%;max-width:400px;padding:30px 32px;background:rgba(12,10,8,.94);border:1px solid #c89b5b;border-radius:14px;box-shadow:0 5px 35px #0009}
+.box h3{text-align:center;font:normal 24px Georgia,serif;color:#e5b678;margin-bottom:25px}
+label{display:block;font-size:12px;letter-spacing:1px;color:#e5c18b;margin-bottom:8px}
+input[type=email],input[type=password]{width:100%;height:42px;padding:10px 12px;margin-bottom:20px;border:1px solid #806747;border-radius:6px;background:#f5eee5;color:#222;font-size:14px}
+button{cursor:pointer}
+.primary,.google{width:100%;height:43px;border:0;border-radius:7px;font-size:15px;font-weight:bold}
+.primary{background:linear-gradient(90deg,#b18a35,#f0d78b);color:#17110a}
+.primary:hover{background:#fff0b5}
+.forgot{display:block;text-align:right;color:#e5b678;font-size:13px;text-decoration:none;margin:16px 0 25px}
+.divider{display:flex;align-items:center;gap:12px;color:#aaa;font-size:12px;margin-bottom:20px}
+.divider:before,.divider:after{content:"";height:1px;background:#615244;flex:1}
+.google{background:white;color:#222;margin-bottom:24px}
+.google span{color:#4285f4;font-size:17px}
+.bottom{text-align:center;color:#ddd;font-size:13px}
+.bottom a{color:#e5b678;text-decoration:none;font-weight:bold;margin-left:4px}
+.message{text-align:center;color:#f0d78b;font-size:13px;margin:12px 0}
+@media(max-width:500px){.box{padding:25px 22px}.brand h1{font-size:36px;letter-spacing:3px}.brand h2{letter-spacing:2px}}
 </style>
 </head>
-
 <body>
-
 <header class="brand">
-    <div class="bag-icon">♧</div>
-    <h1>LUXE BAGS</h1>
-    <h2>LUXURY HANDBAGS COLLECTION</h2>
-
-    <div class="tagline">
-        <span></span>
-        More Than Just a Bag
-        <span></span>
-    </div>
+<div class="icon">♧</div>
+<h1>LUXE BAGS</h1>
+<h2>LUXURY HANDBAGS COLLECTION</h2>
+<div class="tagline">— More Than Just a Bag —</div>
 </header>
 
-<main class="Signup">
+<main class="box">
+<h3>Welcome to Luxe Bags</h3>
+<form id="loginForm">
+<label for="email">EMAIL</label>
+<input id="email" type="email" placeholder="Enter your email" autocomplete="email" required>
 
-    <h3>Create Account</h3>
+<label for="password">PASSWORD</label>
+<input id="password" type="password" placeholder="Enter your password" autocomplete="current-password" required>
 
-    <form id="signupForm">
+<button class="primary" type="submit">LOGIN</button>
+</form>
 
-        <label for="email">EMAIL</label>
-        <input
-            id="email"
-            type="email"
-            placeholder="Enter your email"
-            autocomplete="email"
-            required
-        >
-
-        <label for="password">PASSWORD</label>
-        <input
-            id="password"
-            type="password"
-            placeholder="Create a password"
-            autocomplete="new-password"
-            required
-        >
-
-        <label for="confirmPassword">CONFIRM PASSWORD</label>
-        <input
-            id="confirmPassword"
-            type="password"
-            placeholder="Confirm your password"
-            autocomplete="new-password"
-            required
-        >
-
-        <button type="submit">CREATE ACCOUNT</button>
-
-        <p id="message" class="message"></p>
-
-    </form>
-
-    <p class="login-link">
-        Already have an account?
-        <a href="LOGIN.html">Login</a>
-    </p>
-
+<a class="forgot" href="reset_password.html">Forgot Password?</a>
+<div class="divider">OR</div>
+<button class="google" id="googleBtn" type="button"><span>G</span> &nbsp; Continue with Google</button>
+<p id="message" class="message"></p>
+<p class="bottom">Don't have an account? <a href="signup.html">Sign Up</a></p>
 </main>
 
 <script>
-const signupForm = document.getElementById("signupForm");
+const loginForm = document.getElementById("loginForm");
 const message = document.getElementById("message");
 
-signupForm.addEventListener("submit", function(event) {
+loginForm.addEventListener("submit", function(event) {
     event.preventDefault();
 
-    const email = document.getElementById("email").value.trim();
+    const email = document.getElementById("email").value.trim().toLowerCase();
     const password = document.getElementById("password").value;
-    const confirmPassword =
-        document.getElementById("confirmPassword").value;
 
-    if (password !== confirmPassword) {
-        message.textContent = "Passwords do not match.";
-        return;
-    }
+    const savedEmail = (localStorage.getItem("userEmail") || localStorage.getItem("email") || "").trim().toLowerCase();
+    const savedPassword = localStorage.getItem("userPassword") || localStorage.getItem("password") || "";
 
-    // Save using the same keys as the Login page
-    localStorage.setItem("userEmail", email);
-    localStorage.setItem("userPassword", password);
-
-    // Also save the keys used by the previous code
-    localStorage.setItem("email", email);
-    localStorage.setItem("password", password);
-    localStorage.setItem("loggedIn", "true");
-
-    message.textContent = "Account created successfully!";
-
-    setTimeout(function() {
+    if (email === savedEmail && password === savedPassword && savedEmail !== "") {
+        localStorage.setItem("loggedIn", "true");
         window.location.href = "home.html";
-    }, 500);
+    } else {
+        message.textContent = "Invalid email or password. Please sign up first.";
+    }
+});
+
+document.getElementById("googleBtn").addEventListener("click", function() {
+    message.textContent = "Google sign-in needs Google Identity Services setup.";
 });
 </script>
-
 </body>
 </html>
