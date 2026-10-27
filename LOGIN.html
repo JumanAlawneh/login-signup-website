@@ -4,35 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Luxe Bags | Luxury Handbag Collection</title>
-
-    <meta name="description"
-          content="Discover elegant handbags from iconic luxury brands at Luxe Bags.">
-
-    <meta name="robots" content="index, follow">
-
-    <meta property="og:title" content="Luxe Bags | Luxury Handbag Collection">
-    <meta property="og:description"
-          content="Discover elegant handbags from iconic luxury brands at Luxe Bags.">
-    <meta property="og:type" content="website">
-    <meta property="og:url"
-          content="https://jumanalawneh.github.io/luxe-bags/">
-
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T62TQDREQV"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-
-        gtag('js', new Date());
-        gtag('config', 'G-T62TQDREQV');
-    </script>
-
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <title>LUXE BAGS | Login</title>
 
     <style>
         * {
@@ -41,259 +13,256 @@
 
         body {
             margin: 0;
-            padding: 20px;
             min-height: 100vh;
             font-family: Arial, sans-serif;
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            color: #f4d2a5;
 
             background-image: url("cd.png");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             background-attachment: fixed;
+            background-color: #100b08;
         }
 
         .Welcome {
-            width: 100%;
-            max-width: 370px;
-            padding: 25px 28px;
+            position: absolute;
+            left: 50%;
+            top: 65%;
+            transform: translate(-50%, 0);
 
-            background-color: rgba(25, 18, 14, 0.82);
-            border: 1px solid #d6ad72;
-            border-radius: 16px;
+            width: 260px;
+            padding: 14px 18px;
 
-            color: #f5dfbd;
-            text-align: center;
+            background: rgba(12, 9, 7, 0.55);
+            border: 1px solid rgba(218, 173, 112, 0.65);
+            border-radius: 9px;
 
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-
-            backdrop-filter: blur(5px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+            backdrop-filter: blur(3px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
         }
 
+        /* The brand name is already part of cd.png */
         .Welcome h1 {
-            margin: 0 0 18px;
-            font-size: 27px;
-            line-height: 1.25;
-            color: #e8c18b;
+            display: none;
         }
 
-        .Welcome > p:not(.remember):not(.forgot):not(.signup-link) {
-            width: 100%;
-            margin: 10px 0 6px;
-            text-align: left;
-            font-size: 13px;
-            letter-spacing: 1px;
-            color: #f5dfbd;
-        }
-
-        .Welcome > input {
-            width: 100%;
-            height: 40px;
-            padding: 10px;
-
-            color: #24180f;
-            background: rgba(255, 255, 255, 0.96);
-
-            border: 1px solid #c6a06c;
-            border-radius: 6px;
-            outline: none;
-        }
-
-        .Welcome > input:focus {
-            border: 2px solid #e8c18b;
-        }
-
-        .Welcome > button {
-            width: 100%;
-            margin-top: 18px;
-            padding: 12px;
-
-            background-color: #d8b17a;
-            color: #21170f;
-
-            border: none;
-            border-radius: 7px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-
-        .Welcome > button:hover {
-            background-color: #f0d3a5;
-        }
-
-        .remember {
-            width: 100%;
-            margin: 13px 0;
-            display: flex;
-            align-items: center;
-            gap: 7px;
-            text-align: left;
-            font-size: 14px;
-        }
-
-        .remember input {
-            accent-color: #d8b17a;
-            width: 15px;
-            height: 15px;
+        .Welcome form {
             margin: 0;
         }
 
-        .forgot {
-            width: 100%;
-            margin: 4px 0 15px;
-            text-align: left;
-            font-size: 14px;
-            line-height: 1.6;
+        .Welcome label {
+            display: block;
+            margin-top: 8px;
+            margin-bottom: 4px;
+            font-size: 12px;
+            color: #e8c69b;
         }
 
-        .Welcome a {
-            color: #e8c18b;
+        .Welcome input[type="email"],
+        .Welcome input[type="password"] {
+            display: block;
+            width: 100%;
+            padding: 9px 10px;
+            margin-bottom: 7px;
+
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(218, 173, 112, 0.45);
+            border-radius: 5px;
+
+            color: white;
+            font-size: 12px;
+            outline: none;
+        }
+
+        .Welcome input::placeholder {
+            color: #c6b7a7;
+        }
+
+        .Welcome input:focus {
+            border-color: #e4b875;
+        }
+
+        .remember {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin: 8px 0;
+            font-size: 11px;
+            color: #ead7c0;
+        }
+
+        .remember input {
+            accent-color: #c69a60;
+        }
+
+        .Welcome button {
+            width: 100%;
+            padding: 9px;
+            margin-top: 5px;
+
+            background: linear-gradient(135deg, #e6c18b, #b78349);
+            color: #17100a;
+
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 12px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .Welcome button:hover {
+            background: #f0d4a8;
+        }
+
+        .links {
+            margin-top: 10px;
+            text-align: center;
+            font-size: 11px;
+            line-height: 1.8;
+        }
+
+        .links a {
+            color: #e8c18c;
+            text-decoration: none;
+        }
+
+        .links a:hover {
             text-decoration: underline;
         }
 
-        .Welcome a:hover {
-            color: #fff0d6;
+        .message {
+            min-height: 14px;
+            margin-top: 7px;
+            font-size: 11px;
+            text-align: center;
+            color: #f4d2a5;
         }
 
-        .Google {
-            width: 100%;
+        .google-login {
+            margin-top: 8px;
             display: flex;
             justify-content: center;
-            margin: 5px 0;
         }
 
-        .signup-link {
-            width: 100%;
-            margin: 15px 0 0;
-            font-size: 14px;
-            line-height: 1.6;
-        }
-
-        @media (max-width: 420px) {
+        @media (max-width: 600px) {
             body {
-                padding: 12px;
+                background-position: center;
+                background-attachment: scroll;
             }
 
             .Welcome {
-                max-width: 340px;
-                padding: 22px 20px;
+                top: 62%;
+                width: 230px;
+                padding: 10px 13px;
             }
+        }
 
-            .Welcome h1 {
-                font-size: 24px;
+        @media (max-height: 600px) {
+            .Welcome {
+                top: 52%;
+                padding: 9px 13px;
             }
         }
     </style>
+
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 
 <body>
 
-    <div class="Welcome">
-
+    <section class="Welcome">
         <h1>Welcome to Luxe Bags</h1>
 
-        <p>EMAIL</p>
-        <input id="loginEmail" type="email" name="email"
-               placeholder="Enter your email" autocomplete="email">
+        <form id="loginForm">
+            <label for="email">Email</label>
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+                autocomplete="email"
+                required
+            >
 
-        <p>PASSWORD</p>
-        <input id="loginPassword" type="password" name="password"
-               placeholder="Enter your password"
-               autocomplete="current-password">
+            <label for="password">Password</label>
+            <input
+                type="password"
+                id="password"
+                placeholder="Enter your password"
+                autocomplete="current-password"
+                required
+            >
 
-        <button id="loginButton">Login</button>
+            <label class="remember">
+                <input type="checkbox" id="remember">
+                Remember my email
+            </label>
 
-        <p class="remember">
-            <input id="rememberMe" type="checkbox" name="remember">
-            <label for="rememberMe">Remember me</label>
-        </p>
+            <button type="submit">LOGIN</button>
 
-        <p class="forgot">
-            Forgot your password?
-            <a href="reset_password.html">Reset Password</a>
-        </p>
+            <div class="message" id="message"></div>
+        </form>
 
-        <div class="Google">
-            <div id="g_id_onload"
-                 data-client_id="504073574513-j2iv467ha2uka1uqucs16e8f88dck7r7.apps.googleusercontent.com"
-                 data-callback="handleCredentialResponse">
-            </div>
-
-            <div class="g_id_signin"
-                 data-type="standard"
-                 data-theme="filled_black"
-                 data-shape="rectangular"
-                 data-text="continue_with"
-                 data-size="large">
-            </div>
+        <div class="links">
+            <a href="reset_password.html">Forgot Password?</a>
+            <br>
+            Don't have an account?
+            <a href="signup.html">Sign Up</a>
         </div>
 
-        <p class="signup-link">
-            Don't have an account?
-            <a href="signup.html">Sign up</a>
-        </p>
-
-    </div>
+        <div class="google-login">
+            <div id="googleSignIn"></div>
+        </div>
+    </section>
 
     <script>
-        const loginEmail = document.getElementById("loginEmail");
-        const loginPassword = document.getElementById("loginPassword");
-        const loginButton = document.getElementById("loginButton");
-        const rememberMe = document.getElementById("rememberMe");
+        const loginForm = document.getElementById("loginForm");
+        const emailInput = document.getElementById("email");
+        const passwordInput = document.getElementById("password");
+        const rememberInput = document.getElementById("remember");
+        const message = document.getElementById("message");
 
-        loginButton.addEventListener("click", function () {
-            const savedEmail = localStorage.getItem("email");
-            const savedPassword = localStorage.getItem("password");
+        // Restore remembered email
+        const savedEmail = localStorage.getItem("rememberedEmail");
 
-            if (loginEmail.value.trim() === "" ||
-                loginPassword.value === "") {
-                alert("Please enter your email and password.");
-                return;
-            }
+        if (savedEmail) {
+            emailInput.value = savedEmail;
+            rememberInput.checked = true;
+        }
+
+        loginForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const email = emailInput.value.trim();
+            const password = passwordInput.value;
+
+            // Keep this check only if signup.html saves these values.
+            const registeredEmail = localStorage.getItem("email");
+            const registeredPassword = localStorage.getItem("password");
 
             if (
-                loginEmail.value.trim() === savedEmail &&
-                loginPassword.value === savedPassword &&
-                savedEmail !== null
+                registeredEmail &&
+                registeredPassword &&
+                email === registeredEmail &&
+                password === registeredPassword
             ) {
-                if (rememberMe.checked) {
-                    localStorage.setItem("rememberEmail", savedEmail);
+                if (rememberInput.checked) {
+                    localStorage.setItem("rememberedEmail", email);
                 } else {
-                    localStorage.removeItem("rememberEmail");
+                    localStorage.removeItem("rememberedEmail");
                 }
 
-                localStorage.setItem("loggedIn", "true");
                 window.location.href = "home.html";
             } else {
-                alert("Incorrect email or password.");
+                message.textContent =
+                    "Invalid email or password. Please sign up first if needed.";
             }
         });
 
-        const rememberedEmail = localStorage.getItem("rememberEmail");
-
-        if (rememberedEmail) {
-            loginEmail.value = rememberedEmail;
-            rememberMe.checked = true;
-        }
-
-        function handleCredentialResponse(response) {
-            if (!response || !response.credential) {
-                alert("Google sign-in failed. Please try again.");
-                return;
-            }
-
-            // This is a UI-only redirect, not server-side verification.
-            // Verify the Google credential before granting access in production.
-            window.location.href = "home.html";
-        }
+        // Google sign-in needs a valid configured client ID and
+        // server-side verification before it can be used securely.
+        // Add your Google button configuration here when ready.
     </script>
 
 </body>
