@@ -167,6 +167,7 @@
         }
     </style>
 
+    <!-- Google Sign-In -->
     <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 
@@ -211,8 +212,22 @@
             <a href="signup.html">Sign Up</a>
         </div>
 
+        <!-- Google Sign-In Button -->
         <div class="google-login">
-            <div id="googleSignIn"></div>
+            <div
+                id="g_id_onload"
+                data-client_id="504073574513-j2iv467ha2uka1uqucs16e8f88dck7r7.apps.googleusercontent.com"
+                data-callback="handleCredentialResponse">
+            </div>
+
+            <div
+                class="g_id_signin"
+                data-type="standard"
+                data-size="medium"
+                data-theme="filled_black"
+                data-shape="rectangular"
+                data-text="signin_with">
+            </div>
         </div>
     </section>
 
@@ -231,13 +246,13 @@
             rememberInput.checked = true;
         }
 
+        // Email and password login
         loginForm.addEventListener("submit", function (event) {
             event.preventDefault();
 
             const email = emailInput.value.trim();
             const password = passwordInput.value;
 
-            // Keep this check only if signup.html saves these values.
             const registeredEmail = localStorage.getItem("email");
             const registeredPassword = localStorage.getItem("password");
 
@@ -260,9 +275,14 @@
             }
         });
 
-        // Google sign-in needs a valid configured client ID and
-        // server-side verification before it can be used securely.
-        // Add your Google button configuration here when ready.
+        // Google Sign-In callback
+        function handleCredentialResponse(response) {
+            if (response && response.credential) {
+                alert(
+                    "Google sign-in needs server-side verification before login."
+                );
+            }
+        }
     </script>
 
 </body>
