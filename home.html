@@ -1,477 +1,73 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Luxe Bags | Luxury Collection</title>
-
 <style>
-:root{
---black:#080808;
---gold:#d4af37;
---light-gold:#f4df9b;
---white:#fff;
---gray:#bdbdbd;
---border:rgba(212,175,55,.25)
-}
-
+:root{--black:#080808;--gold:#d4af37;--light-gold:#f4df9b;--white:#fff;--gray:#bdbdbd;--border:rgba(212,175,55,.25)}
 *{margin:0;padding:0;box-sizing:border-box}
-
-html{
-scroll-behavior:smooth;
-scroll-padding-top:25px
-}
-
-body{
-background:var(--black);
-color:var(--white);
-font-family:Arial,sans-serif;
-overflow-x:hidden
-}
-
+html{scroll-behavior:smooth;scroll-padding-top:25px}
+body{background:var(--black);color:var(--white);font-family:Arial,sans-serif;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
 button,input{font:inherit}
-
-header{
-width:100%;
-min-height:78px;
-padding:16px 6%;
-display:flex;
-justify-content:center;
-align-items:center;
-background:#080808;
-border-bottom:1px solid var(--border);
-position:relative;
-z-index:10
-}
-
+header{width:100%;min-height:78px;padding:16px 6%;display:flex;justify-content:center;align-items:center;background:#080808;border-bottom:1px solid var(--border);position:relative;z-index:10}
 header .logo{display:none}
-
-nav{
-display:flex;
-justify-content:center;
-align-items:center;
-gap:clamp(15px,3vw,35px);
-flex-wrap:wrap
-}
-
-nav a{
-position:relative;
-padding:9px 0;
-color:#e7e0d0;
-font-size:12px;
-font-weight:600;
-letter-spacing:1.2px;
-text-transform:uppercase;
-transition:.3s
-}
-
+nav{display:flex;justify-content:center;align-items:center;gap:clamp(15px,3vw,35px);flex-wrap:wrap}
+nav a{position:relative;padding:9px 0;color:#e7e0d0;font-size:12px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;transition:.3s}
 nav a:hover{color:var(--light-gold)}
-
-.gold-button{
-display:inline-flex;
-align-items:center;
-justify-content:center;
-background:linear-gradient(135deg,#f4df9b,#d4af37);
-color:#080808;
-padding:13px 23px;
-border:1px solid var(--gold);
-font-size:11px;
-font-weight:bold;
-letter-spacing:1.5px;
-text-transform:uppercase;
-cursor:pointer;
-transition:.3s
-}
-
-.gold-button:hover{
-background:#fff0bd;
-transform:translateY(-2px)
-}
-
-.cart-nav{
-border:1px solid var(--gold);
-padding:9px 12px!important;
-color:var(--light-gold)!important
-}
-
-#cartCount{
-display:inline-grid;
-place-items:center;
-min-width:21px;
-height:21px;
-padding:0 5px;
-border-radius:50%;
-background:var(--gold);
-color:#080808;
-margin-left:4px
-}
-
-/* HERO */
-.hero{
-position:relative;
-width:100%;
-height:clamp(400px,43vw,760px);
-min-height:400px;
-background:url("./Capture.PNG") center/100% 100% no-repeat #080808
-}
-
-/* BIGGER SHOP NOW BUTTON */
-.shop-now-button{
-position:absolute;
-left:17%;
-top:56%;
-width:25%;
-height:20%;
-display:flex;
-align-items:center;
-justify-content:center;
-background:#080808;
-border:3px solid var(--gold);
-color:var(--light-gold);
-font-size:clamp(14px,2.2vw,28px);
-font-weight:bold;
-letter-spacing:3px;
-transition:.3s
-}
-
-.shop-now-button:hover{
-background:var(--gold);
-color:var(--black);
-box-shadow:0 0 24px #d4af3759
-}
-
-/* SECTION */
+.gold-button{display:inline-flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#f4df9b,#d4af37);color:#080808;padding:13px 23px;border:1px solid var(--gold);font-size:11px;font-weight:bold;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:.3s}
+.gold-button:hover{background:#fff0bd;transform:translateY(-2px)}
+.cart-nav{border:1px solid var(--gold);padding:9px 12px!important;color:var(--light-gold)!important}
+#cartCount{display:inline-grid;place-items:center;min-width:21px;height:21px;padding:0 5px;border-radius:50%;background:var(--gold);color:#080808;margin-left:4px}
+.hero{position:relative;width:100%;height:clamp(400px,43vw,760px);min-height:400px;background:url("./Capture.PNG") center/100% 100% no-repeat #080808}
+.shop-now-button{position:absolute;left:18.55%;top:66.3%;width:18.3%;height:13%;display:flex;align-items:center;justify-content:center;background:#080808;border:2px solid var(--gold);color:var(--light-gold);font-size:clamp(9px,1.5vw,20px);font-weight:bold;letter-spacing:3px;transition:.3s}
+.shop-now-button:hover{background:var(--gold);color:var(--black);box-shadow:0 0 24px #d4af3759}
 .section{padding:85px 7%}
-
-.section-heading{
-text-align:center;
-margin-bottom:42px
-}
-
-.section-heading span{
-display:block;
-color:var(--gold);
-font-size:11px;
-letter-spacing:5px;
-margin-bottom:15px
-}
-
-.section-heading h2{
-font:normal clamp(30px,4vw,44px) Georgia,serif;
-letter-spacing:1px;
-margin-bottom:14px
-}
-
-.section-heading p{
-color:var(--gray);
-line-height:1.8;
-font-size:14px
-}
-
-.section-heading:after{
-content:"";
-display:block;
-width:55px;
-height:2px;
-margin:23px auto 0;
-background:var(--gold)
-}
-
-/* SEARCH */
-.search-area{
-max-width:650px;
-margin:0 auto 42px
-}
-
-.search-box{
-display:flex;
-border:1px solid #514323;
-background:#111
-}
-
+.section-heading{text-align:center;margin-bottom:42px}
+.section-heading span{display:block;color:var(--gold);font-size:11px;letter-spacing:5px;margin-bottom:15px}
+.section-heading h2{font:normal clamp(30px,4vw,44px) Georgia,serif;letter-spacing:1px;margin-bottom:14px}
+.section-heading p{color:var(--gray);line-height:1.8;font-size:14px}
+.section-heading:after{content:"";display:block;width:55px;height:2px;margin:23px auto 0;background:var(--gold)}
+.search-area{max-width:650px;margin:0 auto 42px}
+.search-box{display:flex;border:1px solid #514323;background:#111}
 .search-box:focus-within{border-color:var(--gold)}
-
-#searchInput{
-flex:1;
-min-width:0;
-padding:16px 18px;
-background:transparent;
-border:0;
-color:white;
-outline:none;
-font-size:14px
-}
-
+#searchInput{flex:1;min-width:0;padding:16px 18px;background:transparent;border:0;color:white;outline:none;font-size:14px}
 #searchInput::placeholder{color:#999}
-
-#searchButton{
-padding:0 25px;
-background:var(--gold);
-color:var(--black);
-border:0;
-font-weight:bold;
-font-size:12px;
-letter-spacing:1px;
-text-transform:uppercase;
-cursor:pointer
-}
-
-/* PRODUCTS */
-.products{
-display:grid;
-grid-template-columns:repeat(3,minmax(0,1fr));
-gap:28px
-}
-
-.product-card{
-position:relative;
-background:linear-gradient(145deg,#171717,#101010);
-border:1px solid #29231a;
-overflow:hidden;
-transition:.35s
-}
-
-.product-card:hover{
-transform:translateY(-7px);
-border-color:#d4af37b3;
-box-shadow:0 15px 35px #0006
-}
-
-/* WIDER HANDBAG IMAGES */
-.product-image{
-height:330px;
-position:relative;
-background:radial-gradient(ellipse,#24211a,#151515 68%);
-display:flex;
-align-items:center;
-justify-content:center;
-padding:0;
-border-bottom:1px solid #d4af3720;
-overflow:hidden
-}
-
-.product-image img{
-width:155%;
-max-width:none;
-height:100%;
-object-fit:contain;
-transform:scale(1.25);
-transition:transform .45s
-}
-
-.product-card:hover .product-image img{
-transform:scale(1.32)
-}
-
-/* FAVORITES */
-.favorite-button{
-position:absolute;
-top:13px;
-right:13px;
-width:41px;
-height:41px;
-display:grid;
-place-items:center;
-border:1px solid #d4af3759;
-border-radius:50%;
-background:#000d;
-color:white;
-font-size:23px;
-cursor:pointer;
-z-index:2
-}
-
+#searchButton{padding:0 25px;background:var(--gold);color:var(--black);border:0;font-weight:bold;font-size:12px;letter-spacing:1px;text-transform:uppercase;cursor:pointer}
+.products{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.product-card{position:relative;background:linear-gradient(145deg,#171717,#101010);border:1px solid #29231a;overflow:hidden;transition:.35s}
+.product-card:hover{transform:translateY(-7px);border-color:#d4af37b3;box-shadow:0 15px 35px #0006}
+.product-image{height:330px;position:relative;background:radial-gradient(ellipse,#24211a,#151515 68%);display:flex;align-items:center;justify-content:center;padding:16px;border-bottom:1px solid #d4af3720}
+.product-image img{width:100%;height:100%;object-fit:contain;transition:transform .45s}
+.product-card:hover .product-image img{transform:scale(1.06)}
+.favorite-button{position:absolute;top:13px;right:13px;width:41px;height:41px;display:grid;place-items:center;border:1px solid #d4af3759;border-radius:50%;background:#000d;color:white;font-size:23px;cursor:pointer}
 .favorite-button.active{color:var(--gold)}
-
-/* PRODUCT INFO */
 .product-info{padding:24px}
-
-.category{
-color:var(--gold);
-font-size:10px;
-letter-spacing:2.5px;
-text-transform:uppercase
-}
-
-.product-info h3{
-font:normal 21px/1.45 Georgia,serif;
-margin:13px 0
-}
-
-.description{
-color:var(--gray);
-line-height:1.8;
-font-size:13px;
-min-height:47px
-}
-
-.product-bottom{
-display:flex;
-align-items:center;
-gap:10px;
-flex-wrap:wrap;
-margin-top:22px
-}
-
-.price{
-color:var(--light-gold);
-font:22px Georgia,serif;
-margin-right:auto
-}
-
-.details-button{
-display:inline-flex;
-justify-content:center;
-align-items:center;
-padding:11px 12px;
-border:1px solid var(--gold);
-background:transparent;
-color:var(--light-gold);
-font-size:10px;
-font-weight:bold;
-cursor:pointer;
-transition:.3s
-}
-
-.details-button:hover{
-background:var(--gold);
-color:var(--black)
-}
-
-.empty-message{
-grid-column:1/-1;
-text-align:center;
-color:var(--gray);
-padding:40px 15px;
-border:1px solid var(--border);
-line-height:1.8
-}
-
-/* ABOUT */
-.banner{
-margin:0 7% 75px;
-padding:70px 25px;
-text-align:center;
-border:1px solid #5d4b20;
-background:linear-gradient(#000d,#000e),url("./Capture.PNG") center/cover no-repeat
-}
-
-.banner h2{
-color:var(--light-gold);
-font:normal clamp(29px,4vw,39px) Georgia,serif;
-margin-bottom:18px
-}
-
-.banner p{
-max-width:550px;
-margin:0 auto 28px;
-color:#eee;
-line-height:1.9;
-font-size:14px
-}
-
-/* FOOTER */
-footer{
-padding:42px 7% 30px;
-text-align:center;
-background:#050505;
-border-top:1px solid var(--border)
-}
-
-.footer-logo{
-color:var(--gold);
-font:25px Georgia,serif;
-letter-spacing:3px;
-margin-bottom:12px
-}
-
-footer p{
-color:var(--gray);
-font-size:12px;
-line-height:1.9
-}
-
-.footer-links{
-display:flex;
-justify-content:center;
-gap:25px;
-flex-wrap:wrap;
-margin:22px 0
-}
-
+.category{color:var(--gold);font-size:10px;letter-spacing:2.5px;text-transform:uppercase}
+.product-info h3{font:normal 21px/1.45 Georgia,serif;margin:13px 0}
+.description{color:var(--gray);line-height:1.8;font-size:13px;min-height:47px}
+.product-bottom{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:22px}
+.price{color:var(--light-gold);font:22px Georgia,serif;margin-right:auto}
+.details-button{display:inline-flex;justify-content:center;align-items:center;padding:11px 12px;border:1px solid var(--gold);background:transparent;color:var(--light-gold);font-size:10px;font-weight:bold;cursor:pointer;transition:.3s}
+.details-button:hover{background:var(--gold);color:var(--black)}
+.empty-message{grid-column:1/-1;text-align:center;color:var(--gray);padding:40px 15px;border:1px solid var(--border);line-height:1.8}
+.banner{margin:0 7% 75px;padding:70px 25px;text-align:center;border:1px solid #5d4b20;background:linear-gradient(#000d,#000e),url("./Capture.PNG") center/cover no-repeat}
+.banner h2{color:var(--light-gold);font:normal clamp(29px,4vw,39px) Georgia,serif;margin-bottom:18px}
+.banner p{max-width:550px;margin:0 auto 28px;color:#eee;line-height:1.9;font-size:14px}
+footer{padding:42px 7% 30px;text-align:center;background:#050505;border-top:1px solid var(--border)}
+.footer-logo{color:var(--gold);font:25px Georgia,serif;letter-spacing:3px;margin-bottom:12px}
+footer p{color:var(--gray);font-size:12px;line-height:1.9}
+.footer-links{display:flex;justify-content:center;gap:25px;flex-wrap:wrap;margin:22px 0}
 .footer-links a{font-size:12px}
 .footer-links a:hover{color:var(--gold)}
-
-/* TABLETS */
-@media(max-width:900px){
-.products{
-grid-template-columns:repeat(2,minmax(0,1fr));
-gap:20px
-}
-
-.section{padding:65px 5%}
-.product-image{height:290px}
-}
-
-/* MOBILE */
-@media(max-width:560px){
-header{
-min-height:72px;
-padding:13px 4%
-}
-
-nav{gap:13px}
-nav a{font-size:10px}
-
-.hero{
-height:330px;
-min-height:330px
-}
-
-.shop-now-button{
-left:17%;
-top:56%;
-width:30%;
-height:19%;
-font-size:12px;
-letter-spacing:1px
-}
-
-.section{padding:48px 5%}
-
-.products{
-grid-template-columns:1fr;
-gap:20px
-}
-
-.product-image{height:310px}
-.product-info{padding:20px}
-.search-area{margin-bottom:30px}
-
-#searchInput{
-padding:14px 10px;
-font-size:12px
-}
-
-#searchButton{
-padding:0 13px;
-font-size:10px
-}
-
-.banner{
-margin:0 5% 45px;
-padding:45px 18px
-}
-
-.footer-links{gap:17px}
-}
+@media(max-width:900px){.products{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.section{padding:65px 5%}.product-image{height:290px}}
+@media(max-width:560px){header{min-height:72px;padding:13px 4%}nav{gap:13px}nav a{font-size:10px}.hero{height:330px;min-height:330px}.section{padding:48px 5%}.products{grid-template-columns:1fr;gap:20px}.product-image{height:310px}.product-info{padding:20px}.search-area{margin-bottom:30px}#searchInput{padding:14px 10px;font-size:12px}#searchButton{padding:0 13px;font-size:10px}.banner{margin:0 5% 45px;padding:45px 18px}.footer-links{gap:17px}}
 </style>
 </head>
-
 <body>
-
 <header>
 <nav aria-label="Main navigation">
 <a href="./home.html">Home</a>
@@ -484,28 +80,23 @@ padding:45px 18px
 </header>
 
 <main>
-
 <section class="hero" aria-label="Luxury handbag banner">
 <a href="#collection" class="shop-now-button">SHOP NOW</a>
 </section>
 
 <section class="section" id="collection">
-
 <div class="section-heading">
 <span>THE LUXE EDIT</span>
 <h2>Our Collection</h2>
 <p>Find the perfect bag that expresses your style.</p>
 </div>
-
 <div class="search-area">
 <div class="search-box">
 <input type="text" id="searchInput" placeholder="Search by handbag or brand..." aria-label="Search handbags">
 <button type="button" id="searchButton">Search</button>
 </div>
 </div>
-
 <div class="products" id="productsGrid"></div>
-
 </section>
 
 <section class="banner" id="about">
@@ -513,13 +104,11 @@ padding:45px 18px
 <p>At Luxe Bags, every detail matters. Discover timeless style with a touch of luxury.</p>
 <a href="./signup.html" class="gold-button">Join Luxe Bags</a>
 </section>
-
 </main>
 
 <footer>
 <div class="footer-logo">LUXE BAGS</div>
 <p>Timeless elegance. Exceptional style.</p>
-
 <div class="footer-links">
 <a href="./home.html">Home</a>
 <a href="#collection">Collection</a>
@@ -527,7 +116,6 @@ padding:45px 18px
 <a href="./LOGIN.html">Login</a>
 <a href="./signup.html">Sign Up</a>
 </div>
-
 <p>© 2026 Luxe Bags. All rights reserved.</p>
 </footer>
 
@@ -553,23 +141,17 @@ function getStoredArray(key){
 try{
 const value=JSON.parse(localStorage.getItem(key));
 return Array.isArray(value)?value:[];
-}catch{
-return [];
-}
+}catch{return[]}
 }
 
 function updateCartCount(){
-const count=getStoredArray("luxeCart").reduce(
-(sum,item)=>sum+(Number(item.quantity)||0),0
-);
-
+const count=getStoredArray("luxeCart").reduce((sum,item)=>sum+(Number(item.quantity)||0),0);
 const badge=document.getElementById("cartCount");
 if(badge)badge.textContent=count;
 }
 
 function renderProducts(list){
 productsGrid.innerHTML="";
-
 if(list.length===0){
 const empty=document.createElement("p");
 empty.className="empty-message";
@@ -577,7 +159,6 @@ empty.textContent="No handbags found. Try another search.";
 productsGrid.appendChild(empty);
 return;
 }
-
 const favorites=getStoredArray("luxeFavorites");
 
 list.forEach(bag=>{
@@ -591,10 +172,7 @@ const img=document.createElement("img");
 img.src=bag.image;
 img.alt=bag.name;
 img.loading="lazy";
-
-img.onerror=function(){
-this.style.display="none";
-};
+img.onerror=function(){this.style.display="none"};
 
 const favoriteButton=document.createElement("button");
 favoriteButton.type="button";
@@ -606,12 +184,9 @@ favoriteButton.setAttribute("aria-label","Toggle favorite for "+bag.name);
 favoriteButton.addEventListener("click",()=>{
 const saved=getStoredArray("luxeFavorites");
 const index=saved.indexOf(bag.id);
-
 if(index===-1)saved.push(bag.id);
 else saved.splice(index,1);
-
 localStorage.setItem("luxeFavorites",JSON.stringify(saved));
-
 const active=saved.includes(bag.id);
 favoriteButton.textContent=active?"♥":"♡";
 favoriteButton.classList.toggle("active",active);
@@ -621,21 +196,17 @@ imageArea.append(img,favoriteButton);
 
 const info=document.createElement("div");
 info.className="product-info";
-
 const category=document.createElement("div");
 category.className="category";
 category.textContent=bag.brand;
-
 const title=document.createElement("h3");
 title.textContent=bag.name;
-
 const description=document.createElement("p");
 description.className="description";
 description.textContent=bag.description;
 
 const bottom=document.createElement("div");
 bottom.className="product-bottom";
-
 const price=document.createElement("span");
 price.className="price";
 price.textContent="$"+bag.price.toFixed(2);
@@ -649,35 +220,17 @@ const add=document.createElement("button");
 add.type="button";
 add.className="details-button";
 add.textContent="Add to Bag +";
-
 add.addEventListener("click",()=>{
 const cart=getStoredArray("luxeCart");
 const existing=cart.find(item=>item.id===bag.id);
-
-if(existing){
-existing.quantity=Math.min(99,(Number(existing.quantity)||1)+1);
-}else{
-cart.push({
-id:bag.id,
-name:bag.name,
-price:bag.price,
-image:bag.image,
-quantity:1
-});
-}
-
+if(existing)existing.quantity=Math.min(99,(Number(existing.quantity)||1)+1);
+else cart.push({id:bag.id,name:bag.name,price:bag.price,image:bag.image,quantity:1});
 try{
 localStorage.setItem("luxeCart",JSON.stringify(cart));
 updateCartCount();
 add.textContent="Added ✓";
-
-setTimeout(()=>{
-add.textContent="Add to Bag +";
-},1000);
-
-}catch{
-alert("Unable to save cart in this browser.");
-}
+setTimeout(()=>add.textContent="Add to Bag +",1000);
+}catch{alert("Unable to save cart in this browser.");}
 });
 
 bottom.append(price,details,add);
@@ -689,29 +242,23 @@ productsGrid.appendChild(card);
 
 function searchHandbags(){
 const query=searchInput.value.toLowerCase().trim();
-
 const filtered=bags.filter(bag=>
 bag.name.toLowerCase().includes(query)||
 bag.brand.toLowerCase().includes(query)||
 bag.description.toLowerCase().includes(query)
 );
-
 renderProducts(filtered);
 }
 
 searchInput.addEventListener("input",searchHandbags);
 searchButton.addEventListener("click",searchHandbags);
-
 searchInput.addEventListener("keydown",event=>{
 if(event.key==="Enter")searchHandbags();
 });
 
 renderProducts(bags);
 updateCartCount();
-
 window.addEventListener("storage",updateCartCount);
 </script>
-
 </body>
 </html>
-
