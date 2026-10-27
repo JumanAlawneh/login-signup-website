@@ -3,470 +3,201 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Handbag Details | Luxe Bags</title>
-<meta name="description" content="Explore luxury handbags at Luxe Bags.">
-
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-:root {
-    --gold: #d4af37;
-    --black: #090909;
-    --card: #151515;
-    --white: #f8f5ed;
-}
-
-body {
-    min-height: 100vh;
-    background: var(--black);
-    color: var(--white);
-    font-family: Arial, sans-serif;
-}
-
-header {
-    padding: 22px 7%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    border-bottom: 1px solid #40341b;
-}
-
-.logo {
-    color: var(--gold);
-    font-family: Georgia, serif;
-    font-size: 30px;
-    letter-spacing: 3px;
-}
-
-nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 22px;
-}
-
-nav a {
-    color: var(--white);
-    text-decoration: none;
-}
-
-nav a:hover {
-    color: var(--gold);
-}
-
-.details {
-    width: min(1100px, 90%);
-    margin: 60px auto;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 45px;
-    align-items: center;
-}
-
-.image-panel {
-    background: var(--card);
-    border: 1px solid #40341b;
-    padding: 15px;
-}
-
-.image-panel img {
-    width: 100%;
-    height: 470px;
-    display: block;
-    object-fit: contain;
-    object-position: center;
-    background: #181818;
-}
-
-.info h1 {
-    color: var(--gold);
-    font-family: Georgia, serif;
-    font-size: clamp(30px, 4vw, 45px);
-    margin-bottom: 18px;
-}
-
-.price {
-    color: var(--gold);
-    font-size: 28px;
-    margin-bottom: 25px;
-}
-
-.description {
-    color: #ccc;
-    line-height: 1.8;
-    margin-bottom: 25px;
-}
-
-.info label {
-    display: block;
-    margin-bottom: 10px;
-}
-
-.info input {
-    width: 100px;
-    padding: 12px;
-    margin-bottom: 22px;
-    background: #171717;
-    border: 1px solid #51421c;
-    color: white;
-}
-
-.gold-button {
-    display: inline-block;
-    padding: 14px 22px;
-    background: var(--gold);
-    color: #090909;
-    border: none;
-    font-weight: bold;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.gold-button:hover {
-    background: #f0d779;
-}
-
-.secondary-button {
-    margin-left: 8px;
-    background: transparent;
-    color: var(--gold);
-    border: 1px solid var(--gold);
-}
-
-.message {
-    color: var(--gold);
-    margin-top: 18px;
-    min-height: 24px;
-    line-height: 1.6;
-}
-
-.back-link {
-    display: inline-block;
-    margin-top: 25px;
-    color: #ccc;
-    text-decoration: none;
-}
-
-.back-link:hover {
-    color: var(--gold);
-}
-
-.not-found {
-    text-align: center;
-    padding: 100px 20px;
-}
-
-footer {
-    text-align: center;
-    padding: 28px 15px;
-    color: #aaa;
-    border-top: 1px solid #40341b;
-}
-
-footer span {
-    color: var(--gold);
-}
-
-@media (max-width: 750px) {
-    .details {
-        grid-template-columns: 1fr;
-        gap: 25px;
-        margin: 35px auto;
-    }
-
-    .image-panel img {
-        height: 350px;
-    }
-
-    header {
-        justify-content: center;
-    }
-
-    .logo {
-        font-size: 25px;
-    }
-
-    nav {
-        justify-content: center;
-    }
-
-    .secondary-button {
-        margin: 10px 0 0;
-    }
-}
+:root{--g:#d4af37;--p:#f4df9b;--b:#080808;--iv:#f7f2e8;--line:#4b3d20}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--b);color:var(--iv);font-family:Arial,sans-serif}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit}
+header{padding:20px 6%;display:flex;justify-content:space-between;align-items:center;gap:20px;border-bottom:1px solid #332a18}
+.logo{font:26px Georgia,serif;letter-spacing:3px;color:var(--p)}
+nav{display:flex;gap:22px;align-items:center;flex-wrap:wrap}
+nav a{font-size:11px;letter-spacing:1px;text-transform:uppercase}
+.cart{border:1px solid var(--g);padding:10px;color:var(--p)}
+#cartCount{background:var(--g);color:#000;border-radius:50%;padding:4px 7px;margin-left:5px}
+.crumb{max-width:1200px;margin:25px auto;color:#999;font-size:11px;letter-spacing:2px;padding:0 20px}
+.details{width:min(1200px,90%);margin:20px auto 80px;display:grid;grid-template-columns:1.1fr .9fr;gap:6%;align-items:center}
+.visual{min-height:550px;display:grid;place-items:center;padding:35px;background:radial-gradient(ellipse,#29251c,#121212 70%);border:1px solid var(--line);position:relative}
+.visual:before{content:"THE LUXE EDIT";position:absolute;top:20px;left:20px;font-size:9px;letter-spacing:3px;color:var(--p)}
+.visual img{width:100%;height:460px;object-fit:contain;filter:drop-shadow(0 20px 20px #0008);transition:.4s}
+.visual:hover img{transform:scale(1.04)}
+.eyebrow{color:var(--g);font-size:10px;letter-spacing:4px;margin-bottom:18px}
+.info h1{font:normal clamp(34px,4vw,56px)/1.1 Georgia,serif;margin-bottom:22px}
+.price{font:30px Georgia,serif;color:var(--p);padding-bottom:25px;border-bottom:1px solid #332a18}
+.desc{color:#bcb6aa;font-size:14px;line-height:1.9;margin:25px 0}
+.perks{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:30px}
+.perk{border:1px solid #302819;padding:13px;font-size:11px;color:#c7bdab;line-height:1.7}
+.perk strong{display:block;color:var(--p);font-size:9px;letter-spacing:1px}
+.label{display:block;color:#c7bdab;font-size:10px;letter-spacing:2px;margin-bottom:10px;text-transform:uppercase}
+.qty{display:flex;width:145px;height:45px;border:1px solid #5a4923;margin-bottom:22px}
+.qty button{width:42px;border:0;background:transparent;color:var(--p);font-size:20px;cursor:pointer}
+.qty input{width:60px;text-align:center;background:transparent;border:0;color:white;outline:none}
+.actions{display:grid;grid-template-columns:1fr 54px;gap:10px}
+.add{height:54px;background:linear-gradient(110deg,#f4df9b,#d4af37);border:1px solid var(--g);font-size:10px;letter-spacing:1px;font-weight:bold;cursor:pointer}
+.fav{border:1px solid var(--g);background:transparent;color:var(--p);font-size:24px;cursor:pointer}
+.fav.active{color:var(--g)}
+.message{min-height:25px;margin-top:15px;color:var(--p);font-size:12px;line-height:1.7}
+.back{display:inline-block;margin-top:15px;color:#bcb6aa;font-size:11px;letter-spacing:1px}
+.back:hover{color:var(--g)}
+footer{text-align:center;padding:27px;border-top:1px solid #332a18;color:#888;font-size:11px}
+footer span{color:var(--g)}
+.notfound{text-align:center;padding:100px 20px}
+@media(max-width:800px){header{flex-direction:column}.details{grid-template-columns:1fr;gap:30px}.visual{min-height:380px}.visual img{height:330px}.crumb{margin-top:20px}}
+@media(max-width:480px){nav{justify-content:center;gap:13px}.logo{font-size:22px}.visual{min-height:300px;padding:25px}.visual img{height:260px}}
 </style>
 </head>
-
 <body>
-
 <header>
-    <div class="logo">LUXE BAGS</div>
-
-    <nav>
-        <a href="./home.html">Home</a>
-        <a href="./home.html#collection">Collection</a>
-    </nav>
+<a class="logo" href="./home.html">LUXE BAGS</a>
+<nav>
+<a href="./home.html">Home</a>
+<a href="./home.html#collection">Collection</a>
+<a href="./home.html#about">About</a>
+<a class="cart" href="./cart.html">BAG <span id="cartCount">0</span></a>
+</nav>
 </header>
 
-<main id="productContent"></main>
+<div class="crumb">
+<a href="./home.html">HOME</a>　/　
+<a href="./home.html#collection">COLLECTION</a>　/　DETAILS
+</div>
 
-<footer>
-    <p>© 2026 <span>Luxe Bags</span>. All rights reserved.</p>
-</footer>
+<main id="productContent"></main>
+<footer>© 2026 <span>LUXE BAGS</span> · Timeless elegance.</footer>
 
 <script>
-const bags = [
-    {
-        id: "gucci",
-        name: "Gucci Monogram Shoulder Bag",
-        price: 250,
-        image: "./GUCCI.PNG",
-        description: "A sophisticated monogram shoulder bag with classic brown details."
-    },
-    {
-        id: "gucci1",
-        name: "Gucci Classic Shoulder Bag",
-        price: 270,
-        image: "./GUCCI1.PNG",
-        description: "An elegant designer-inspired shoulder bag for a polished look."
-    },
-    {
-        id: "chanel",
-        name: "Chanel Quilted Handbag",
-        price: 280,
-        image: "./CHANEL.PNG",
-        description: "A timeless quilted handbag with a refined chain-strap design."
-    },
-    {
-        id: "dior",
-        name: "Dior Classic Handbag",
-        price: 275,
-        image: "./DIOR.PNG",
-        description: "A structured handbag with a graceful silhouette and sophisticated style."
-    },
-    {
-        id: "dior1",
-        name: "Dior Saddle Style Bag",
-        price: 285,
-        image: "./DIOR1.PNG",
-        description: "A distinctive designer-style bag for a statement outfit."
-    },
-    {
-        id: "ysl",
-        name: "YSL Quilted Shoulder Bag",
-        price: 260,
-        image: "./YSL.PNG",
-        description: "A sleek shoulder bag with a quilted finish and elegant hardware."
-    },
-    {
-        id: "ysl1",
-        name: "YSL Burgundy Shoulder Bag",
-        price: 265,
-        image: "./YSL1.PNG",
-        description: "A rich burgundy shoulder bag that adds a bold touch of color."
-    },
-    {
-        id: "prada",
-        name: "Prada Classic Tote",
-        price: 240,
-        image: "./PRADA.PNG",
-        description: "A minimalist tote with a clean shape and versatile style."
-    },
-    {
-        id: "lv",
-        name: "Louis Vuitton Monogram Bag",
-        price: 300,
-        image: "./LV.PNG",
-        description: "A monogram handbag with a recognizable pattern and classic styling."
-    },
-    {
-        id: "mk",
-        name: "Michael Kors Signature Bag",
-        price: 190,
-        image: "./MK.PNG",
-        description: "A versatile signature handbag designed to complement everyday outfits."
-    }
+const bags=[
+{id:"gucci",name:"Gucci Monogram Shoulder Bag",brand:"Gucci",price:250,image:"./GUCCI.PNG",description:"A classic monogram shoulder bag with elegant details."},
+{id:"gucci1",name:"Gucci Classic Shoulder Bag",brand:"Gucci",price:270,image:"./GUCCI1.PNG",description:"An elegant shoulder bag for a sophisticated look."},
+{id:"chanel",name:"Chanel Quilted Handbag",brand:"Chanel",price:280,image:"./CHANEL.PNG",description:"A timeless quilted handbag with a refined design."},
+{id:"dior",name:"Dior Classic Handbag",brand:"Dior",price:275,image:"./DIOR.PNG",description:"A structured handbag with a graceful silhouette."},
+{id:"dior1",name:"Dior Signature Bag",brand:"Dior",price:285,image:"./DIOR1.PNG",description:"A distinctive handbag for an elegant outfit."},
+{id:"ysl",name:"YSL Quilted Shoulder Bag",brand:"YSL",price:260,image:"./YSL.PNG",description:"A sleek shoulder bag with elegant hardware."},
+{id:"ysl1",name:"YSL Burgundy Shoulder Bag",brand:"YSL",price:265,image:"./YSL1.PNG",description:"A burgundy shoulder bag with a rich color."},
+{id:"prada",name:"Prada Handbag",brand:"Prada",price:240,image:"./PRADA.PNG",description:"A minimalist handbag with a versatile design."},
+{id:"lv",name:"Louis Vuitton Monogram Bag",brand:"Louis Vuitton",price:300,image:"./LV.PNG",description:"A monogram handbag with a timeless pattern."},
+{id:"mk",name:"Michael Kors Signature Bag",brand:"Michael Kors",price:190,image:"./MK.PNG",description:"A versatile handbag for everyday outfits."}
 ];
 
-const params = new URLSearchParams(window.location.search);
-const itemId = params.get("bag");
-const bag = bags.find(item => item.id === itemId);
-const content = document.getElementById("productContent");
+const content=document.getElementById("productContent");
+const bag=bags.find(x=>x.id===new URLSearchParams(location.search).get("bag"));
 
-if (!bag) {
-    content.innerHTML = `
-        <section class="not-found">
-            <h1>Handbag Not Found</h1>
-            <p style="margin:18px 0;color:#ccc">
-                Please select a handbag from our collection.
-            </p>
-            <a class="gold-button" href="./home.html#collection">
-                Back to Collection
-            </a>
-        </section>
-    `;
-} else {
-    const section = document.createElement("section");
-    section.className = "details";
-
-    const imagePanel = document.createElement("div");
-    imagePanel.className = "image-panel";
-
-    const image = document.createElement("img");
-    image.src = bag.image;
-    image.alt = bag.name;
-
-    image.onerror = function () {
-        this.onerror = null;
-        this.style.display = "none";
-
-        const errorMessage = document.createElement("p");
-        errorMessage.textContent =
-            "Image could not be loaded. Please check the image filename.";
-        errorMessage.style.cssText =
-            "padding:30px;color:#ccc;line-height:1.6";
-        imagePanel.appendChild(errorMessage);
-    };
-
-    imagePanel.appendChild(image);
-
-    const info = document.createElement("div");
-    info.className = "info";
-
-    const title = document.createElement("h1");
-    title.textContent = bag.name;
-
-    const price = document.createElement("p");
-    price.className = "price";
-    price.textContent = "$" + bag.price.toFixed(2);
-
-    const description = document.createElement("p");
-    description.className = "description";
-    description.textContent = bag.description;
-
-    const quantityLabel = document.createElement("label");
-    quantityLabel.htmlFor = "quantity";
-    quantityLabel.textContent = "Quantity";
-
-    const quantityInput = document.createElement("input");
-    quantityInput.type = "number";
-    quantityInput.id = "quantity";
-    quantityInput.min = "1";
-    quantityInput.max = "99";
-    quantityInput.step = "1";
-    quantityInput.value = "1";
-
-    const addButton = document.createElement("button");
-    addButton.className = "gold-button";
-    addButton.textContent = "Add to Bag";
-
-    const favoriteButton = document.createElement("button");
-    favoriteButton.className = "gold-button secondary-button";
-
-    const message = document.createElement("p");
-    message.className = "message";
-    message.setAttribute("aria-live", "polite");
-
-    const backLink = document.createElement("a");
-    backLink.className = "back-link";
-    backLink.href = "./home.html#collection";
-    backLink.textContent = "← Back to Collection";
-
-    info.append(
-        title,
-        price,
-        description,
-        quantityLabel,
-        quantityInput,
-        addButton,
-        favoriteButton,
-        message,
-        backLink
-    );
-
-    section.append(imagePanel, info);
-    content.appendChild(section);
-
-    function getStoredArray(key) {
-        try {
-            const value = JSON.parse(localStorage.getItem(key));
-            return Array.isArray(value) ? value : [];
-        } catch {
-            return [];
-        }
-    }
-
-    function updateFavoriteButton() {
-        const favorites = getStoredArray("luxeFavorites");
-        favoriteButton.textContent =
-            favorites.includes(bag.id) ? "♥ Favorited" : "♡ Favorite";
-    }
-
-    favoriteButton.addEventListener("click", () => {
-        const favorites = getStoredArray("luxeFavorites");
-        const index = favorites.indexOf(bag.id);
-
-        if (index === -1) {
-            favorites.push(bag.id);
-        } else {
-            favorites.splice(index, 1);
-        }
-
-        try {
-            localStorage.setItem("luxeFavorites", JSON.stringify(favorites));
-            updateFavoriteButton();
-
-            message.textContent = favorites.includes(bag.id)
-                ? "Added to your favorites!"
-                : "Removed from your favorites.";
-        } catch {
-            message.textContent =
-                "Unable to save favorites in this browser.";
-        }
-    });
-
-    addButton.addEventListener("click", () => {
-        const quantity = Number(quantityInput.value);
-
-        if (!Number.isInteger(quantity) || quantity < 1 || quantity > 99) {
-            message.textContent = "Enter a quantity between 1 and 99.";
-            return;
-        }
-
-        const cart = getStoredArray("luxeCart");
-        const existingItem = cart.find(item => item.id === bag.id);
-
-        if (existingItem) {
-            existingItem.quantity += quantity;
-        } else {
-            cart.push({
-                id: bag.id,
-                name: bag.name,
-                price: bag.price,
-                image: bag.image,
-                quantity: quantity
-            });
-        }
-
-        try {
-            localStorage.setItem("luxeCart", JSON.stringify(cart));
-            message.textContent =
-                quantity + " × " + bag.name + " added to your bag!";
-        } catch {
-            message.textContent =
-                "Unable to save your bag in this browser.";
-        }
-    });
-
-    updateFavoriteButton();
+function read(key){
+try{
+const value=JSON.parse(localStorage.getItem(key));
+return Array.isArray(value)?value:[];
+}catch{return[]}
 }
-</script>
 
+function count(){
+document.getElementById("cartCount").textContent=
+read("luxeCart").reduce((sum,item)=>sum+(Number(item.quantity)||0),0);
+}
+
+if(!bag){
+content.innerHTML='<section class="notfound"><h1>Handbag not found</h1><p style="margin:20px">Choose a piece from our collection.</p><a href="./home.html#collection">Back to collection</a></section>';
+}else{
+const section=document.createElement("section");
+section.className="details";
+
+const visual=document.createElement("div");
+visual.className="visual";
+
+const img=document.createElement("img");
+img.src=bag.image;
+img.alt=bag.name;
+img.onerror=()=>{
+img.style.display="none";
+visual.insertAdjacentHTML("beforeend","<p>Image unavailable — check the filename.</p>");
+};
+visual.append(img);
+
+const info=document.createElement("div");
+info.className="info";
+info.innerHTML=`
+<p class="eyebrow"></p>
+<h1></h1>
+<p class="price"></p>
+<p class="desc"></p>
+<div class="perks">
+<div class="perk"><strong>TIMELESS DESIGN</strong>Elegant silhouette, carefully selected.</div>
+<div class="perk"><strong>THE LUXE EDIT</strong>A curated showcase piece.</div>
+</div>
+<label class="label" for="qty">Select quantity</label>
+<div class="qty">
+<button id="minus" type="button">−</button>
+<input id="qty" type="number" min="1" max="99" value="1">
+<button id="plus" type="button">+</button>
+</div>
+<div class="actions">
+<button class="add" id="add" type="button">ADD TO SHOPPING BAG</button>
+<button class="fav" id="fav" type="button" aria-label="Toggle favorite">♡</button>
+</div>
+<p class="message" id="message" aria-live="polite"></p>
+<a class="back" href="./home.html#collection">← BACK TO COLLECTION</a>
+`;
+
+info.querySelector(".eyebrow").textContent=bag.brand+" · CURATED PIECE";
+info.querySelector("h1").textContent=bag.name;
+info.querySelector(".price").textContent="$"+bag.price.toFixed(2);
+info.querySelector(".desc").textContent=bag.description;
+
+section.append(visual,info);
+content.append(section);
+
+const qty=document.getElementById("qty");
+const message=document.getElementById("message");
+
+document.getElementById("minus").onclick=()=>{
+qty.value=Math.max(1,(Number(qty.value)||1)-1);
+};
+document.getElementById("plus").onclick=()=>{
+qty.value=Math.min(99,(Number(qty.value)||1)+1);
+};
+
+function syncFavorite(){
+const isFavorite=read("luxeFavorites").includes(bag.id);
+const button=document.getElementById("fav");
+button.textContent=isFavorite?"♥":"♡";
+button.classList.toggle("active",isFavorite);
+}
+
+document.getElementById("fav").onclick=()=>{
+const favorites=read("luxeFavorites");
+const index=favorites.indexOf(bag.id);
+if(index===-1)favorites.push(bag.id);
+else favorites.splice(index,1);
+localStorage.setItem("luxeFavorites",JSON.stringify(favorites));
+syncFavorite();
+message.textContent=index===-1?"Added to favorites.":"Removed from favorites.";
+};
+
+document.getElementById("add").onclick=()=>{
+const quantity=Number(qty.value);
+if(!Number.isInteger(quantity)||quantity<1||quantity>99){
+message.textContent="Choose a quantity between 1 and 99.";
+return;
+}
+const cart=read("luxeCart");
+const existing=cart.find(item=>item.id===bag.id);
+if(existing)existing.quantity=Math.min(99,(Number(existing.quantity)||1)+quantity);
+else cart.push({id:bag.id,name:bag.name,price:bag.price,image:bag.image,quantity});
+try{
+localStorage.setItem("luxeCart",JSON.stringify(cart));
+count();
+message.textContent=quantity+" × "+bag.name+" added to your bag.";
+}catch{
+message.textContent="Unable to save cart in this browser.";
+}
+};
+
+syncFavorite();
+}
+
+count();
+window.addEventListener("storage",count);
+</script>
 </body>
 </html>
