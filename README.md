@@ -1,3 +1,4 @@
+
 # 🖤 LUXE BAGS — Where Elegance Meets Style ✨
 
 <p align="center">
@@ -20,7 +21,7 @@ Luxury is more than what you carry — it's how you express yourself.
 
 **Luxe Bags** is a luxury-inspired handbag showcase designed to bring sophistication and style into one elegant digital experience.
 
-Featuring a refined black-and-gold aesthetic, the website allows visitors to explore a curated handbag collection, view product details, search for styles, save favorites, and manage a shopping bag.
+Featuring a refined black-and-gold aesthetic, the website allows visitors to explore a curated handbag collection, view individual product details, search for their favorite styles, save favorites, and manage a shopping bag.
 
 Built with **HTML5, CSS3, and JavaScript**, this project combines fashion-inspired visuals with interactive front-end functionality.
 
@@ -31,11 +32,11 @@ Built with **HTML5, CSS3, and JavaScript**, this project combines fashion-inspir
 | 🏠 **Elegant Home Page** | Explore a luxury-inspired interface with a black-and-gold visual identity. |
 | 👜 **Handbag Collection** | Browse handbags inspired by well-known fashion brands. |
 | 🔎 **Smart Search** | Search for handbags by name, brand, or description. |
-| ✨ **Product Details** | View handbag images, descriptions, prices, and product information. |
-| 🛍️ **Interactive Shopping Bag** | Add items, update quantities, remove products, and view updated totals. |
+| ✨ **Product Details** | View individual handbag images, descriptions, prices, and product information. |
+| 🛍️ **Interactive Shopping Bag** | Add handbags, update quantities, remove items, and view updated totals. |
 | 🧾 **Order Summary** | Review selected items, quantities, subtotal, and total. |
 | ♡ **Favorites** | Save or remove favorite handbags using browser storage. |
-| 🔐 **Login Page** | Access the login interface. |
+| 🔐 **Login Page** | Access the website's login interface. |
 | 📝 **Sign-Up Page** | Explore the user registration interface. |
 | 📱 **Responsive Design** | Browse a layout designed to adapt to different screen sizes. |
 
@@ -90,13 +91,13 @@ The shopping bag and product pages use browser-side `localStorage` to share cart
 
 <p align="center">
   <a href="https://jumanalawneh.github.io/luxe-bags/">
-    <img src="luxe-bags.png" alt="Luxe Bags luxury handbag website preview" width="100%">
+    <img src="luxe-bags.png" alt="Luxe Bags luxury handbag website banner" width="100%">
   </a>
 </p>
 
-🔗 **Live Demo:** [Explore Luxe Bags](https://jumanalawneh.github.io/luxe-bags/)
+🔗 **Live Demo:** [https://jumanalawneh.github.io/luxe-bags/](https://jumanalawneh.github.io/luxe-bags/)
 
-🔗 **GitHub Repository:** [View the Source Code](https://github.com/JumanAlawneh/luxe-bags)
+🔗 **GitHub Repository:** [https://github.com/JumanAlawneh/luxe-bags](https://github.com/JumanAlawneh/luxe-bags)
 
 ## 🚀 How to Explore
 
@@ -125,12 +126,11 @@ luxe-bags/
 ├── home.html
 ├── LOGIN.html
 ├── signup.html
-├── reset_password.html
 ├── product.html
 ├── cart.html
 ├── README.md
 ├── luxe-bags.png
-├── cd.png
+├── background (2).jpg
 ├── CHANEL.PNG
 ├── DIOR.PNG
 ├── DIOR1.PNG
@@ -142,8 +142,6 @@ luxe-bags/
 ├── YSL.PNG
 └── YSL1.PNG
 ```
-
-> File names in this structure are based on the project details provided. Make sure they match the actual files in your repository.
 
 ## 🎯 Project Purpose
 
