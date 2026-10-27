@@ -1,0 +1,237 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Your Bag | Luxe Bags</title>
+<style>
+:root{--g:#d4af37;--p:#f4df9b;--b:#080808;--iv:#f7f2e8;--mut:#aaa397;--line:#4b3d20}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--b);color:var(--iv);font-family:Arial,sans-serif}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+header{padding:20px 6%;display:flex;justify-content:space-between;align-items:center;gap:20px;border-bottom:1px solid #332a18}
+.logo{font:26px Georgia,serif;letter-spacing:3px;color:var(--p)}
+nav{display:flex;gap:22px;align-items:center;flex-wrap:wrap}
+nav a{font-size:11px;letter-spacing:1px;text-transform:uppercase}
+.cartlink{border:1px solid var(--g);padding:10px;color:var(--p)}
+#cartCount{background:var(--g);color:#000;border-radius:50%;padding:4px 7px;margin-left:5px}
+.intro{text-align:center;padding:58px 15px 42px;border-bottom:1px solid #201c14;background:radial-gradient(ellipse at top,#2b2415,transparent 70%)}
+.eyebrow{font-size:10px;letter-spacing:5px;color:var(--g);margin-bottom:15px}
+.intro h1{font:normal clamp(40px,6vw,65px) Georgia,serif}
+.intro p:last-child{color:var(--mut);font-size:13px;margin-top:14px}
+.layout{width:min(1250px,88%);margin:48px auto 85px;display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:32px;align-items:start}
+.head{display:flex;justify-content:space-between;align-items:center;padding-bottom:17px;border-bottom:1px solid #332a18;margin-bottom:5px}
+.head h2{font:normal 25px Georgia,serif}
+.muted{color:var(--mut);font-size:10px;letter-spacing:1px;text-transform:uppercase}
+.items{display:flex;flex-direction:column}
+.item{display:grid;grid-template-columns:150px minmax(0,1fr) auto;align-items:center;gap:21px;padding:23px 0;border-bottom:1px solid #292319}
+.pic{height:160px;padding:10px;display:grid;place-items:center;background:radial-gradient(ellipse,#2b261c,#141414);border:1px solid #302819}
+.pic img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 12px 12px #0008)}
+.brand{font-size:9px;letter-spacing:3px;color:var(--g);margin-bottom:10px;text-transform:uppercase}
+.info h3{font:normal 22px/1.3 Georgia,serif;margin-bottom:10px}
+.info p{font-size:11px;line-height:1.7;color:var(--mut)}
+.unit{font:20px Georgia,serif;color:var(--p);margin-top:12px}
+.controls{display:flex;flex-direction:column;align-items:flex-end;gap:15px}
+.stepper{height:38px;display:flex;align-items:center;border:1px solid #5a4923}
+.stepper button{height:36px;width:34px;border:0;background:transparent;color:var(--p);font-size:19px;cursor:pointer}
+.stepper button:hover{background:#2a2417}
+.stepper span{min-width:23px;text-align:center;font-size:12px}
+.remove{border:0;background:transparent;color:#a39a89;text-decoration:underline;text-underline-offset:4px;font-size:10px;letter-spacing:1px;cursor:pointer}
+.remove:hover{color:var(--g)}
+.summary{position:sticky;top:22px;border:1px solid #5a4923;background:linear-gradient(145deg,#191711,#101010);padding:27px 24px}
+.summary .eyebrow{letter-spacing:3px}
+.summary h2{font:normal 28px Georgia,serif;margin-bottom:25px}
+.row{display:flex;justify-content:space-between;gap:15px;margin:17px 0;font-size:12px;color:#c5bdae}
+.row strong{font-weight:normal;color:var(--iv)}
+.total{padding-top:20px;border-top:1px solid #332a18;margin-top:22px}
+.total strong{font:26px Georgia,serif;color:var(--p)}
+.note{color:#948b7b;font-size:10px;line-height:1.8;margin:19px 0}
+.checkout{width:100%;height:52px;border:1px solid var(--g);background:linear-gradient(110deg,#f4df9b,#d4af37);font-size:10px;letter-spacing:1.4px;font-weight:bold;cursor:pointer}
+.checkout:hover{filter:brightness(1.1)}
+.continue{display:block;text-align:center;margin-top:18px;font-size:10px;letter-spacing:1px;color:#c7bdab}
+.continue:hover{color:var(--g)}
+.empty{text-align:center;padding:70px 20px;border:1px solid #4b3d20;background:radial-gradient(ellipse,#201c13,#101010)}
+.symbol{font-size:45px;color:var(--g);margin-bottom:15px}
+.empty h2{font:normal 32px Georgia,serif;margin-bottom:13px}
+.empty p{color:var(--mut);font-size:12px;line-height:1.8;margin-bottom:23px}
+.explore{display:inline-block;padding:15px 22px;background:var(--g);color:#080808;font-size:10px;font-weight:bold;letter-spacing:1px;text-transform:uppercase}
+footer{text-align:center;padding:27px;border-top:1px solid #332a18;color:#888;font-size:11px}
+footer span{color:var(--g)}
+@media(max-width:900px){.layout{grid-template-columns:1fr;width:90%}.summary{position:static}}
+@media(max-width:600px){header{flex-direction:column}.logo{font-size:22px}nav{justify-content:center;gap:14px}.layout{margin:28px auto 55px;gap:25px}.item{grid-template-columns:105px minmax(0,1fr);gap:13px;padding:17px 0}.pic{height:125px;padding:6px}.info h3{font-size:17px}.unit{font-size:18px}.controls{grid-column:2;flex-direction:row;justify-content:space-between;align-items:center}.head h2{font-size:22px}}
+</style>
+</head>
+<body>
+
+<header>
+<a class="logo" href="./home.html">LUXE BAGS</a>
+<nav>
+<a href="./home.html">Home</a>
+<a href="./home.html#collection">Collection</a>
+<a href="./home.html#about">About</a>
+<a class="cartlink" href="./cart.html">BAG <span id="cartCount">0</span></a>
+</nav>
+</header>
+
+<section class="intro">
+<p class="eyebrow">THE LUXE EDIT</p>
+<h1>Your Shopping Bag</h1>
+<p>A considered collection of timeless pieces.</p>
+</section>
+
+<main class="layout" id="layout">
+<section id="bagPanel">
+<div class="head">
+<h2>Selected Pieces</h2>
+<span class="muted" id="itemCount">0 items</span>
+</div>
+<div class="items" id="items"></div>
+</section>
+
+<aside class="summary" id="summary">
+<p class="eyebrow">YOUR SELECTION</p>
+<h2>Order Summary</h2>
+<div class="row"><span>Pieces</span><strong id="pieces">0</strong></div>
+<div class="row"><span>Subtotal</span><strong id="subtotal">$0.00</strong></div>
+<div class="row"><span>Delivery</span><strong>Calculated later</strong></div>
+<div class="row total"><span>Total</span><strong id="total">$0.00</strong></div>
+<p class="note">Showcase cart only. Checkout and payment are not connected yet.</p>
+<button class="checkout" id="checkout">CONTINUE TO CHECKOUT</button>
+<a class="continue" href="./home.html#collection">← CONTINUE EXPLORING</a>
+</aside>
+</main>
+
+<footer>© 2026 <span>LUXE BAGS</span> · Timeless elegance.</footer>
+
+<script>
+function readCart(){
+try{
+const value=JSON.parse(localStorage.getItem("luxeCart"));
+return Array.isArray(value)?value:[];
+}catch{return[]}
+}
+
+function cash(value){
+return "$"+Number(value||0).toFixed(2);
+}
+
+function render(){
+const cart=readCart();
+const list=document.getElementById("items");
+list.innerHTML="";
+
+const count=cart.reduce((sum,item)=>sum+(Number(item.quantity)||0),0);
+const subtotal=cart.reduce((sum,item)=>sum+(Number(item.price)||0)*(Number(item.quantity)||0),0);
+
+document.getElementById("cartCount").textContent=count;
+document.getElementById("itemCount").textContent=count+" "+(count===1?"item":"items");
+document.getElementById("pieces").textContent=count;
+document.getElementById("subtotal").textContent=cash(subtotal);
+document.getElementById("total").textContent=cash(subtotal);
+
+if(cart.length===0){
+document.getElementById("bagPanel").style.display="none";
+document.getElementById("summary").style.display="none";
+document.getElementById("layout").style.display="block";
+list.innerHTML=`
+<div class="empty">
+<div class="symbol">◇</div>
+<h2>Your bag is waiting</h2>
+<p>Discover a piece that feels unmistakably you.<br>Your selected handbags will appear here.</p>
+<a class="explore" href="./home.html#collection">Explore the collection</a>
+</div>`;
+return;
+}
+
+document.getElementById("bagPanel").style.display="block";
+document.getElementById("summary").style.display="block";
+document.getElementById("layout").style.display="grid";
+
+cart.forEach(item=>{
+const row=document.createElement("article");
+row.className="item";
+
+const pic=document.createElement("div");
+pic.className="pic";
+const image=document.createElement("img");
+image.src=item.image||"";
+image.alt=item.name||"Handbag";
+image.onerror=()=>image.style.display="none";
+pic.append(image);
+
+const info=document.createElement("div");
+info.className="info";
+const brand=document.createElement("div");
+brand.className="brand";
+brand.textContent=(item.name||"Luxe edit").split(" ")[0];
+
+const title=document.createElement("h3");
+title.textContent=item.name||"Selected handbag";
+
+const unitDescription=document.createElement("p");
+unitDescription.textContent="Price per piece · "+cash(item.price);
+
+const lineTotal=document.createElement("div");
+lineTotal.className="unit";
+lineTotal.textContent=cash((Number(item.price)||0)*(Number(item.quantity)||0));
+
+info.append(brand,title,unitDescription,lineTotal);
+
+const controls=document.createElement("div");
+controls.className="controls";
+const stepper=document.createElement("div");
+stepper.className="stepper";
+
+const minus=document.createElement("button");
+minus.type="button";
+minus.textContent="−";
+minus.setAttribute("aria-label","Decrease quantity");
+
+const quantity=document.createElement("span");
+quantity.textContent=item.quantity||1;
+
+const plus=document.createElement("button");
+plus.type="button";
+plus.textContent="+";
+plus.setAttribute("aria-label","Increase quantity");
+
+stepper.append(minus,quantity,plus);
+minus.onclick=()=>change(item.id,-1);
+plus.onclick=()=>change(item.id,1);
+
+const remove=document.createElement("button");
+remove.type="button";
+remove.className="remove";
+remove.textContent="REMOVE";
+remove.onclick=()=>{
+const updated=readCart().filter(entry=>entry.id!==item.id);
+localStorage.setItem("luxeCart",JSON.stringify(updated));
+render();
+};
+
+controls.append(stepper,remove);
+row.append(pic,info,controls);
+list.append(row);
+});
+}
+
+function change(id,direction){
+const cart=readCart();
+const item=cart.find(entry=>entry.id===id);
+if(!item)return;
+item.quantity=Math.max(1,Math.min(99,(Number(item.quantity)||1)+direction));
+localStorage.setItem("luxeCart",JSON.stringify(cart));
+render();
+}
+
+document.getElementById("checkout").onclick=()=>{
+alert("Checkout is a design preview. Payment is not connected yet.");
+};
+
+window.addEventListener("storage",render);
+render();
+</script>
+</body>
+</html>
