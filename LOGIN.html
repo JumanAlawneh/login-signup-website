@@ -58,25 +58,34 @@
             align-items: center;
         }
 
-        .Welcome {
-           text-align: center;
-            color: #ffffff;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            /* خلفية داكنة مع شفافية وضبابية مطابقة لصفحة تسجيل الدخول */
-            background-color: rgba(18, 18, 18, 0.82);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 14px;
-            width: 100%;
-            margin-top: 266px;
-            max-width: 330px;
-            padding: 25px 22px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
-        }
+      .Welcome {
+    text-align: center;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /* خلفية داكنة مع شفافية وضبابية */
+    background-color: rgba(18, 18, 18, 0.82);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 14px;
+    width: 100%;
+    margin-top: 266px;
+    max-width: 330px;
+    padding: 25px 22px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+}
+
+/* تعديل مكان المربع على الجوال فقط */
+@media (max-width: 600px) {
+    .Welcome {
+        margin-top: 100px;
+    }
+}
 
         /* أيقونة الحقيبة في أعلى المربع */
         .bag-header-icon {
