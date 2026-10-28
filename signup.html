@@ -1,58 +1,146 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Sign Up</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | Luxe Bags</title>
+
+    <!-- FontAwesome الأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
+        * {
+            box-sizing: border-box;
+        }
 
+        body {
+            user-select: none;
             display: flex;
+            margin: 0;
+            padding: 15px;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-image: url("cc.jpg");
+            background-size: cover;
+            background-position: center 10%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            min-height: 100vh;
             justify-content: center;
             align-items: center;
-
-            min-height: 100vh;
-
- background-image: url("cc.jpg");
-            background-size: cover;
-             background-position: center 10%;
-            background-repeat: no-repeat;
         }
 
         .Signup {
-            width: 400px;
-            height: 450px;
-
-            background-color: rgba(205, 133, 207, 0.8);
-
-            border-radius: 10px;
-
+            text-align: center;
+            color: #ffffff;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            /* خلفية داكنة مع شفافية وضبابية مطابقة لصفحة تسجيل الدخول */
+            background-color: rgba(18, 18, 18, 0.82);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 14px;
+            width: 100%;
+            max-width: 330px;
+            padding: 25px 22px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
         }
 
-        .Signup input {
-            width: 280px;
-            height: 35px;
+        /* أيقونة الحقيبة الفخمة في الأعلى */
+        .bag-header-icon {
+            width: 28px;
+            height: 28px;
+            margin-bottom: 6px;
+            color: #d4af37; /* لون ذهبي */
+        }
+
+        .Signup h1 {
+            margin: 0 0 16px 0;
+            font-size: 16px;
+            font-weight: 500;
+            color: #ffffff;
+            letter-spacing: 0.3px;
+        }
+
+        .label-text {
+            width: 100%;
+            text-align: left;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            color: #b0b0b0;
+            margin: 8px 0 3px 0;
+        }
+
+        /* حاوية الحقول والأيقونات بداخلها */
+        .input-group {
+            position: relative;
+            width: 100%;
+            margin-bottom: 2px;
+        }
+
+        .input-group i {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #888888;
+            font-size: 11px;
+        }
+
+        .Signup input[type="email"],
+        .Signup input[type="password"] {
+            width: 100%;
+            height: 34px;
+            padding: 6px 10px 6px 30px;
             box-sizing: border-box;
+            background-color: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            color: #ffffff;
+            font-size: 11.5px;
+            outline: none;
+            transition: border-color 0.3s;
         }
 
-        .Signup button {
-            margin-top: 10px;
+        .Signup input[type="email"]::placeholder,
+        .Signup input[type="password"]::placeholder {
+            color: #777777;
+        }
 
-            background-color: rgb(5, 71, 156);
-            color: black;
+        .Signup input[type="email"]:focus,
+        .Signup input[type="password"]:focus {
+            border-color: #d4af37;
+        }
 
-            border: none;
-            border-radius: 8px;
-
-            padding: 12px 25px;
-
+        /* زر Sign Up بالنبيذي الفخم الموحد */
+        .Signup button#signupButton {
+            width: 100%;
+            background: linear-gradient(135deg, #7a1f2d, #52121d);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            padding: 9px;
+            font-size: 12.5px;
+            font-weight: 600;
             cursor: pointer;
+            margin-top: 18px;
+            transition: opacity 0.3s;
+        }
+
+        .Signup button#signupButton:hover {
+            opacity: 0.9;
+        }
+
+        @media (max-width: 400px) {
+            .Signup {
+                padding: 18px 14px;
+            }
+            .Signup h1 {
+                font-size: 14px;
+            }
         }
     </style>
 </head>
@@ -61,46 +149,60 @@
 
     <div class="Signup">
 
+        <!-- أيقونة الحقيبة العلوية -->
+        <svg class="bag-header-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M6 9V7a6 6 0 1112 0v2"></path>
+            <path d="M4 9h16l-1.2 12H5.2L4 9z"></path>
+        </svg>
+
         <h1>Create Account</h1>
 
-       <p>EMAIL</p>
-<input id="email" type="email" placeholder="Enter your email">
+        <p class="label-text">EMAIL</p>
+        <div class="input-group">
+            <i class="fa-regular fa-envelope"></i>
+            <input id="email" type="email" placeholder="Enter your email">
+        </div>
 
-<p>PASSWORD</p>
-<input id="password" type="password" placeholder="Enter your password">
+        <p class="label-text">PASSWORD</p>
+        <div class="input-group">
+            <i class="fa-solid fa-lock"></i>
+            <input id="password" type="password" placeholder="Enter your password">
+        </div>
 
-<p>CONFIRM PASSWORD</p>
-<input id="confirmPassword" type="password" placeholder="Confirm your password">
+        <p class="label-text">CONFIRM PASSWORD</p>
+        <div class="input-group">
+            <i class="fa-solid fa-shield-halved"></i>
+            <input id="confirmPassword" type="password" placeholder="Confirm your password">
+        </div>
 
-<button id="signupButton">Sign Up</button>
+        <button id="signupButton">Sign Up</button>
     </div>
-<script>
- const email = document.getElementById("email");
-    const password = document.getElementById("password");
-    const confirmPassword = document.getElementById("confirmPassword");
-    const signupButton = document.getElementById("signupButton");
 
-    signupButton.addEventListener("click", function () {
+    <script>
+        const email = document.getElementById("email");
+        const password = document.getElementById("password");
+        const confirmPassword = document.getElementById("confirmPassword");
+        const signupButton = document.getElementById("signupButton");
 
-        if (email.value === "" || password.value === "" || confirmPassword.value === "") {
-            alert("Please fill in all fields.");
-            return;
-        }
+        signupButton.addEventListener("click", function () {
 
-        if (password.value !== confirmPassword.value) {
-            alert("Passwords do not match.");
-            return;
-        }
+            if (email.value === "" || password.value === "" || confirmPassword.value === "") {
+                alert("Please fill in all fields.");
+                return;
+            }
 
+            if (password.value !== confirmPassword.value) {
+                alert("Passwords do not match.");
+                return;
+            }
 
-         localStorage.setItem("email", email.value);
-        localStorage.setItem("password", password.value);
+            localStorage.setItem("email", email.value);
+            localStorage.setItem("password", password.value);
 
-        alert("Account created successfully!");
-         localStorage.setItem("loggedIn", "true");
-        window.location.href = "home.html";
-    });
-</script>
+            alert("Account created successfully!");
+            localStorage.setItem("loggedIn", "true");
+            window.location.href = "home.html";
+        });
+    </script>
 </body>
-
 </html>
