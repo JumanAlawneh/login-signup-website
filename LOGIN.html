@@ -1,1 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Luxe Bags | Login to Luxury Handbags</title>
+
+
+    <meta name="description"
+          content="Welcome to Luxe Bags, your destination for elegant handbags from iconic luxury brands. Explore timeless designs and sophisticated styles.">
+
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title" content="Luxe Bags | Luxury Handbag Collection">
+    <meta property="og:description"
+          content="Discover elegant handbags from iconic luxury brands at Luxe Bags.">
+    <meta property="og:type" content="website">
+    <meta property="og:url"
+          content="https://jumanalawneh.github.io/luxe-bags/">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T62TQDREQV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        gtag('config', 'G-T62TQDREQV');
+    </script>
+
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+    <!-- FontAwesome الأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            user-select: none;
+            display: flex;
+            margin: 0;
+
+            padding: 15px;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-image: url("cc.jpg");
+            background-size: cover;
+          background-position: center 10%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            min-height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+
+      .Welcome {
+    text-align: center;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /* خلفية داكنة مع شفافية وضبابية */
+    background-color: rgba(18, 18, 18, 0.82);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 14px;
+    width: 100%;
+    margin-top: 266px;
+    max-width: 330px;
+    padding: 25px 22px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+}
+
+/* تعديل مكان المربع على الجوال فقط */
+@media (max-width: 600px) {
+    .Welcome {
+        margin-top: 100px;
+    }
+}
+
+        /* أيقونة الحقيبة في أعلى المربع */
+        .bag-header-icon {
+            width: 26px;
+            height: 26px;
+            margin-bottom: 4px;
+            color: #d4af37; /* اللون الذهبي الفاخر */
+        }
+
+        .Welcome h1 {
+            margin: 0 0 14px 0;
+            font-size: 15px;
+            font-weight: 500;
+            color: #ffffff;
+            letter-spacing: 0.2px;
+        }
+
+        .label-text {
+            width: 100%;
+            text-align: left;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            color: #b0b0b0;
+            margin: 6px 0 3px 0;
+        }
+
+        /* حاوية الحقول والأيقونات */
+        .input-group {
+            position: relative;
+            width: 100%;
+            margin-bottom: 2px;
+        }
+
+        .input-group i {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #888888;
+            font-size: 11px;
+        }
+
+        .Welcome input[type="email"],
+        .Welcome input[type="password"] {
+            width: 100%;
+            height: 33px;
+            padding: 6px 10px 6px 30px;
+            box-sizing: border-box;
+
+            background-color: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            color: #ffffff;
+            font-size: 11.5px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .Welcome input[type="email"]::placeholder,
+        .Welcome input[type="password"]::placeholder {
+            color: #777777;
+        }
+
+        .Welcome input[type="email"]:focus,
+        .Welcome input[type="password"]:focus {
+            border-color: #d4af37;
+        }
+
+        /* زر Login باللون النبيذي الفخم المتناسق مع ألوان الصورة */
+        .Welcome > button#loginButton {
+            width: 100%;
+            background: linear-gradient(135deg, #7a1f2d, #52121d);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            padding: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 12px;
+            transition: opacity 0.3s;
+        }
+
+        .Welcome > button#loginButton:hover {
+            opacity: 0.9;
+        }
+
+        /* خيار تذكرني */
+        .remember {
+            width: 100%;
+            margin: 10px 0 2px 0;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            font-size: 10.5px;
+            color: #cccccc;
+        }
+
+        .remember input {
+            width: 12px;
+            height: 12px;
+            margin: 0 6px 0 0;
+            accent-color: #7a1f2d;
+            cursor: pointer;
+        }
+
+        /* رابط نسيت كلمة المرور */
+        .forgot {
+            width: 100%;
+            text-align: left;
+            font-size: 10px;
+            color: #aaaaaa;
+            margin: 2px 0 10px 0;
+        }
+
+        .forgot a {
+            color: #dddddd;
+            text-decoration: underline;
+            margin-left: 2px;
+        }
+
+        .forgot a:hover {
+            color: #ffffff;
+        }
+
+        /* حاوية زر جوجل */
+        .Google {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-top: 2px;
+        }
+
+        /* رابط إنشاء حساب جديد */
+        .signup-link {
+            width: 100%;
+            text-align: center;
+            margin: 10px 0 0 0;
+            font-size: 10.5px;
+            color: #aaaaaa;
+        }
+
+        .signup-link a {
+            color: #ffffff;
+            text-decoration: underline;
+            margin-left: 4px;
+        }
+
+        @media (max-width: 400px) {
+            .Welcome {
+                padding: 16px 12px;
+            }
+            .Welcome h1 {
+                font-size: 14px;
+            }
+        }
+
+}
+    </style>
+</head>
+
+<body>
+
+    <div class="Welcome">
+
+        <!-- أيقونة الحقيبة العلوية مطابقة للصورة -->
+        <svg class="bag-header-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M6 9V7a6 6 0 1112 0v2"></path>
+            <path d="M4 9h16l-1.2 12H5.2L4 9z"></path>
+        </svg>
+
+        <h1>Welcome to Luxe Bags</h1>
+
+        <p class="label-text">EMAIL</p>
+        <div class="input-group">
+            <i class="fa-regular fa-envelope"></i>
+            <input id="loginEmail" type="email" name="email"
+                   placeholder="Enter your email">
+        </div>
+
+        <p class="label-text">PASSWORD</p>
+        <div class="input-group">
+            <i class="fa-solid fa-lock"></i>
+            <input id="loginPassword" type="password" name="password"
+                   placeholder="Enter your password">
+        </div>
+
+        <button id="loginButton">Login</button>
+
+        <p class="remember">
+            <input type="checkbox" name="remember" id="rememberCheck">
+            <label for="rememberCheck" style="cursor: pointer;">Remember me</label>
+        </p>
+
+        <p class="forgot">
+            Forgot your password?
+            <a href="reset_password.html">Reset Password</a>
+        </p>
+
+        <div class="Google">
+            <div id="g_id_onload"
+                 data-client_id="504073574513-j2iv467ha2uka1uqucs16e8f88dck7r7.apps.googleusercontent.com"
+                 data-callback="handleCredentialResponse">
+            </div>
+
+            <div class="g_id_signin" data-type="standard"></div>
+        </div>
+
+        <p class="signup-link">
+            Don't have an account?
+            <a href="signup.html">Sign up</a>
+        </p>
+
+    </div>
+
+    <script>
+        const loginEmail = document.getElementById("loginEmail");
+        const loginPassword = document.getElementById("loginPassword");
+        const loginButton = document.getElementById("loginButton");
+
+        loginButton.addEventListener("click", function () {
+            const savedEmail = localStorage.getItem("email");
+            const savedPassword = localStorage.getItem("password");
+
+            if (
+                loginEmail.value === savedEmail &&
+                loginPassword.value === savedPassword &&
+                savedEmail !== null
+            ) {
+                window.location.href = "home.html";
+            } else {
+                alert("Incorrect email or password.");
+            }
+        });
+
+        function handleCredentialResponse(response) {
+            window.location.href = "home.html";
+        }
+    </script>
+
+</body>
+</html>
